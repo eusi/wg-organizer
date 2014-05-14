@@ -8,6 +8,8 @@ class CreateUsers < ActiveRecord::Migration
 	t.binary :Picture
 	t.string :Email
       t.timestamps
+	  t.references :Userrole, index: true
+	  t.references :Sharedappartment, index: true
     end
   end
 end

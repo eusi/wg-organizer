@@ -17,7 +17,28 @@ ActiveRecord::Schema.define(version: 20140510084134) do
     t.decimal  "Credits"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "Completedtask_id"
+    t.integer  "User_id"
   end
+
+  add_index "charges", ["Completedtask_id"], name: "index_charges_on_Completedtask_id"
+  add_index "charges", ["User_id"], name: "index_charges_on_User_id"
+
+  create_table "completedtasks", force: true do |t|
+    t.decimal  "Amount"
+    t.text     "Summary"
+    t.datetime "TaskStart"
+    t.datetime "TaskEnd"
+    t.boolean  "TaskVerified"
+    t.decimal  "Credits"
+    t.integer  "User_id"
+    t.integer  "Task_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "completedtasks", ["Task_id"], name: "index_completedtasks_on_Task_id"
+  add_index "completedtasks", ["User_id"], name: "index_completedtasks_on_User_id"
 
   create_table "settings", force: true do |t|
     t.boolean  "VerifyTaskCompleted"
@@ -26,32 +47,21 @@ ActiveRecord::Schema.define(version: 20140510084134) do
     t.datetime "updated_at"
   end
 
-  create_table "shared_appartments", force: true do |t|
+  create_table "sharedappartments", force: true do |t|
     t.string   "Name"
     t.string   "Password"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "shoutbox_messages", force: true do |t|
+  create_table "shoutboxmessages", force: true do |t|
     t.text     "Message"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
+    t.integer  "User_id"
   end
 
-  add_index "shoutbox_messages", ["user_id"], name: "index_shoutbox_messages_on_user_id"
-
-  create_table "task_completeds", force: true do |t|
-    t.decimal  "Amount"
-    t.text     "Summary"
-    t.datetime "TaskStart"
-    t.datetime "TaskEnd"
-    t.boolean  "TaskVerified"
-    t.decimal  "Credits"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+  add_index "shoutboxmessages", ["User_id"], name: "index_shoutboxmessages_on_User_id"
 
   create_table "tasks", force: true do |t|
     t.string   "Taskname"
@@ -62,7 +72,7 @@ ActiveRecord::Schema.define(version: 20140510084134) do
     t.datetime "updated_at"
   end
 
-  create_table "user_roles", force: true do |t|
+  create_table "userroles", force: true do |t|
     t.string   "RoleName"
     t.integer  "Priority"
     t.datetime "created_at"
@@ -78,6 +88,11 @@ ActiveRecord::Schema.define(version: 20140510084134) do
     t.string   "Email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "Userrole_id"
+    t.integer  "Sharedappartment_id"
   end
+
+  add_index "users", ["Sharedappartment_id"], name: "index_users_on_Sharedappartment_id"
+  add_index "users", ["Userrole_id"], name: "index_users_on_Userrole_id"
 
 end
