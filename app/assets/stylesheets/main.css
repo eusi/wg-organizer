@@ -263,13 +263,23 @@ a:visited{
 	padding-bottom:70px;
 	}*/
 
-	#footer {
-		position:absolute;
-		bottom:0;
-		width:100%;
-		height:300px;   /* Height of the footer */
-		background-color:#1a1f27;
-	}
+#footer {
+	position:absolute;
+	bottom:0;
+	width:100%;
+	height:300px;   /* Height of the footer */
+	background-color:#0e121b;
+	background: #0b0e15 url(bg-footer-top.jpg) repeat-x top center;
+	color: #848ea2;
+}
+
+#footer p {
+	width:700px;
+	margin:0 auto;
+	margin-top:50px;
+	position:relative;
+	z-index:90;
+}
 
 
 /***************************************************************************
@@ -285,6 +295,16 @@ h2#tagline{
 	margin-bottom:25px;
 	position:relative;
 	z-index:90;
+}
+
+#sitesHome{
+	width:799px;
+	height:620px;
+	display:block;
+	background:url(bg-main-home.png) no-repeat top left;
+	margin: 0 auto;
+	position:relative;
+	color:#1a1f27;
 }
 
 #sites{
@@ -393,6 +413,7 @@ h2#tagline{
 	height:540px;
 	position:relative;
 	margin-right:20px;
+	z-index: 100;
 	
 }
 
@@ -477,10 +498,19 @@ h2#tagline{
 **************************** SCROLLER STUFF ********************************
 ***************************************************************************/
 
+#scroller-home-window {
+	position:relative; 
+	overflow:hidden;          
+	height:540px;
+	float:left;
+	margin-top:18px;
+	margin-left:12px;	
+	margin-bottom:9px;
+	fbackground-color:#f00;
+}
+
 #scroller-window,
-#scroller-web-window,
-#scroller-iphone-window,
-#scroller-desk-window{
+#scroller-web-window{
 	height:540px;
 }
 
@@ -524,28 +554,6 @@ h2#tagline{
 	position:absolute;
 }
 
-
-#scroller-iphone-window{
-	overflow:hidden;          
-	width: 600px;     
-
-}
-
-#scroller-iphone-wrap{
-	width:10000em;
-	position:absolute;
-}
-
-#scroller-desk-window{
-	overflow:hidden;          
-	width: 600px;     
-
-}
-
-#scroller-desk-wrap{
-	width:10000em;
-	position:absolute;
-}
 
 #scroller-window .site{
 	float:left;

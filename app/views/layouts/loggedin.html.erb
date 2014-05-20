@@ -6,10 +6,10 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
   <link rel="stylesheet" href='./assets/main.css' media="screen, siteion">  
-  <link rel="stylesheet" href="./assets/jquery.fancybox.css" type="text/css" media="screen, siteion">   
+  <link rel="stylesheet" href="./assets/jquery.fancybox.css" type="text/css" media="screen, siteion">		
 
   <script type="text/javascript" src="./assets/jquery.min.js"></script>
-  <script type="text/javascript" src="./assets/main.js"></script> 
+  <script type="text/javascript" src="./assets/main.js"></script>	
 </head>
 <body id="page-home" class="" cz-shortcut-listen="true">
 
@@ -24,7 +24,7 @@
       <li class="about"><a href="" class="hovFade" style="opacity: 0.8999999761581421;">About Us</a></li>
       <li class="contact"><a href="" class="hovFade">Contact</a></li>
     </ul>
-  </div>  
+  </div>	
 </div>
 <!-- #header -->
 
@@ -32,16 +32,50 @@
 <div id="main">
   <h2 id="tagline" class="imgtext">Slogan</h2>
 
-  <div id="sitesHome">
+  <div id="sites">
+    <div id="sites-bottom"></div>
 
-    <div id="scroller-home-window">
+    <div id="sidebar">
+      <div id="profile"></div>
 
-      <%= yield %>
-
+      <!-- #nav -->
+      <ul id="site-type-nav">
+        <li class="web"><a><span>Web</span></a></li>		
+        <li class="web2"><a><span>iPhone</span></a></li>
+        <li class="web3"><a><span>Desktop</span></a></li>
+        <li class="current"></li>
+      </ul>
+      <!-- #nav -->
     </div>
 
-  </div>
-  <div id="cuba-libre"></div>
+    <div id="scroller-window">
+      <div id="scroller-vertical">
+       <div id="scroller-web-window">
+         <div id="scroller-web-wrap">		
+
+          <div class="site">
+
+            <%= yield %>
+
+          </div>
+
+        </div>
+      </div>		
+
+      <div id="scroller-desk-window">
+       <div id="scroller-desk-wrap">		
+
+       </div>
+     </div>
+
+   </div>
+ </div>
+
+
+
+ <div id="gloss-overlay"></div>
+</div>
+<div id="cuba-libre"></div>
 </div>
 <!-- #main -->
 
