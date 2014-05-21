@@ -8,7 +8,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 body{
 	background: #586273 url(bg-tile.png) repeat top left;
-	font-family: Helvetica, "Helvetica Neue", Arial,  sans-serif;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	color:#1a1f27;
 	font-size:62.5%;
 	margin:0;
@@ -108,13 +108,13 @@ a:visited{
 	background-image:url(main-nav-home.png);	
 }
 
-#topnav li.about a{
-	width:105px;
-	background-image:url(main-nav-us.png);
+#topnav li.logout a{
+	width:80px;
+	background-image:url(main-nav-logout.png);
 }
 
 #topnav li.contact a{
-	width:98px;
+	width:80px;
 	background-image:url(main-nav-contact.png);
 }
 
@@ -155,8 +155,12 @@ a:visited{
 	height:128px;
 }
 
-#main #cuba-libre{
-	height:50px;
+#main #cuba-libre-top{
+	height:20px;
+}
+
+#main #cuba-libre-bot{
+	height:30px;
 }
 
 #bottom-bar{
@@ -223,7 +227,7 @@ a:visited{
 	text-shadow: 0px 1px 0px #abbace;
 	margin-bottom:4px;
 	margin-left: 8px;
-	font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 }
 
 #bottom-bar #right form input#email-address{
@@ -263,23 +267,25 @@ a:visited{
 	padding-bottom:70px;
 	}*/
 
-#footer {
-	position:absolute;
-	bottom:0;
-	width:100%;
-	height:300px;   /* Height of the footer */
-	background-color:#0e121b;
-	background: #0b0e15 url(bg-footer-top.jpg) repeat-x top center;
-	color: #848ea2;
-}
+	#footer {
+		position:absolute;
+		bottom:0;
+		width:100%;
+		height:300px;   /* Height of the footer */
+		background-color:#0e121b;
+		background: #0b0e15 url(bg-footer-top.jpg) repeat-x top center;
+		color: #848ea2;
+	}
 
-#footer p {
-	width:700px;
-	margin:0 auto;
-	margin-top:50px;
-	position:relative;
-	z-index:90;
-}
+	#pageFooter {
+		width:700px;
+		margin: 0 auto;
+		margin-top:50px;
+		position:relative;
+		z-index:90;
+		color: #737373;
+		font-size: 11px;
+	}
 
 
 /***************************************************************************
@@ -819,7 +825,7 @@ body.post-Photo #blog-bottom, body.post-Quote #blog-bottom{			/* no comments for
 
 #blog-sidebar #about{
 	font-size:11px;
-	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 }
 
 #blog-sidebar #about p{
@@ -883,7 +889,7 @@ body.post-Photo #blog-bottom, body.post-Quote #blog-bottom{			/* no comments for
 }
 
 #blog-sidebar h2{
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	color:#1a2843;
 	font-size:14px;
 	line-height:14px;
@@ -901,7 +907,7 @@ body.post-Photo #blog-bottom, body.post-Quote #blog-bottom{			/* no comments for
 
 #blog-sidebar #sidebar-sites li a{
 	font-size:11px;
-	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	padding:10px;
 	display:block;
 	padding-bottom:5px;
@@ -912,7 +918,7 @@ body.post-Photo #blog-bottom, body.post-Quote #blog-bottom{			/* no comments for
 	font-size:12px;
 	font-weight:bold;
 	padding-top:6px;
-	font-family: Helvetica, "Helvetica Neue", Arial,  sans-serif;	
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;	
 	display:block;
 }
 
@@ -984,7 +990,7 @@ body.post-Photo #blog-bottom, body.post-Quote #blog-bottom{			/* no comments for
 }
 
 #blog-sidebar #rss-widget span{
-	font-family: "Helvetica Neue", Helvetica, Arial,  sans-serif;	
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	color:#fff;
 	font-size:18px;
 	font-weight:bold;
@@ -1049,7 +1055,7 @@ body.post-Photo #blog-bottom, body.post-Quote #blog-bottom{			/* no comments for
 ***************************************************************************/
 
 #posts .post.text h3{
-	font-family: "Helvetica Neue", Helvetica, Arial,  sans-serif;	
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;	
 	font-size:20px;
 	font-weight:bold;
 	color:#ebecee;
@@ -1065,7 +1071,7 @@ body.post-Photo #blog-bottom, body.post-Quote #blog-bottom{			/* no comments for
 }
 
 #posts .post.text h3 a{
-	font-family: "Helvetica Neue", Helvetica, Arial,  sans-serif;	
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	font-size:20px;
 	font-weight:bold;
 	color:#ebecee;
@@ -1091,7 +1097,7 @@ body.post-Photo #blog-bottom, body.post-Quote #blog-bottom{			/* no comments for
 	margin-top:-22px;
 	line-height:19px;
 	font-size:14px;
-	font-family: "Helvetica Neue", Helvetica, Arial,  sans-serif;		
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;		
 	color:#2f3236;
 	padding-left:17px;
 	padding-right:19px;
@@ -1175,7 +1181,7 @@ body.post-Photo #blog-bottom, body.post-Quote #blog-bottom{			/* no comments for
 #posts .post.photo h3{
 	color:#000;
 	font-size:14px;
-	font-family: "Helvetica Neue", Helvetica, Arial,  sans-serif;	
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	font-weight:bold;
 	margin:0 auto;
 	text-align:center;
@@ -1199,7 +1205,7 @@ body.post-Photo #blog-bottom, body.post-Quote #blog-bottom{			/* no comments for
 #posts .post.photo h3 a{
 	color:#000;
 	font-size:14px;
-	font-family: "Helvetica Neue", Helvetica, Arial,  sans-serif;	
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	font-weight:bold;
 	text-decoration:underline;
 }
@@ -1211,7 +1217,7 @@ body.post-Photo #blog-bottom, body.post-Quote #blog-bottom{			/* no comments for
 .post.quote .quote-container{
 	font-size:23px;
 	font-weight:bold;
-	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial,  sans-serif;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	color:#fff;
 	background-color:#000;	
 	margin-left:1px;
@@ -1223,7 +1229,7 @@ body.post-Photo #blog-bottom, body.post-Quote #blog-bottom{			/* no comments for
 
 .post.quote .quote-container a{
 	font-weight:bold;
-	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial,  sans-serif;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	color:#fff;
 	text-shadow: 0px 1px 0px #000;		
 
@@ -1231,7 +1237,7 @@ body.post-Photo #blog-bottom, body.post-Quote #blog-bottom{			/* no comments for
 
 .post.quote .quote-container p{
 	font-weight:bold;
-	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial,  sans-serif;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 }
 
 .post.quote .post-meta{
@@ -1277,7 +1283,7 @@ body.post-Photo #blog-bottom, body.post-Quote #blog-bottom{			/* no comments for
 
 #comments{
 	background-color:#e8eaec;
-	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial,  sans-serif;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	margin-top:-1px;
 	margin-left:1px;
 }
@@ -1358,7 +1364,7 @@ body.post-Photo #blog-bottom, body.post-Quote #blog-bottom{			/* no comments for
 #comment-form textarea{
 	width:466px;
 	height:115px;
-	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial,  sans-serif;	
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	color:#434956;
 	font-size:14px;
 	padding:5px;
@@ -1367,7 +1373,7 @@ body.post-Photo #blog-bottom, body.post-Quote #blog-bottom{			/* no comments for
 }
 
 #comment-form input.text{
-	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial,  sans-serif;	
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	color:#434956;
 	font-size:14px;
 	padding:5px;
@@ -1388,4 +1394,304 @@ body.post-Photo #blog-bottom, body.post-Quote #blog-bottom{			/* no comments for
 #comment-form #comment-submit-button:active{
 	background: url(button-post-comment.png) no-repeat bottom left;
 	
+}
+
+
+/***************************************************************************
+*************************** HOME *******************************************
+***************************************************************************/
+
+#contentCurve {
+	border-bottom: 1px solid #ccc;
+	font-size: 1px;
+	height: 8px;
+	margin-bottom: 8px;
+}
+
+.gradient {
+	min-width: 780px;
+	display: block;
+}
+
+.gradientContent {
+	margin: 0 auto;
+	width: 780px;
+}
+
+.clearfix {
+	zoom: 1;
+}
+
+.lfloat {
+	float: left;
+}
+
+._5iyy {
+	margin-right: 15px;
+	width: 365px;
+}
+
+._5iyx {
+	color: #0e385f;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 29px;
+	margin-top: 40px;
+	width: 350px;
+	word-spacing: -1px;
+}
+
+.rfloat {
+	float: right;
+}
+
+._5iyz {
+	max-width: 400px;
+}
+
+.pvl {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+div {
+	display: block;
+}
+
+.clearfix {
+	clear:left;
+}
+
+
+
+
+tbody {
+	display: table-row-group;
+	vertical-align: middle;
+	border-color: inherit;
+}
+
+
+.inputtext, .inputpassword {
+	padding-bottom: 4px;
+}
+
+textarea, .inputtext, .inputpassword {
+	border: 1px solid #bdc7d8;
+	margin: 0;
+	padding: 3px;
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
+	background-color: #fff;
+}
+
+#reg_form_box input {
+	background: blue;
+	border: 0;
+	color: #000;
+	cursor: pointer;
+	font-size: 8px;
+	font-weight: bold;
+	/*line-height: 9px;*/
+	margin: 0;
+	padding: 1px 0 2px;
+	white-space: nowrap;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	webkit-rtl-ordering: logical;
+	-webkit-user-select: text;
+	font: -webkit-small-control;
+	color: initial;
+	letter-spacing: normal;
+	word-spacing: normal;
+	text-transform: none;
+	text-indent: 0px;
+	text-shadow: none;
+	display: inline-block;
+	text-align: start;
+	-webkit-writing-mode: horizontal-tb;
+
+	display: inline-block;
+	height: 18px;
+	padding: 5px 9px;
+	white-space: nowrap;
+	/*line-height: 18px;*/
+	background: -webkit-gradient(linear,left top,left bottom,from(#8266b6),to(#533787));
+	background: -moz-linear-gradient(top,#8266b6,#533787);
+	background: -o-linear-gradient(top,#8266b6,#533787);
+	background: linear-gradient(top,#8266b6,#533787);
+	background-color: #6a4e9e;
+	border-top: 1px solid #5b3f8f;
+	border-left: 1px solid #412771;
+	border-right: 1px solid #412771;
+	border-bottom: 1px solid #2a1453;
+	box-shadow: inset 0 1px 0 rgba(255,255,255,0.1),0 1px 0 rgba(0,0,0,0.15);
+	-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.1),0 1px 0 rgba(0,0,0,0.15);
+	-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.1),0 1px 0 rgba(0,0,0,0.15);
+	text-shadow: 0 1px 0 rgba(0,0,0,0.75);
+	-moz-text-shadow: 0 1px 0 rgba(0,0,0,0.75);
+	-webkit-text-shadow: 0 1px 0 rgba(0,0,0,0.75);
+	color: #fff;
+}
+
+
+input:-webkit-autofill, textarea:-webkit-autofill {
+	background-color: rgb(250, 255, 189);
+	background-image: none;
+	color: #fff;
+}
+
+
+
+
+._58mf ._58mg {
+	border-color: #000;
+	-webkit-border-radius: 5px;
+	margin: 0;
+	width: 177px;
+}
+
+._58mf ._58mg, ._58mf .uiStickyPlaceholderInput .placeholder {
+	font-size: 10px;
+	padding: 8px 10px;
+}
+
+.uiStickyPlaceholderInput input, .uiStickyPlaceholderInput textarea {
+	background-color: #fff;
+	position: relative;
+}
+
+textarea, .inputtext, .inputpassword {
+	border: 1px solid #000;
+	margin: 0;
+	padding: 3px;
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
+}
+
+
+
+/***************************************************************************
+*************************** HEADER *****************************************
+***************************************************************************/
+
+.menu_login_container{
+	margin-top: -5px;
+}
+
+.menu_login_container .login_form_label_field {
+	padding-top: 4px;
+}
+
+.menu_login_container table tr td {
+	padding: 0 0 0 14px;
+}
+
+.menu_login_container .html7magic label {
+	color: #fff;
+	font-weight: normal;
+	padding-left: 1px;
+}
+
+.menu_login_container #email {
+	direction: ltr;
+}
+
+.menu_login_container .inputtext, .menu_login_container .inputpassword {
+	border-color: #151A25;
+	margin: 0;
+	width: 142px;
+	font-size: 11px;
+	/*line-height: 10px;*/
+	-webkit-border-radius: 5px;
+}
+
+#loginbutton input, .uiButton input, .uiButton {
+	border: 0;
+	cursor: pointer;
+	font-size: 8px;
+	font-weight: bold;
+	color: #fff;
+	margin: 0;
+	white-space: nowrap;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	webkit-rtl-ordering: logical;
+	-webkit-user-select: text;
+	font: -webkit-small-control;
+	letter-spacing: normal;
+	word-spacing: normal;
+	text-transform: none;
+	text-indent: 0px;
+	text-shadow: none;
+	display: inline-block;
+	text-align: start;
+	-webkit-writing-mode: horizontal-tb;
+	-webkit-border-radius: 5px;
+	white-space: nowrap;
+
+	background: -webkit-gradient(linear,left top,left bottom,from(#4C5667),to(#646F82));
+	background: -moz-linear-gradient(top,#4C5667,#646F82);
+	background: -o-linear-gradient(top,#4C5667,#646F82);
+	background: linear-gradient(top,#4C5667,#646F82);
+	background-color: #6a4e9e;
+
+	border-top: 1px solid #99A9C4;
+	border-left: 1px solid #646F82;
+	border-right: 1px solid #637185;
+	border-bottom: 1px solid #646F82;
+
+	box-shadow: inset 0 1px 0 rgba(255,255,255,0.1),0 1px 0 rgba(0,0,0,0.15);
+	-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.1),0 1px 0 rgba(0,0,0,0.15);
+	-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.1),0 1px 0 rgba(0,0,0,0.15);
+
+	padding: 2px 9px 2px 9px; /* top right bottom left */
+}
+
+#loginbutton input:active, .uiButton input:active, .uiButton:active {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	background: -webkit-gradient(linear,left top,left bottom,from(#5A6271),to(#606774));
+	border-top: 1px solid #383E47;
+	border-left: 1px solid #383E47;
+	border-right: 1px solid #383E47;
+	border-bottom: 1px solid #383E47;
+	box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.0);
+	-moz-box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.0);
+	-webkit-box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.0);
+}
+
+#loginbutton input:hover, .uiButton input:hover, .uiButton:hover {
+	text-shadow: 1px 2px 3px rgba(255,255,102,0.50);
+	-moz-text-shadow: 1px 2px 3px rgba(255,255,102,0.50);
+	-webkit-text-shadow: 1px 2px 3px rgba(255,255,102,0.50);
+}
+
+.menu_login_container .login_form_label_field a {
+	color: #98a9ca;
+	font-weight: normal;
+}
+
+.menu_login_container .login_form_label_field label {
+	color: #98a9ca;
+	font-weight: normal;
+}
+
+.uiInputLabel .uiInputLabelLabel {
+	display: inline-block;
+	margin-left: 17px;
+	vertical-align: baseline;
+}
+
+.uiInputLabelInput {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+}
+
+.clearfix:after {
+	clear: both;
+	content: ".";
+	display: block;
+	font-size: 0;
+	height: 0;
+	line-height: 0;
+	visibility: hidden;
 }

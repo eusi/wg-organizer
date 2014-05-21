@@ -6,7 +6,6 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
   <link rel="stylesheet" href='./assets/main.css' media="screen, siteion">  
-  <link rel="stylesheet" href="./assets/jquery.fancybox.css" type="text/css" media="screen, siteion">		
 
   <script type="text/javascript" src="./assets/jquery.min.js"></script>
   <script type="text/javascript" src="./assets/main.js"></script>	
@@ -18,11 +17,11 @@
    <!-- #header -->
    <div id="header">
     <div class="column">
-     <h1><a href="">Roomie</a></h1>
+     <h1><a href="/">Roomie</a></h1>
      <ul id="topnav">
       <li class="home"><a href="" class="hovFade" style="opacity: 1;">Home</a></li>
-      <li class="about"><a href="" class="hovFade" style="opacity: 0.8999999761581421;">About Us</a></li>
-      <li class="contact"><a href="" class="hovFade">Contact</a></li>
+      <li class="contact"><a href="" class="hovFade" style="opacity: 0.899;">Logout</a></li>
+      <li class="logout"><a href="" class="hovFade" style="opacity: 0.899;">Logout</a></li>
     </ul>
   </div>	
 </div>
@@ -30,7 +29,8 @@
 
 <!-- #main -->
 <div id="main">
-  <h2 id="tagline" class="imgtext">Slogan</h2>
+  <div id="cuba-libre-top"></div>
+  <!--<h2 id="tagline" class="imgtext">Slogan</h2>-->
 
   <div id="sites">
     <div id="sites-bottom"></div>
@@ -40,9 +40,11 @@
 
       <!-- #nav -->
       <ul id="site-type-nav">
-        <li class="web"><a><span>Web</span></a></li>		
-        <li class="web2"><a><span>iPhone</span></a></li>
-        <li class="web3"><a><span>Desktop</span></a></li>
+        <li class="web"><a><span>Overview</span></a></li>		
+        <li class="web2"><a><span>Add Job</span></a></li>
+        <li class="web3"><a><span>My Profile</span></a></li>
+        <li class="web"><a><span>WG Management</span></a></li>    
+        <li class="web3"><a><span>Logout</span></a></li>
         <li class="current"></li>
       </ul>
       <!-- #nav -->
@@ -75,13 +77,15 @@
 
  <div id="gloss-overlay"></div>
 </div>
-<div id="cuba-libre"></div>
+<div id="cuba-libre-bot"></div>
 </div>
 <!-- #main -->
 
 <!-- #footer -->
 <div id="footer">
-  <p>MR FOOTER HERE !!!!!</p>
+  <div id="pageFooter">
+    <%= render :partial => "shared/footer" %>
+  </div>
 </div>
 <!-- #footer -->
 
