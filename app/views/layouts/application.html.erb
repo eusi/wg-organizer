@@ -10,18 +10,18 @@
      <h1><a href="/">Roomie</a></h1>
      <ul id="topnav">
       <li class="home"><a href="" class="hovFade" style="opacity: 1;">Home</a></li>
-      <li class="contact"><a id="contactMe" href="mailto:" class="hovFade" style="opacity: 0.899;">Logout</a></li>
+      <li class="contact"><a id="contactMe" href="" class="hovFade" style="opacity: 0.899;">Logout</a></li>
 
       <script type="text/javascript">
-      <!--
+        <!--
         var userName = "unknonwn user"; // this needs some love to be cool
         document.getElementById("contactMe").setAttribute("href","mailto:info@roomie.xx?subject=Request - Ticket 1234&body=My dear roomie support,%0A%0A I got a problem...%0A%0ABest regards, %0A"+userName);
       //-->
-      </script>
+    </script>
 
-      <li class="logout"><a href="" class="hovFade" style="opacity: 0.899;">Logout</a></li>
-    </ul>
-  </div>	
+    <li class="logout"><a href="/logout" class="hovFade" style="opacity: 0.899;">Logout</a></li>
+  </ul>
+</div>	
 </div>
 <!-- #header -->
 
@@ -38,42 +38,63 @@
 
       <!-- #nav -->
       <ul id="site-type-nav">
-        <li class="navoverview"><a><span>Overview</span></a></li>		
-        <li class="navaddjob"><a><span>Add Job</span></a></li>
-        <li class="navmyprofile"><a><span>My Profile</span></a></li>
-        <li class="navtasks"><a><span>Task Management</span></a></li>    
-        <li class="navlogout"><a><span>Logout</span></a></li>
-        <li class="current"></li>
+        <li class="navoverview"><a href="/main" class="hovFadeLeft"><span>Overview</span></a></li>		
+        <li class="navaddjob"><a href="/job" class="hovFadeLeft"><span>Add Job</span></a></li>
+        <li class="navmyprofile"><a href="/profile" class="hovFadeLeft"><span>My Profile</span></a></li>
+        <li class="navtasks"><a href="/tasks" class="hovFadeLeft"><span>Task Management</span></a></li>    
+        <li class="navlogout"><a href="/logout" class="hovFadeLeft"><span>Logout</span></a></li>
+        <li id="current" class="current"></li>
       </ul>
-      <!-- #nav -->
+
+      <!-- switches left nav's current item -->
+      <% if current_page?('/job') %>
+        <script type="text/javascript">
+          <!-- 
+          document.getElementById("current").style.top="35px"; 
+          //-->
+        </script>
+      <% elsif current_page?('/profile') %>
+        <script type="text/javascript">
+          <!-- 
+          document.getElementById("current").style.top="71px"; 
+          //-->
+        </script>
+      <% elsif current_page?('/tasks') %>
+        <script type="text/javascript">
+          <!-- 
+          document.getElementById("current").style.top="107px"; 
+          //-->
+        </script>
+      <% end %>
+  <!-- #nav -->
+</div>
+
+<div id="scroller-window">
+  <div id="scroller-vertical">
+   <div id="scroller-web-window">
+     <div id="scroller-web-wrap">		
+
+      <div class="site">
+
+        <%= yield %>
+
+      </div>
+
     </div>
+  </div>		
 
-    <div id="scroller-window">
-      <div id="scroller-vertical">
-       <div id="scroller-web-window">
-         <div id="scroller-web-wrap">		
-
-          <div class="site">
-
-            <%= yield %>
-
-          </div>
-
-        </div>
-      </div>		
-
-      <div id="scroller-desk-window">
-       <div id="scroller-desk-wrap">		
-
-       </div>
-     </div>
+  <div id="scroller-desk-window">
+   <div id="scroller-desk-wrap">		
 
    </div>
  </div>
 
+</div>
+</div>
 
 
- <div id="gloss-overlay"></div>
+
+<div id="gloss-overlay"></div>
 </div>
 <div id="cuba-libre-bot"></div>
 </div>

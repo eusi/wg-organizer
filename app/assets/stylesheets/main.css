@@ -163,109 +163,12 @@ a:visited{
 	height:30px;
 }
 
-#bottom-bar{
-	width:804px;
-	height:82px;
-	margin:0 auto;
-	margin-top:32px;
-	background: url(bg-bottom-bar.png) no-repeat top right;
-	padding-left:1px;
-}
-
-#bottom-bar #left{
-	float:left;
-}
-
-#bottom-bar #left h4{
-	float:left;
-	margin-left:20px;
-	text-indent:-9999em;
-	background:url(text-interested-in-working-with-us.png) no-repeat top left;	
-	width:257px;
-	height:18px;
-	display:block;
-	margin-top:33px;
-}
-
-#bottom-bar #left a.button-get-in-touch{
-	background:url(button-get-in-touch.png) no-repeat top;
-	text-indent:-99999em;
-	width:141px;
-	height:46px;
-	display:block;
-	float:left;
-	margin-top:17px;
-	margin-left:14px;
-}
-
-#bottom-bar #left a.button-get-in-touch:active{
-	background-position: left bottom;
-}
-
-
-#bottom-bar #right{
-	float:right;
-	width:270px;
-	margin-right:10px;
-	height:72px;
-	margin-top:3px;
-	background: url(image-stamp.png) no-repeat 16px 14px;
-	padding-left:70px;
-}
-
-#bottom-bar #right form{
-	margin-top:12px;
-	color:#1e2633;
-	font-size:11px;
-	width:240px;
-}
-
-#bottom-bar #right form p{
-	display:block;
-	color:#1e2633;
-	font-size:11px;
-	text-shadow: 0px 1px 0px #abbace;
-	margin-bottom:4px;
-	margin-left: 8px;
-	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
-}
-
-#bottom-bar #right form input#email-address{
-	border:0;
-	padding:0;
-	margin:0;
-	background:url(text-input-newsletter.png);
-	width:136px;
-	height:29px;
-	color:#2d2e30;
-	font-size:14px;
-	padding-left:15px;
-	padding-right:10px;
-	float:left;
-	outline:0;
-}
-
-#bottom-bar #right form input#submit{
-	border:0px;
-	padding:0px;
-	margin:0px;
-	width:54px;
-	height:29px;
-	background:url(button-newsletter-go.png) no-repeat top left;
-	float:left;
-	text-indent:-99999em;
-	cursor:pointer;
-}
-
-#bottom-bar #right form input#submit:active{
-	background:url(button-newsletter-go.png) no-repeat bottom left;
-}
-
-/*#footer{
+/*
+#footer {
 	overflow:visible;
 	background:url(glow-bottom.png) no-repeat center 40px;
 	padding-bottom:70px;
-	}
+}
 */
 
 #footer {
@@ -409,7 +312,7 @@ h2#tagline{
 	height:	41px;
 	display:block;
 	background:url(site-nav-current-bg.png) no-repeat top left;
-	top:-1px;
+	top:-1px; /*36 á item*/
 	left:-7px;
 } 
 
@@ -590,8 +493,63 @@ h1.site-title{
 *************************** HOME *******************************************
 ***************************************************************************/
 
+.inputtextHome {
+	border-color: #000;
+	-webkit-border-radius: 5px;
+	margin: 0;
+	width: 177px;
+}
+
+.inputtextHome {
+	font-size: 11px;
+	padding: 8px 10px;
+}
+
+.inputtextHome {
+	border: 1px solid #000;
+}
+
+.signup {
+	-moz-box-shadow:inset 0px 1px 0px 0px #f5978e;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #f5978e;
+	box-shadow:inset 0px 1px 0px 0px #f5978e;
+	background-color:#d62828;
+	-webkit-border-top-left-radius:20px;
+	-moz-border-radius-topleft:20px;
+	border-top-left-radius:6px;
+	-webkit-border-top-right-radius:20px;
+	-moz-border-radius-topright:20px;
+	border-top-right-radius:6px;
+	-webkit-border-bottom-right-radius:20px;
+	-moz-border-radius-bottomright:20px;
+	border-bottom-right-radius:6px;
+	-webkit-border-bottom-left-radius:20px;
+	-moz-border-radius-bottomleft:20px;
+	border-bottom-left-radius:6px;
+	text-indent:0;
+	border:1px solid #d02718;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	height:42px;
+	line-height:40px;
+	width:130px;
+	text-decoration:none;
+	text-align:center;
+	cursor: pointer;
+	text-shadow:1px 1px 0px #810e05;
+	}.signup:hover {
+		background-color:#b51007;
+		}.signup:active {
+			position:relative;
+			top:1px;
+		}
+
 /*
-#reg_form_box input {
+#signup input {
 	background: blue;
 	border: 0;
 	color: #000;
@@ -637,128 +595,57 @@ h1.site-title{
 	color: #fff;
 }
 
-
-input:-webkit-autofill, textarea:-webkit-autofill {
+signup:-webkit-autofill, textarea:-webkit-autofill {
 	background-color: rgb(250, 255, 189);
 	background-image: none;
 	color: #fff;
-}*/
+	}*/
+
+	#homeTable table tr td {
+		border: 0;
+	}
+
+	#homeTable table {
+		border-spacing: 10px;
+		border-collapse: separate;
+	}
 
 
-._58mf ._58mg {
-	border-color: #000;
-	-webkit-border-radius: 5px;
-	margin: 0;
-	width: 177px;
-}
+	#homeTable td
+	{
+		vertical-align: top;
+		padding:10px;
+	}
 
-._58mf ._58mg, ._58mf .uiStickyPlaceholderInput .placeholder {
-	font-size: 11px;
-	padding: 8px 10px;
-}
+	#flatsharing {
+		width:275px;
+		height:183px;
+		background: url(flatsharing.jpg) no-repeat top left;
+		display:block;
+		text-indent:-99999em;
+		margin-top:15px;
+		float:left;
+		padding:1px;
+		border:1px solid #e0e8f5;
+		background-color:#e0e8f5;
+	}
 
-.uiStickyPlaceholderInput input, .uiStickyPlaceholderInput textarea {
-	background-color: #fff;
-	position: relative;
-}
+	#winnersPodium {
+		width:340px;
+		height:275px;
+		background: url(winners_podium.jpg) no-repeat top left;
+		text-indent:-99999em;
+		padding:1px;
+		border:0;
+		display: block;
+		margin-left: 20px;
+		margin-right: auto;
+	}
 
-textarea, .inputtext, .inputpassword {
-	border: 1px solid #000;
-	margin: 0;
-	padding: 3px;
-	-webkit-appearance: none;
-	-webkit-border-radius: 0;
-}
-
-
-/***************************************************************************
-*************************** HOME *******************************************
-***************************************************************************/
-
-.signup {
-	-moz-box-shadow:inset 0px 1px 0px 0px #f5978e;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #f5978e;
-	box-shadow:inset 0px 1px 0px 0px #f5978e;
-	background-color:#d62828;
-	-webkit-border-top-left-radius:20px;
-	-moz-border-radius-topleft:20px;
-	border-top-left-radius:6px;
-	-webkit-border-top-right-radius:20px;
-	-moz-border-radius-topright:20px;
-	border-top-right-radius:6px;
-	-webkit-border-bottom-right-radius:20px;
-	-moz-border-radius-bottomright:20px;
-	border-bottom-right-radius:6px;
-	-webkit-border-bottom-left-radius:20px;
-	-moz-border-radius-bottomleft:20px;
-	border-bottom-left-radius:6px;
-	text-indent:0;
-	border:1px solid #d02718;
-	display:inline-block;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	font-style:normal;
-	height:42px;
-	line-height:40px;
-	width:130px;
-	text-decoration:none;
-	text-align:center;
-	cursor: pointer;
-	text-shadow:1px 1px 0px #810e05;
-}.signup:hover {
-	background-color:#b51007;
-}.signup:active {
-	position:relative;
-	top:1px;
-}
-
-#homeTable table tr td {
-	border: 0;
-}
-
-#homeTable table {
-    border-spacing: 10px;
-    border-collapse: separate;
-}
-
-
-#homeTable td
-{
-	vertical-align: top;
-	padding:10px;
-}
-
-#flatsharing {
-	width:275px;
-	height:183px;
-	background: url(flatsharing.jpg) no-repeat top left;
-	display:block;
-	text-indent:-99999em;
-	margin-top:15px;
-	float:left;
-	padding:1px;
-	border:1px solid #e0e8f5;
-	background-color:#e0e8f5;
-}
-
-#winnersPodium {
-	width:340px;
-	height:275px;
-	background: url(winners_podium.jpg) no-repeat top left;
-	text-indent:-99999em;
-	padding:1px;
-	border:0;
- 	display: block;
-    margin-left: 20px;
-    margin-right: auto;
-}
-
-.placeholder {
-	font-size: 10px;
-	padding: 4px 5px;
-}
+	.placeholder {
+		font-size: 10px;
+		padding: 4px 5px;
+	}
 
 
 /***************************************************************************
@@ -771,6 +658,11 @@ textarea, .inputtext, .inputpassword {
 
 .menu_login_container .login_form_label_field {
 	padding-top: 4px;
+}
+
+.menu_login_container .login_form_label_field a, .menu_login_container .login_form_label_field label {
+	color: #98a9ca;
+	font-weight: normal;
 }
 
 .menu_login_container table tr td {
@@ -792,8 +684,16 @@ textarea, .inputtext, .inputpassword {
 	margin: 0;
 	width: 142px;
 	font-size: 11px;
-	/*line-height: 10px;*/
+	padding-left:  7px;
 	-webkit-border-radius: 5px;
+}
+
+textarea, .inputtext, .inputpassword {
+	border: 1px solid #000;
+	margin: 0;
+	padding: 3px;
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
 }
 
 #loginbutton input, .uiButton button {
@@ -852,16 +752,6 @@ textarea, .inputtext, .inputpassword {
 	text-shadow: 1px 2px 3px rgba(255,255,102,0.50);
 	-moz-text-shadow: 1px 2px 3px rgba(255,255,102,0.50);
 	-webkit-text-shadow: 1px 2px 3px rgba(255,255,102,0.50);
-}
-
-.menu_login_container .login_form_label_field a {
-	color: #98a9ca;
-	font-weight: normal;
-}
-
-.menu_login_container .login_form_label_field label {
-	color: #98a9ca;
-	font-weight: normal;
 }
 
 .uiInputLabel .uiInputLabelLabel {
