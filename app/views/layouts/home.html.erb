@@ -1,0 +1,48 @@
+<%= render "shared/head" %>
+
+<body id="page-home" class="" cz-shortcut-listen="true">
+
+  <div id="container">
+
+   <!-- #header -->
+   <div id="header">
+    <div class="column">
+     <h1><a href="/">Roomie</a></h1>
+     <div id="topnav">
+      <%= render "shared/home_header" %>
+    </div>
+  </div>  
+</div>
+<!-- #header -->
+
+<!-- #main -->
+<div id="main">
+  <div id="cuba-libre-top"></div>
+  <!--<h2 id="tagline" class="imgtext">Slogan</h2>-->
+
+  <div id="sitesHome">
+
+    <div id="scroller-home-window">
+
+      <%= yield %>
+
+    </div>
+
+  </div>
+  <div id="cuba-libre-bot"></div>
+</div>
+<!-- #main -->
+
+<!-- #footer -->
+<div id="footer">
+  <div id="pageFooter">
+    <%= render :partial => "shared/footer" %>
+  </div>
+</div>
+<!-- #footer -->
+
+</div>
+<!-- #container -->
+
+</body>
+</html>
