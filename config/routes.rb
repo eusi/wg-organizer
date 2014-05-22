@@ -1,5 +1,8 @@
 WGOrganizer::Application.routes.draw do
   root :to => "home#index" #startpage
+
+  get "choose" => 'choose#index'
+
   get "main" => 'main#index' #mainpage after you logged in
   get "job" => 'job#index'
   get "profile" => 'profile#index'
