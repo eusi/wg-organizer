@@ -1,16 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head profile="http://www.w3.org/2006/03/hcard">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>ROOMIE</title>
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<%= render "shared/head" %>
 
-  <link rel="stylesheet" href='./assets/main.css' media="screen, siteion">  
-  <link rel="stylesheet" href="./assets/jquery.fancybox.css" type="text/css" media="screen, siteion">   
-
-  <script type="text/javascript" src="./assets/jquery.min.js"></script>
-  <script type="text/javascript" src="./assets/main.js"></script> 
-</head>
 <body id="page-home" class="" cz-shortcut-listen="true">
 
   <div id="container">
@@ -18,36 +7,102 @@
    <!-- #header -->
    <div id="header">
     <div class="column">
-     <h1><a href="">Roomie</a></h1>
+     <h1><a href="/">Roomie</a></h1>
      <ul id="topnav">
       <li class="home"><a href="" class="hovFade" style="opacity: 1;">Home</a></li>
-      <li class="about"><a href="" class="hovFade" style="opacity: 0.8999999761581421;">About Us</a></li>
-      <li class="contact"><a href="" class="hovFade">Contact</a></li>
+      <li class="contact"><a id="contactMe" href="" class="hovFade" style="opacity: 0.899;">Contact</a></li>
+
+      <script type="text/javascript">
+        <!--
+        var userName = "unknonwn user"; // this needs some love to be cool
+        document.getElementById("contactMe").setAttribute("href","mailto:info@roomie.xx?subject=Request - Ticket 1234&body=My dear roomie support,%0A%0A I got a problem...%0A%0ABest regards, %0A"+userName);
+        //-->
+      </script>
+
+      <li class="logout"><a href="/logout" class="hovFade" style="opacity: 0.899;">Logout</a></li>
     </ul>
-  </div>  
+  </div>	
 </div>
 <!-- #header -->
 
 <!-- #main -->
 <div id="main">
-  <h2 id="tagline" class="imgtext">Slogan</h2>
+  <div id="cuba-libre-top"></div>
+  <!--<h2 id="tagline" class="imgtext">Slogan</h2>-->
 
-  <div id="sitesHome">
+  <div id="sites">
+    <div id="sites-bottom"></div>
 
-    <div id="scroller-home-window">
+    <div id="sidebar">
+      <div id="profile"></div>
 
-      <%= yield %>
+      <!-- #nav -->
+      <ul id="site-type-nav">
+        <li class="navoverview"><a href="/main" class="hovFadeLeft"><span>Overview</span></a></li>		
+        <li class="navaddjob"><a href="/job" class="hovFadeLeft"><span>Add Job</span></a></li>
+        <li class="navmyprofile"><a href="/profile" class="hovFadeLeft"><span>My Profile</span></a></li>
+        <li class="navtasks"><a href="/tasks" class="hovFadeLeft"><span>Task Management</span></a></li>    
+        <li class="navlogout"><a href="/logout" class="hovFadeLeft"><span>Logout</span></a></li>
+        <li id="current" class="current"></li>
+      </ul>
 
-    </div>
+      <!-- switches left nav's current item -->
+      <% if current_page?('/job') %>
+      <script type="text/javascript">
+        <!-- 
+        document.getElementById("current").style.top="35px"; 
+          //-->
+        </script>
+        <% elsif current_page?('/profile') %>
+        <script type="text/javascript">
+          <!-- 
+          document.getElementById("current").style.top="71px"; 
+          //-->
+        </script>
+        <% elsif current_page?('/tasks') %>
+        <script type="text/javascript">
+          <!-- 
+          document.getElementById("current").style.top="107px"; 
+          //-->
+        </script>
+        <% end %>
+        <!-- #nav -->
+      </div>
 
-  </div>
-  <div id="cuba-libre"></div>
+      <div id="scroller-window">
+        <div id="scroller-vertical">
+         <div id="scroller-web-window">
+           <div id="scroller-web-wrap">		
+
+            <div class="site">
+
+              <%= yield %>
+
+            </div>
+
+          </div>
+        </div>		
+
+        <div id="scroller-desk-window">
+         <div id="scroller-desk-wrap">		
+
+         </div>
+       </div>
+
+     </div>
+   </div>
+
+   <div id="gloss-overlay"></div>
+ </div>
+ <div id="cuba-libre-bot"></div>
 </div>
 <!-- #main -->
 
 <!-- #footer -->
 <div id="footer">
-  <p>MR FOOTER HERE !!!!!</p>
+  <div id="pageFooter">
+    <%= render :partial => "shared/footer" %>
+  </div>
 </div>
 <!-- #footer -->
 

@@ -1,9 +1,52 @@
-<%= link_to "LOG IN", test_path %>
+<table height="99%" id="homeTable">
+	<tr>
+		<td>
+			<h1 class="site-title">Roomie, the shared flat organizer!</h1>
 
-<br><br>
+			<div class="site-text">
+				<p>You are living in a shared flat and you are annoyed of lazy roommates, you feel like their mommy because you have to do everything by your own and you get nothing for it? That is over now!</p>
+				<p>Roomie is an organizer that monitors the shared flat activity of the roommates. For every activity like cleaning the flat you get credits! This tracking system rewarded the hard-working roomies and identifys the skiver in the flat!</p>
 
-<h3 class="site-title">HEADER</h3>
+			</div>
+		</div>
+	</td>
+	<td>
+		<%= link_to "TEST LOG IN", main_path %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<%= link_to "CHOOSE WG", choose_path %>
 
-<div class="site-text"> 
-<p>bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla </p>
-</div>
+		<hr>
+
+		<img id="flatsharing" />
+	</td>
+</tr>
+<tr>
+	<td style="width: 444px; table-layout: fixed">
+		<!--<div class="site-text">
+			<p><i>Quasi: Für jeden Penny den man reinsteckt bekommt man Credits. Darüber bekommt man einen Überblick wer wie viel Geld und Zeit in die WG steckt. Letztendlich muss die Credits-Waage ausgeglichen werden, damit niemand zu kurz kommt.</i></p>
+		</div>-->
+		<img id="winnersPodium" />
+		<h2 class="site-title"><br>Roomies, don't be daft and balance each other!</h2>
+	</td>
+	<td>
+		<h2 class="site-title">Sign Up</h2>
+		<div class="site-text">It's free and always will be.</div>
+		<div class="placeholder"></div>
+		<div id="registration_container">
+			<noscript>&lt;div id="no_js_box"&gt;&lt;h2&gt;JavaScript ist in deinem Browser deaktiviert.&lt;/h2&gt;&lt;p&gt;Bitte aktiviere JavaScript in deinem Browser oder installiere einen Browser, der JavaScript unterstützt, um dich hier zu registrieren.&lt;/p&gt;&lt;/div&gt;</noscript>
+			<form method="post" id="reg" name="reg" action="" onsubmit="">
+				<input type="hidden" name="lsd" value="VVqdCPlo" autocomplete="off">
+				<input type="text" class="inputtextHome" data-type="text" name="firstname" value="" placeholder="Username">
+				<div class="placeholder"></div>
+				<input type="text" class="inputtextHome" data-type="text" name="reg_email" value="" placeholder="Your Email">
+				<div class="placeholder"></div>
+				<input type="text" class="inputtextHome" data-type="text" name="reg_email_confirmation" value="" placeholder="Re-enter Email">
+				<div class="placeholder"></div>
+				<input type="password" class="inputtextHome" data-type="text" name="reg_passwd" placeholder="New Password" value="">
+				<div class="placeholder"></div>
+				<p class="_58mv">By clicking Sign Up, you agree to our Terms and that you have read our Data Use Policy, including our Cookie Use.</p>
+				<div class="placeholder"></div>
+				<button type="submit" class="signup" name="websubmit">Sign Up</button>
+			</form>
+		</td>
+	</tr>
+</table>
