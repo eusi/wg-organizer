@@ -704,7 +704,7 @@ textarea, .inputtext, .inputpassword {
 	-webkit-border-radius: 0;
 }
 
-#loginbutton input, .uiButton button {
+#loginbutton input, .uiButton button, #logoutbutton input {
 	border: 0;
 	cursor: pointer;
 	font-size: 8px;
@@ -745,7 +745,7 @@ textarea, .inputtext, .inputpassword {
 	padding: 2px 9px 2px 9px; /* top right bottom left */
 }
 
-#loginbutton input:active, .uiButton input:active, .uiButton button:active {
+#loginbutton input:active, .uiButton input:active, .uiButton button:active, #logoutbutton input:active {
 	background: -webkit-gradient(linear,left top,left bottom,from(#5A6271),to(#606774));
 	border-top: 1px solid #383E47;
 	border-left: 1px solid #383E47;
@@ -756,10 +756,15 @@ textarea, .inputtext, .inputpassword {
 	-webkit-box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.0);
 }
 
-#loginbutton input:hover, .uiButton input:hover, .uiButton button:hover {
+#loginbutton input:hover, .uiButton input:hover, .uiButton button:hover, #logoutbutton input:hover {
 	text-shadow: 1px 2px 3px rgba(255,255,102,0.50);
 	-moz-text-shadow: 1px 2px 3px rgba(255,255,102,0.50);
 	-webkit-text-shadow: 1px 2px 3px rgba(255,255,102,0.50);
+}
+
+#logoutbutton input {
+	margin-left: 60px;
+	margin-top: -15px;
 }
 
 .uiInputLabel .uiInputLabelLabel {
@@ -782,6 +787,22 @@ textarea, .inputtext, .inputpassword {
 	height: 0;
 	line-height: 0;
 	visibility: hidden;
+}
+
+#user_nav {
+	float:right;
+	display:block;
+	margin-top:13px;
+	line-height:19px;
+	margin-top:5px;
+	margin-left:3px;
+	padding-right:12px;
+	display:inline;
+}
+
+#user_nav, #user_nav a {
+	color: #ffffff;
+	font-size:12px;
 }
 
 /***************************************************************************
