@@ -20,13 +20,14 @@
   <div id="cuba-libre-top"></div>
 
     <div class="alert-init">
-      <%= devise_error_messages! %>
-      <% if notice %>
+        <%= render 'shared/messages' %>
+        <%= devise_error_messages! %>
+      <!--% if notice %>
         <div class="alert alert-block alert-success"><%= notice %></div>
-      <% end %>
-      <% if alert %>
-        <div class="alert alert-block alert-danger"><%= alert %></div>
-      <% end %>
+      % end %>
+      % if alert %>
+        <div class="alert alert-block alert-error"><%= alert %></div>
+      % end %>-->
     </div>
 
   <!--<h2 id="tagline" class="imgtext">Slogan</h2>-->

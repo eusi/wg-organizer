@@ -818,10 +818,13 @@ textarea, .inputtext, .inputpassword {
  }
 
 .alert-alert {
-  color: #8a6d3b;
-  background-color: #fcf8e3;
-  border-color: #faebcc;
-  text-align: left;
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  padding: 15px;
+  margin-bottom: 30px;
+  border: 1px solid transparent;
+  border-radius: 4px;
  }
 
 .alert-block {

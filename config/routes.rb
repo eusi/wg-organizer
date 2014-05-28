@@ -1,25 +1,32 @@
 WGOrganizer::Application.routes.draw do
-  devise_for :users, :skip => [:sessions]#, :registrations
-
-  unauthenticated do
-    as :user do
-    #root to: 'home#inex'
-    root to: 'devise/registrations#new'
-   end
-  end
-
-#as :user do
-  # using login path for registration
-  #get '/login' => 'registrations#new', :as => :new_user_registration
-  #post '/signup' => 'registrations#create', :as => :user_registration
-  #post '/signin' => 'sessions#new', :as => :new_user_session
-  #post '/signin' => 'sessions#create', :as => :user_session
-#end
+  devise_for :users, :skip => [:sessions]
 
 devise_scope :user do
   get '/signin' => 'sessions#new', :as => :new_user_session
   post '/signin' => 'sessions#create', :as => :user_session
+  get '/signout' => 'sessions#destroy', via: :destroy, :as => :destroy_user_session, #match instead of get?
+      :via => Devise.mappings[:user].sign_out_via
 end
+
+authenticated :user do
+  devise_scope :user do
+    root to: 'main#index', :as => "main"
+  end
+end
+
+unauthenticated do
+  devise_scope :user do
+    root to: 'devise/registrations#new', :as => "unauthenticated"
+  end
+end
+
+  #as :user do
+    # using login path for registration
+    #get '/login' => 'registrations#new', :as => :new_user_registration
+    #post '/signup' => 'registrations#create', :as => :user_registration
+    #post '/signin' => 'sessions#new', :as => :new_user_session
+    #post '/signin' => 'sessions#create', :as => :user_session
+  #end
 
   get "choose" => 'choose#index'
   get "home" => 'home#index'

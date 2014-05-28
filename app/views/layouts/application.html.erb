@@ -12,6 +12,8 @@
       <li class="home"><a href="" class="hovFade" style="opacity: 1;">Home</a></li>
       <li class="contact"><a id="contactMe" href="" class="hovFade" style="opacity: 0.899;">Contact</a></li>
 
+      <%= javascript_include_tag :all %>
+
       <script type="text/javascript">
         <!--
         var userName = "unknonwn user"; // this needs some love to be cool
@@ -31,13 +33,14 @@
   <!--<h2 id="tagline" class="imgtext">Slogan</h2>-->
 
     <div class="alert-init">
-      <%= devise_error_messages! %>
-      <% if notice %>
+        <%= render 'shared/messages' %>
+        <%= devise_error_messages! %>
+      <!--% if notice %>
         <div class="alert alert-block alert-success"><%= notice %></div>
-      <% end %>
-      <% if alert %>
-        <div class="alert alert-block alert-danger"><%= alert %></div>
-      <% end %>
+      % end %>
+      % if alert %>
+        <div class="alert alert-block alert-error"><%= alert %></div>
+      % end %>-->
     </div>
 
   <div id="sites">
