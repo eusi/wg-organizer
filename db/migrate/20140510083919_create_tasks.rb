@@ -6,6 +6,7 @@ class CreateTasks < ActiveRecord::Migration
 	t.decimal :BaseCredit
 	t.text :Taskdescription
     t.timestamps
+  t.references :Sharedappartment, index: true
     end
   end
 end

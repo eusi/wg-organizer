@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140524160822) do
+ActiveRecord::Schema.define(version: 20140528145409) do
 
   create_table "charges", force: true do |t|
     t.decimal  "Credits"
@@ -49,9 +49,10 @@ ActiveRecord::Schema.define(version: 20140524160822) do
 
   create_table "sharedappartments", force: true do |t|
     t.string   "Name"
-    t.string   "Password"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_salt"
+    t.string   "password_hash"
   end
 
   create_table "shoutboxmessages", force: true do |t|
@@ -70,7 +71,10 @@ ActiveRecord::Schema.define(version: 20140524160822) do
     t.text     "Taskdescription"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "Sharedappartment_id"
   end
+
+  add_index "tasks", ["Sharedappartment_id"], name: "index_tasks_on_Sharedappartment_id"
 
   create_table "userroles", force: true do |t|
     t.string   "RoleName"
