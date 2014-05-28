@@ -1,24 +1,24 @@
 WGOrganizer::Application.routes.draw do
-  devise_for :users, :skip => [:sessions]
+    devise_for :users, :skip => [:sessions]
 
-devise_scope :user do
-  get '/signin' => 'sessions#new', :as => :new_user_session
-  post '/signin' => 'sessions#create', :as => :user_session
-  get '/signout' => 'sessions#destroy', via: :destroy, :as => :destroy_user_session, #match instead of get?
-      :via => Devise.mappings[:user].sign_out_via
-end
-
-authenticated :user do
-  devise_scope :user do
-    root to: 'main#index', :as => "main"
+    devise_scope :user do
+      get '/signin' => 'sessions#new', :as => :new_user_session
+      post '/signin' => 'sessions#create', :as => :user_session
+    get '/signout' => 'sessions#destroy', via: :destroy, :as => :destroy_user_session, #match instead of get?
+    :via => Devise.mappings[:user].sign_out_via
   end
-end
 
-unauthenticated do
-  devise_scope :user do
-    root to: 'devise/registrations#new', :as => "unauthenticated"
+  authenticated :user do
+    devise_scope :user do
+      root to: 'main#index', :as => "main"
+    end
   end
-end
+
+  unauthenticated do
+    devise_scope :user do
+      root to: 'devise/registrations#new', :as => "unauthenticated"
+    end
+  end
 
   #as :user do
     # using login path for registration
@@ -29,7 +29,7 @@ end
   #end
 
   get "choose" => 'choose#index'
-  get "home" => 'home#index'
+  get "home" => 'home#_index'
 
   get "main" => 'main#index' #mainpage after you logged in
   get "job" => 'job#index'

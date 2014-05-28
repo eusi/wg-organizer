@@ -792,17 +792,26 @@ textarea, .inputtext, .inputpassword {
 #user_nav {
 	float:right;
 	display:block;
-	margin-top:13px;
+	margin-top:10px;
 	line-height:19px;
-	margin-top:5px;
 	margin-left:3px;
 	padding-right:12px;
 	display:inline;
 }
 
-#user_nav, #user_nav a {
+#user_nav {
 	color: #ffffff;
 	font-size:12px;
+}
+
+.user_nav, .user_nav a {
+	color: #98a9ca;
+	font-weight: normal;	
+	font-size:11px;
+}
+
+.user_nav a:hover {
+	text-decoration: underline;	
 }
 
 /***************************************************************************

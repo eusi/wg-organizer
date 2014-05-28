@@ -8,6 +8,7 @@
    <div id="header">
     <div class="column">
      <h1><a href="/">Roomie</a></h1>
+     
      <!--
      <ul id="topnav">
       <li class="home"><a href="" class="hovFade" style="opacity: 1;">Home</a></li>
@@ -29,9 +30,10 @@
     <div id="user_nav">
       <% if user_signed_in? %>
         Hey <%= current_user.email %>! <br>
-        Not you? <div id="logoutbutton">
-                    <div><a href="/signout"><%= submit_tag 'Sign out' %></a></div>
-                 </div>
+        <div class="user_nav">Not you? <a href="/signout">Sign out</a></div>
+        <!--<div id="logoutbutton">
+             <a href="/signout"><%= submit_tag 'Sign out' %></a>
+        </div>-->
       <% else %>
         <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
       <% end %>
