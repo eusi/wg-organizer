@@ -11,11 +11,6 @@
 		</div>
 	</td>
 	<td>
-		<%= link_to "TEST LOG IN", main_path %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<%= link_to "CHOOSE WG", choose_path %>
-
-		<hr>
-
 		<img id="flatsharing" />
 	</td>
 </tr>
@@ -33,20 +28,23 @@
 		<div class="placeholder"></div>
 		<div id="registration_container">
 			<noscript>&lt;div id="no_js_box"&gt;&lt;h2&gt;JavaScript ist in deinem Browser deaktiviert.&lt;/h2&gt;&lt;p&gt;Bitte aktiviere JavaScript in deinem Browser oder installiere einen Browser, der JavaScript unterstützt, um dich hier zu registrieren.&lt;/p&gt;&lt;/div&gt;</noscript>
-			<form method="post" id="reg" name="reg" action="" onsubmit="">
-				<input type="hidden" name="lsd" value="VVqdCPlo" autocomplete="off">
-				<input type="text" class="inputtextHome" data-type="text" name="firstname" value="" placeholder="Username">
-				<div class="placeholder"></div>
-				<input type="text" class="inputtextHome" data-type="text" name="reg_email" value="" placeholder="Your Email">
-				<div class="placeholder"></div>
-				<input type="text" class="inputtextHome" data-type="text" name="reg_email_confirmation" value="" placeholder="Re-enter Email">
-				<div class="placeholder"></div>
-				<input type="password" class="inputtextHome" data-type="text" name="reg_passwd" placeholder="New Password" value="">
-				<div class="placeholder"></div>
-				<p class="_58mv">By clicking Sign Up, you agree to our Terms and that you have read our Data Use Policy, including our Cookie Use.</p>
-				<div class="placeholder"></div>
-				<button type="submit" class="signup" name="websubmit">Sign Up</button>
-			</form>
+
+			<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %> <!--:html => {:class => "inputtextHome"}-->
+			  <div class="placeholder"></div>
+			  <%= f.text_field :UserName , autofocus: true, :class => "inputtextHome", :placeholder => "Username" %></div>
+
+			  <div class="placeholder"></div>
+			  <%= f.email_field :email, autofocus: true, :class => "inputtextHome", :placeholder => "Your Email" %></div>
+
+			  <div class="placeholder"></div>
+			  <%= f.password_field :password, autocomplete: "off", :class => "inputtextHome", :placeholder => "Password" %></div>
+
+			  <div class="placeholder"></div>
+			  <%= f.password_field :password_confirmation, autocomplete: "off", :class => "inputtextHome", :placeholder => "Re-enter Password" %></div>
+
+			  <div class="placeholder"></div>
+			  <div><%= f.submit "Sign up", :class => "signup" %></div>
+			<% end %>
 		</td>
 	</tr>
 </table>

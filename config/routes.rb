@@ -1,8 +1,28 @@
 WGOrganizer::Application.routes.draw do
-  devise_for :users
-  root :to => "home#index" #startpage
+  devise_for :users, :skip => [:sessions]#, :registrations
+
+  unauthenticated do
+    as :user do
+    #root to: 'home#inex'
+    root to: 'devise/registrations#new'
+   end
+  end
+
+#as :user do
+  # using login path for registration
+  #get '/login' => 'registrations#new', :as => :new_user_registration
+  #post '/signup' => 'registrations#create', :as => :user_registration
+  #post '/signin' => 'sessions#new', :as => :new_user_session
+  #post '/signin' => 'sessions#create', :as => :user_session
+#end
+
+devise_scope :user do
+  get '/signin' => 'sessions#new', :as => :new_user_session
+  post '/signin' => 'sessions#create', :as => :user_session
+end
 
   get "choose" => 'choose#index'
+  get "home" => 'home#index'
 
   get "main" => 'main#index' #mainpage after you logged in
   get "job" => 'job#index'

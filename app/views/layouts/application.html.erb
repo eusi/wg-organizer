@@ -30,6 +30,16 @@
   <div id="cuba-libre-top"></div>
   <!--<h2 id="tagline" class="imgtext">Slogan</h2>-->
 
+    <div class="alert-init">
+      <%= devise_error_messages! %>
+      <% if notice %>
+        <div class="alert alert-block alert-success"><%= notice %></div>
+      <% end %>
+      <% if alert %>
+        <div class="alert alert-block alert-danger"><%= alert %></div>
+      <% end %>
+    </div>
+
   <div id="sites">
     <div id="sites-bottom"></div>
 
