@@ -23,11 +23,15 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_up_path_for(resource)
+<<<<<<< HEAD
     '/profil'
+=======
+    '/profile'
+>>>>>>> fbd160266ed3891dc23254cd121f42df6a9f8f6d
   end
 
   def after_sign_out_path_for(resource_or_scope)
-    new_user_session_path #root_path
+    '/home'   #new_user_session_path    #root_path
   end
 
 end

@@ -88,12 +88,12 @@
 						<p><%= submit_tag 'Shout!', :class => "signup" %></p>
 					<!--% end %>-->
 
-					<!--%= error_messages_for :shout, :header_message => nil, :message => nil %>-->
-					<%= '<p class="success">' + flash[:notice] + '</p>' if flash[:notice] %>
-					<% if flash[:notice] %>
-					  <%= '<p class="success">' + flash[:notice] + '</p>' %>
-					<% end %>
-
+					<!--%= error_messages_for :shout, :header_message => nil, :message => nil %>
+					%= '<p class="success">' + flash[:notice] + '</p>' if flash[:notice] %>
+					% if flash[:notice] %>
+					  %= '<p class="success">' + flash[:notice] + '</p>' %>
+					% end %>
+					-->
 				</div>
 			</div>
 		</td>
