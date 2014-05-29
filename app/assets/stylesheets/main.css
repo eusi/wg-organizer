@@ -884,43 +884,87 @@ textarea, .inputtext, .inputpassword {
 ***************************************************************************/
 
 textarea.taskdesc  {
-	width: 300px;
+	width: 200px;
 	height: 80px;
 	padding: 5px;
+	font-size:10px;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 }
 
 table.reference {
 	border-collapse: collapse;
 	width: 80%;
 	border-spacing: 0 !important;
-
+	border-radius: 10px;
 	border: 1px solid #000000;
 }
 
-table.reference tr:nth-child(odd)	{background-color:#f1f1f1;}
-table.reference tr:nth-child(even)	{background-color:#ffffff;}
-
-table.reference tr.fixzebra			{background-color:#f1f1f1;}
-
-table.reference th{
-	color:#ffffff;background-color:#434956;border:1px solid #434956;padding:3px;vertical-align:top;text-align:left;
+table.reference tr:last-child td:first-child {
+	-moz-border-radius-bottomleft:10px;
+	-webkit-border-bottom-left-radius:10px;
+	border-bottom-left-radius:10px
 }
 
-table.reference th a:link,table.reference th a:visited{
+table.reference tr:last-child td:last-child {
+	-moz-border-radius-bottomright:10px;
+	-webkit-border-bottom-right-radius:10px;
+	border-bottom-right-radius:10px
+}
+
+table.reference tr:first-child th:first-child 
+{
+	-moz-border-radius-topleft:10px;
+	-webkit-border-top-left-radius:10px;
+    border-top-left-radius: 10px;
+}
+
+table.reference tr:first-child th:last-child 
+{
+	-moz-border-radius-topright:10px;
+	-webkit-border-top-right-radius:10px;
+    border-top-right-radius: 10px;
+}
+	
+table.reference tr:nth-child(odd) {
+	background-color:#BAC1CC;
+}
+
+table.reference tr:nth-child(even) {
+	background-color:#ffffff;
+}
+
+table.reference tr.fixzebra	{
+	background-color:#BAC1CC;
+}
+
+table.reference th { /*table.reference tr:last-child td:first-child*/
+	color:#ffffff;
+	background-color:#434956;
+	border:1px solid #434956;
+	vertical-align:top;
+	text-align:left;
+
+	padding:4px 10px;
+}
+
+table.reference th a:link,table.reference th a:visited {
 	color:#ffffff;
 }
 
-table.reference th a:hover,table.reference th a:active{
+table.reference th a:hover,table.reference th a:active {
 	color:#EE872A;
 }
 
 table.reference td{
-	border:1px solid #d4d4d4;padding:5px;padding-top:7px;padding-bottom:7px;vertical-align:top;
+	border:1px solid #d4d4d4;
+	padding-top:7px;
+	padding-bottom:7px;
+	vertical-align:top;
 }
 
 table.reference td.example_code
 {
-vertical-align:bottom;
+	vertical-align:bottom;
 }
 
 /***************************************************************************
@@ -955,6 +999,38 @@ textarea.shoutbox  {
 	margin-left: 5px;
 	min-height:  20px;
 	padding-top:  5px;
+}
+
+#shoutboxbot {
+	background: url("bot.png") no-repeat;
+	width: 260px;
+	height: 25px;
+}
+
+#shoutcontent {
+	margin: 0 auto;
+	width: 260px;
+	text-align: left;
+	background: #ffffff;
+	padding: 10px 0px;
+	overflow: hidden;
+	border-radius: 10px;
+	border: 1px solid #000000;
+}
+ 
+#shoutcontent ul {
+	margin-bottom: 5px;
+	margin-left: 40px;
+}
+ 
+#shoutcontent ul li {
+	list-style: none;
+	clear: both;
+	padding-top: 5px;
+}
+ 
+#shoutcontent ul li:first-child {
+	padding-top:0;
 }
 
 .meta {
@@ -999,41 +1075,3 @@ form input, form textarea {
 	margin-bottom: 10px;
 }
 */
-
-#boxtop {
-	margin: 30px auto 0px;
-	background: #ffffff url("top.png") no-repeat;
-	width: 263px;
-	height: 23px;
-}
- 
-#boxbot {
-	margin: 0px auto 30px;
-	background: #ffffff url("bot.png") no-repeat;
-	width: 264px;
-	height: 25px;
-}
-
-#shoutcontent {
-	margin: 0 auto;
-	width: 200px;
-	text-align: left;
-	background: #ffffff url("bg.png") repeat-y;
-	/*padding: 15px 35px;*/
-	overflow: hidden;
-}
- 
-#shoutcontent ul {
-	margin-left: 0;
-	margin-bottom: 5px;
-}
- 
-#shoutcontent ul li {
-	list-style: none;
-	clear: both;
-	padding-top: 10px;
-}
- 
-#shoutcontent ul li:first-child {
-	padding-top:0;
-}
