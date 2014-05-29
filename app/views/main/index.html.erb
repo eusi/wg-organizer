@@ -1,7 +1,6 @@
-<h2 class="site-title">HEADER</h2>
-
+<h2 class="site-title">Main</h2>
 <div class="site-text"> 
-	<p>bla bla bla bla bla</p>
+	<p>This your commando base from there you can see everything and everyone!</p>
 </div>
 
 
@@ -13,11 +12,52 @@
 		</td>
 		<td>
 			<h2 class="site-title">Last Activities</h2>
+			...
 		</td>
 	</tr>
 	<tr>
 		<td>
 			<h2 class="site-title">Shoutbox</h2>
+			<div>
+			<!--<div id="shoutcontainer">
+				<div id="shoutcontent">
+					<ul>
+					% for shout in @shouts
+					 
+					  gravatar = 'http://www.gravatar.com/avatar.php?gravatar_id=' + Digest::MD5.hexdigest(h(shout.email.downcase)) + '&size=70' %>
+					 
+					  <li>
+					    <div class="meta">
+					      <img src="%= gravatar %>" alt="Gravatar" />
+					      <p>%= shout.name %</p>
+					    </div>
+					    <div class="shout">
+					      <p>%= shout.message %</p>
+					    </div>
+					  </li>
+					 
+					% end %>
+				</div>
+			</div>
+				</ul>-->
+				
+				<textarea type="text" class="inputtextHome shoutbox" data-type="text" value="" readonly>2014-05-29 10:27 - Werner spinnt! LOL</textarea>
+				<div class="placeholder"></div>
+				<textarea type="text" class="inputtextHome shoutdesc" data-type="text" placeholder="Tell me what u are thinking!" value=""></textarea>
+				<div class="placeholder"></div>
+				<!--% form_for :shout, :url => { :action => 'create' } do |f| %>-->
+					<!--%= f.text_area :message, :rows => 5, :cols => 40 %>-->
+					<div class="placeholder"></div>
+					<p><%= submit_tag 'Shout!', :class => "signup" %></p>
+				<!--% end %>-->
+
+				<!--%= error_messages_for :shout, :header_message => nil, :message => nil %>-->
+				<%= '<p class="success">' + flash[:notice] + '</p>' if flash[:notice] %>
+				<% if flash[:notice] %>
+				  <%= '<p class="success">' + flash[:notice] + '</p>' %>
+				<% end %>
+
+			</div>
 		</td>
 	</tr>
 </table>

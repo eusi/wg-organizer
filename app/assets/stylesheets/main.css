@@ -878,3 +878,102 @@ textarea, .inputtext, .inputpassword {
   border-color: #bce8f1;
   text-align: left;
  }
+
+/***************************************************************************
+*************************** TASKS ******************************************
+***************************************************************************/
+
+textarea.taskdesc  {
+	width: 300px;
+	height: 80px;
+	padding: 5px;
+}
+
+/***************************************************************************
+*************************** SHOUTBOX ***************************************
+***************************************************************************/
+
+textarea.shoutdesc  {
+	width:   260px;
+	height:   40px;
+	padding:   5px;
+	font-size:10px;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+}
+
+textarea.shoutbox  {
+	width:   260px;
+	height:  200px;
+	padding:   5px;
+	font-size:10px;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+}
+
+#shoutcontainer {
+	width: 664px;
+	margin: 20px auto;
+	text-align: center;
+}
+
+/*
+.shout {
+width: 500px;
+float: left;
+margin-left: 15px;
+min-height: 110px;
+padding-top: 5px;
+}
+ 
+form {
+clear: both;
+margin-top: 135px !important;
+}
+ 
+.fname, .femail {
+width: 222px;
+float: left;
+}
+ 
+form p {
+font-weight: bold;
+margin-bottom: 3px;
+}
+ 
+form textarea {
+width: 365px;
+overflow: hidden;
+}
+ 
+form input, form textarea {
+background-color: #313d60;
+border: 1px solid #2d395c;
+color: #ffffff;
+padding: 5px;
+font-family: Lucida Sans Unicode, Helvetica, Arial, Verdana, sans-serif;
+margin-bottom: 10px;
+}
+
+#shoutcontent {
+margin: 0 auto;
+width: 600px;
+text-align: left;
+background: url("../images/bg.png") repeat-y;
+padding: 15px 35px;
+overflow: hidden;
+}
+ 
+#shoutcontent ul {
+margin-left: 0;
+margin-bottom: 15px;
+}
+ 
+#shoutcontent ul li {
+list-style: none;
+clear: both;
+padding-top: 30px;
+}
+ 
+#shoutcontent ul li:first-child {
+padding-top:0;
+}
+*/

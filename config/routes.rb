@@ -29,10 +29,10 @@ WGOrganizer::Application.routes.draw do
   #end
 
   get "choose" => 'choose#index'
-  get "home" => 'home#_index'
+  get "home" => 'home#_index' #startpage before you logged in
 
   get "main" => 'main#index' #mainpage after you logged in
-  get "job" => 'job#index'
+   get "job" => 'job#index'
   get "profile" => 'profile#index'
   get "tasks" => 'tasks#index'
   
