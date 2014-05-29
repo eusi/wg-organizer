@@ -4,17 +4,23 @@
 	<p>If you have done something for you and your roomies: here you can share it to get credits!</p>
 </div>
 
-
-<table height="99%" width="100%" id="homeTable">
-<tr>
-	<td>
-		<h2 class="site-title">Select member</h2>
-	</td>
-	<td>
-		<h2 class="site-title">Task properties</h2>
-		<div class="placeholder"></div>
-		<div>
-			<form method="post" action="" onsubmit="">
+<form method="post" action="" onsubmit="">
+	<table height="99%" width="100%" id="homeTable">
+	<tr>
+		<td>
+			<h2 class="site-title">Select member</h2>
+			<div>
+				<%= check_box("puppy", "gooddog", {}, "yes", "no") %> <!--puppy[gooddog]-->
+				Puppy
+				<br> 
+				<%= check_box("eula", "accepted", { class: 'eula_check' }, "yes", "no") %>
+				Eula
+			</div>
+		</td>
+		<td>
+			<h2 class="site-title">Task properties</h2>
+			<div class="placeholder"></div>
+			<div>
 				<input type="text" class="inputtextHome" data-type="text" value="" placeholder="Date">
 				<div class="placeholder"></div>
 				<input type="text" class="inputtextHome" data-type="text" placeholder="Task" value="">
@@ -24,7 +30,8 @@
 				<textarea type="text" class="inputtextHome taskdesc" data-type="text" placeholder="Comment" value=""></textarea>
 				<div class="placeholder"></div>
 				<button type="submit" class="signup" name="websubmit">Get Credits!</button>
-			</form>
-		</td>
-	</tr>
-</table>
+
+			</td>
+		</tr>
+	</table>
+</form>

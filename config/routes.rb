@@ -28,13 +28,11 @@ WGOrganizer::Application.routes.draw do
     #post '/signin' => 'sessions#create', :as => :user_session
   #end
 
-  get "choose" => 'choose#index'
   get "home" => 'home#_index' #startpage before you logged in
-
   get "main" => 'main#index' #mainpage after you logged in
-   get "job" => 'job#index'
-  get "profile" => 'profile#index'
-  get "tasks" => 'tasks#index'
+  get "job" => 'job#index' #addjob
+  get "profile" => 'profile#index' #profile and choosen!
+  get "tasks" => 'tasks#index' #task management
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
