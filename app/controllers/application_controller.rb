@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
 
   layout 'home'
   protect_from_forgery with: :exception
@@ -16,6 +14,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:UserName, :email, :password, :password_confirmation, :current_password) }
   end
 
+  protect_from_forgery
+
+  private
+
   def after_sign_in_path_for(resource)
     '/main'
   end
@@ -24,19 +26,8 @@ class ApplicationController < ActionController::Base
     '/main'
   end
 
-  def after_sign_out_path_for(resource)
-    root_path
+  def after_sign_out_path_for(resource_or_scope)
+    new_user_session_path #root_path
   end
 
-  protect_from_forgery
-
-  private
-
-   def after_sign_in_path_for(resource)
-     # After you enter login info and click submit, I want you to be sent to the registrations#show page
-     main_path
-   end
-   def after_sign_out_path_for(resource_or_scope)
-     new_user_session_path
-   end
 end
