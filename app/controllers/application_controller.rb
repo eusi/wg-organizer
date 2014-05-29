@@ -19,7 +19,11 @@ class ApplicationController < ActionController::Base
   private
 
   def after_sign_in_path_for(resource)
-    '/main'
+    if current_user.Sharedappartment_id != nil
+      '/main'
+    else 
+      '/profile'
+    end
   end
 
   def after_sign_up_path_for(resource)
