@@ -31,10 +31,10 @@
 
 			<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %> <!--:html => {:class => "inputtextHome"}-->
 			  <div class="placeholder"></div>
-			  <%= f.text_field :UserName , autofocus: true, :class => "inputtextHome", :placeholder => "Username" %></div>
+			  <%= f.text_field :UserName , autofocus: false, :class => "inputtextHome", :placeholder => "Username" %></div>
 
 			  <div class="placeholder"></div>
-			  <%= f.email_field :email, autofocus: true, :class => "inputtextHome", :placeholder => "Your Email" %></div>
+			  <%= f.email_field :email, autofocus: false, :class => "inputtextHome", :placeholder => "Your Email" %></div>
 
 			  <div class="placeholder"></div>
 			  <%= f.password_field :password, autocomplete: "off", :class => "inputtextHome", :placeholder => "Password" %></div>
