@@ -29,7 +29,7 @@
 
     <div id="user_nav">
       <% if user_signed_in? %>
-        Hey <%= current_user.email %>! <br>
+        Hey <%= current_user.UserName %>! <br>
         <div class="user_nav">Not you? <a href="/signout">Sign out</a></div>
         <!--<div id="logoutbutton">
              <a href="/signout"><%= submit_tag 'Sign out' %></a>
