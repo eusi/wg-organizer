@@ -67,33 +67,37 @@
 
       <!-- #nav -->
       <ul id="site-type-nav">
-        <li class="navoverview"><a href="/main" class="hovFadeLeft"><span>Overview</span></a></li>		
+        <% if current_user.Sharedappartment_id != nil %> 
+        <li class="navoverview"><a href="/main" class="hovFadeLeft"><span>Overview</span></a></li>
         <li class="navaddjob"><a href="/job" class="hovFadeLeft"><span>Add Job</span></a></li>
-        <li class="navmyprofile"><a href="/profile" class="hovFadeLeft"><span>My Profile</span></a></li>
         <li class="navtasks"><a href="/tasks" class="hovFadeLeft"><span>Task Management</span></a></li>    
+        <% end %> 
+        <li class="navmyprofile"><a href="/profile" class="hovFadeLeft"><span>My Profile</span></a></li>
         <li class="navlogout"><a href="/signout" class="hovFadeLeft"><span>Logout</span></a></li>
         <li id="current" class="current"></li>
       </ul>
 
       <!-- switches left nav's current item -->
+      <% if current_user.Sharedappartment_id != nil %> 
       <% if current_page?('/job') %>
       <script type="text/javascript">
         <!-- 
         document.getElementById("current").style.top="35px"; 
           //-->
         </script>
-        <% elsif current_page?('/profile') %>
+        <% elsif current_page?('/tasks') %>
         <script type="text/javascript">
           <!-- 
           document.getElementById("current").style.top="71px"; 
           //-->
         </script>
-        <% elsif current_page?('/tasks') %>
+        <% elsif current_page?('/profile') %>
         <script type="text/javascript">
           <!-- 
           document.getElementById("current").style.top="107px"; 
           //-->
         </script>
+        <% end %>
         <% end %>
         <!-- #nav -->
       </div>
