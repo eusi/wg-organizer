@@ -33,6 +33,8 @@ WGOrganizer::Application.routes.draw do
   get "job" => 'job#index' #addjob
   get "profile" => 'profile#index' #profile and choosen!
   get "tasks" => 'tasks#index' #task management
+  post 'profile/createWG' => 'profile#createWG'
+  post 'profile/joinWG' => 'profile#joinWG'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
