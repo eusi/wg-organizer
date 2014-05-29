@@ -13,6 +13,23 @@ def get_balance()
 	result = Completedtask.where(:ByUser=>self).sum(:Credits)-Charge.where(:ForUser=>self).sum(:Credits)
 end
 
+def get_shoutbox_messages_of_appartment()
+	current_appartment =self.Sharedappartment
+	if(current_appartment!=nil)
+		result=current_appartment.get_shoutbox_messages()
+	else
+		nil
+	end
+end
+
+def get_last_activities_of_appartment()
+current_appartment =self.Sharedappartment
+	if(current_appartment!=nil)
+		result=current_appartment.get_last_activities()
+	else
+		nil
+	end	
+end
 
 
 end

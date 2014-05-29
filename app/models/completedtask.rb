@@ -1,7 +1,7 @@
 class Completedtask < ActiveRecord::Base
 belongs_to :ByUser,:class_name => "User", :foreign_key => 'User_id'	
 belongs_to :Task
-has_many :Charges
+has_many :Charges, :dependent => :delete_all
 
 def self.complete_task(by_user,for_users,amount,task,task_start,task_end,summary)
 	

@@ -5,6 +5,20 @@ validates :password_salt, presence: true
 has_many :Users
 has_many :Tasks, :dependent => :delete_all
 
+	def get_shoutbox_messages()
+
+		users_of_appartment = self.Users	
+		result=Shoutboxmessage.where(User_id:users_of_appartment).joins(:User).order(created_at: :desc)
+	
+	end
+
+	def get_last_activities()
+
+		users_of_appartment = self.Users	
+		result=Completedtask.where(User_id:users_of_appartment).joins(:ByUser).joins(:Task).order(created_at: :desc)
+	
+	end
+
 
   def get_balance()
 

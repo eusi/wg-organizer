@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528145409) do
+ActiveRecord::Schema.define(version: 20140529080558) do
 
   create_table "charges", force: true do |t|
     t.decimal  "Credits"
@@ -87,7 +87,6 @@ ActiveRecord::Schema.define(version: 20140528145409) do
     t.string   "UserName"
     t.string   "FirstName"
     t.string   "LastName"
-    t.binary   "Picture"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "Userrole_id"
@@ -102,6 +101,7 @@ ActiveRecord::Schema.define(version: 20140528145409) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "Picture"
   end
 
   add_index "users", ["Sharedappartment_id"], name: "index_users_on_Sharedappartment_id"
