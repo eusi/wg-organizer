@@ -1,11 +1,11 @@
 WGOrganizer::Application.routes.draw do
     devise_for :users, :skip => [:sessions]
 
-    devise_scope :user do
-      get '/signin' => 'sessions#new', :as => :new_user_session
-      post '/signin' => 'sessions#create', :as => :user_session
-    get '/signout' => 'sessions#destroy', via: :destroy, :as => :destroy_user_session, #match instead of get?
-    :via => Devise.mappings[:user].sign_out_via
+  devise_scope :user do
+   	get  '/signin' => 'sessions#new', :as => :new_user_session
+   	post '/signin' => 'sessions#create', :as => :user_session
+   	get  '/signout' => 'sessions#destroy', via: :destroy, :as => :destroy_user_session, #match instead of get?
+   	:via => Devise.mappings[:user].sign_out_via
   end
 
   authenticated :user do

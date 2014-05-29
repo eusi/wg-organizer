@@ -24,7 +24,7 @@
 					<div class="placeholder"></div>
 					<button type="submit" class="signup" name="saveprofile">Save profile</button>
 				</form>
-
+			</div>
 		</td>
 		<td>
 
@@ -35,24 +35,15 @@
 			<h2 class="site-title">Join an existing shared flat</h2>
 			<div class="placeholder"></div>
 			<div>
-					<!-- @sharedappartment instead of :sharedappartment ? -->
-					<%= form_for :sharedappartment, :url => { :action => 'createWG' } do |f| %>
-						<%= f.hidden_field :user, :value => current_user.UserName %>
-						<div><%= f.text_field :name, autofocus: false, :class => "inputtextHome", :placeholder => "Shared flat" %></div>
-						<div class="placeholder"></div>
-						<div><%= f.password_field :password, autocomplete: "off", :class => "inputtextHome", :placeholder => "Password" %></div>
-						<div class="placeholder"></div>
-						<div><%= f.submit "Join", :class => "signup" %></div>
-					<% end %>
-<!--
-				<form method="post" action="" onsubmit="">
-					<input type="text" class="inputtextHome" data-type="text" value="" placeholder="Shared flat">
+				<!-- @sharedappartment instead of :sharedappartment ? -->
+				<%= form_for :sharedappartment, :url => { :action => 'joinWG' } do |f| %>
+					<%= f.hidden_field :user, :value => current_user.UserName %>
+					<div><%= f.text_field :name, autofocus: false, :class => "inputtextHome", :placeholder => "Shared flat name" %></div>
 					<div class="placeholder"></div>
-					<input type="password" class="inputtextHome" data-type="text" name="reg_passwd" placeholder="Password" value="">
+					<div><%= f.password_field :password, autocomplete: "off", :class => "inputtextHome", :placeholder => "Password" %></div>
 					<div class="placeholder"></div>
-					<button type="submit" class="signup" name="changeflat">Join</button>
-				</form>
--->
+					<div><%= f.submit "Join", :class => "signup" %></div>
+				<% end %>
 			</div>
 
 			<br><br>
@@ -60,16 +51,16 @@
 			<h2 class="site-title">Create a new shared flat</h2>
 			<div class="placeholder"></div>
 			<div>
-				<form method="post" action="" onsubmit="">
-					<input type="hidden" name="lsd" value="VVqdCPlo" autocomplete="off">
-					<input type="text" class="inputtextHome" data-type="text" value="" placeholder="Shared flat name">
+				<!-- @sharedappartment instead of :sharedappartment ? -->
+				<%= form_for :sharedappartment, :url => { :action => 'createWG' } do |f| %>
+					<%= f.hidden_field :user, :value => current_user.UserName %>
+					<div><%= f.text_field :name, autofocus: false, :class => "inputtextHome", :placeholder => "Shared flat name" %></div>
 					<div class="placeholder"></div>
-					<input type="password" class="inputtextHome" data-type="text" placeholder="Password" value="">
+					<div><%= f.password_field :password, autocomplete: "off", :class => "inputtextHome", :placeholder => "Password" %></div>
 					<div class="placeholder"></div>
-					<button type="submit" class="signup" name="createSharedFlat">Create</button>
-				</form>
+					<div><%= f.submit "Create", :class => "signup" %></div>
+				<% end %>
 			</div>
-
 		</td>
 	</tr>
 </table>

@@ -2,6 +2,9 @@ class MainController < ActionController::Base
 	layout 'application'
 	
 	def index
+    	if(current_user.Sharedappartment_id==nil)
+    		redirect_to '/profile'
+    	end
 		#@shouts = Shout.all_shouts
 	end
 
