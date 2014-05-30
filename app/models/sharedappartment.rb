@@ -1,9 +1,15 @@
 class Sharedappartment < ActiveRecord::Base
-validates :Name, uniqueness: true, presence: true,length: { maximum: 15 }
-validates :password_hash, presence: true
-validates :password_salt, presence: true
+
 has_many :Users
 has_many :Tasks, :dependent => :delete_all
+
+attr_accessor :password
+
+validates :Name, uniqueness: true, presence: true,length: { maximum: 15 }
+validates :password, presence: true
+#validates :password_hash, presence: true
+#validates :password_salt, presence: true
+
 
 	def get_shoutbox_messages()
 
@@ -61,24 +67,21 @@ def self.join_sharedappartment(user,name,password)
   end
   existing_sharedappartment= Sharedappartment.where(:Name=>name).first
   if(existing_sharedappartment==nil)
-    raise 'Sharedappartment not found.'
+    nil
   else
     existing_hash = BCrypt::Password.new(existing_sharedappartment.password_hash)
-    if password.to_s.empty?
-      raise 'Password is emtpy'
-    else
-      given_password_hash = BCrypt::Engine.hash_secret(password, existing_sharedappartment.password_salt)
+    given_password_hash = BCrypt::Engine.hash_secret(password, existing_sharedappartment.password_salt)
 
-      if(given_password_hash!=existing_hash)
-        raise 'Wrong password'
-      else
+    if(given_password_hash!=existing_hash)
+      nil
+    else
         user.Sharedappartment=existing_sharedappartment
         user.save()
+        return existing_sharedappartment
 
-      end
     end
   end
-  existing_sharedappartment
+  return nil;
 end
 
 
