@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
 	belongs_to :Userrole
 	belongs_to :Sharedappartment
 	validates :UserName, presence: true, length: { in: 3..25 }
-	validates :FirstName, presence: true,length: { maximum: 35 }
-	validates :LastName, presence: true,length: { maximum: 35 }
+	validates :FirstName, length: { maximum: 35 }
+	validates :LastName, length: { maximum: 35 }
 	
 	# This method calculates the current credits of the user.	
 	# * *Returns* :
