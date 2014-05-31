@@ -3,33 +3,49 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-has_many :Shoutboxmessages
-has_many :Completedtasks
-has_many :Charges
-belongs_to :Userrole
-belongs_to :Sharedappartment
-
-def get_balance()
-	result = Completedtask.where(:ByUser=>self).sum(:Credits)-Charge.where(:ForUser=>self).sum(:Credits)
-end
-
-def get_shoutbox_messages_of_appartment()
-	current_appartment =self.Sharedappartment
-	if(current_appartment!=nil)
-		result=current_appartment.get_shoutbox_messages()
-	else
-		nil
+	has_many :Shoutboxmessages, :dependent => :delete_all
+	has_many :Completedtasks, :dependent => :delete_all
+	has_many :Charges, :dependent => :delete_all
+	belongs_to :Userrole
+	belongs_to :Sharedappartment
+	validates :UserName, presence: true, length: { in: 3..25 }
+	validates :FirstName, presence: true,length: { maximum: 35 }
+	validates :LastName, presence: true,length: { maximum: 35 }
+	
+	# This method calculates the current credits of the user.	
+	# * *Returns* :
+	#   - The credit value as decimal.	
+	def get_balance()
+		result = Completedtask.where(:ByUser=>self).sum(:Credits)-Charge.where(:ForUser=>self).sum(:Credits)
 	end
-end
-
-def get_last_activities_of_appartment()
-current_appartment =self.Sharedappartment
-	if(current_appartment!=nil)
-		result=current_appartment.get_last_activities()
-	else
-		nil
-	end	
-end
+	
+	# This method gets all shoutbox messages of the user's shared appartment including user data. 
+	# * *Args*    :
+	#   - +limit+ -> The number of messages
+	# * *Returns* :
+	#   - An array of messages ordered by date	
+	def get_shoutbox_messages_of_appartment(limit)
+		current_appartment =self.Sharedappartment
+		if(current_appartment!=nil)
+			result=current_appartment.get_shoutbox_messages(limit)
+		else
+			nil
+		end
+	end
+	
+	# This method gets the last activities of the user's shared appartment including user and task data. 
+	# * *Args*    :
+	#   - +limit+ -> The number of activities.
+	# * *Returns* :
+	#   - An array of Completedtask items ordered by date.	
+	def get_last_activities_of_appartment(limit)
+		current_appartment =self.Sharedappartment
+		if(current_appartment!=nil)
+			result=current_appartment.get_last_activities(limit)
+		else
+			nil
+		end	
+	end
 
 
 end

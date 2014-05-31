@@ -71,7 +71,10 @@ ActiveRecord::Schema.define(version: 20140529080558) do
     t.text     "Taskdescription"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "Sharedappartment_id"
   end
+
+  add_index "tasks", ["Sharedappartment_id"], name: "index_tasks_on_Sharedappartment_id"
 
   create_table "userroles", force: true do |t|
     t.string   "RoleName"
