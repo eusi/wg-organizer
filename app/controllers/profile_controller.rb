@@ -2,6 +2,7 @@ class ProfileController < ActionController::Base
 	layout 'application'
 	
 	def index
+    @user = User.find(current_user.id)
     end
     
     def createWG
@@ -18,12 +19,18 @@ class ProfileController < ActionController::Base
     end
     
     def joinWG
+      begin
     	@sharedappartment= Sharedappartment.join_sharedappartment(current_user,params[:sharedappartment][:name],params[:sharedappartment][:password])
+      rescue => error
+        @sharedappartment = nil
+      end
+
       if @sharedappartment
     	  redirect_to '/profile', :notice => "Welcome to your shared flat!"
       else
-        redirect_to '/profile', :alert => "Wrong name or password"
+        redirect_to '/profile', :alert => error.message
       end
+
     end
     
     def edit
