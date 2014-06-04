@@ -14,7 +14,7 @@
 
 			<div>
 
-                <% @users.each do |user| %>
+                <% controller.get_roomies.each do |user| %>
                     <%= check_box_tag(:user) %>
                     <%= label_tag(:user, user.UserName) %>
                     <br>
