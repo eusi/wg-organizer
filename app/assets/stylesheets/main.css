@@ -17,7 +17,7 @@ body{
 }
 
 
-* {
+*{
 	outline:0;
 	outline-style:none;
 	-moz-outline:0;
@@ -517,7 +517,7 @@ h1.site-title{
 	border: 1px solid #000;
 }
 
-.signup, .signin {
+.signup, .signin, .cancelacc {
 	-moz-box-shadow:inset 0px 1px 0px 0px #f5978e;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #f5978e;
 	box-shadow:inset 0px 1px 0px 0px #f5978e;
@@ -549,111 +549,69 @@ h1.site-title{
 	text-align:center;
 	cursor: pointer;
 	text-shadow:1px 1px 0px #810e05;
-	}.signup:hover {
-		background-color:#b51007;
-		}.signup:active {
-			position:relative;
-			top:1px;
-		}
-
-/*
-#signup input {
-	background: blue;
-	border: 0;
-	color: #000;
-	cursor: pointer;
-	font-size: 8px;
-	font-weight: bold;
-	margin: 0;
-	padding: 1px 0 2px;
-	white-space: nowrap;
-	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
-	webkit-rtl-ordering: logical;
-	-webkit-user-select: text;
-	font: -webkit-small-control;
-	color: initial;
-	letter-spacing: normal;
-	word-spacing: normal;
-	text-transform: none;
-	text-indent: 0px;
-	text-shadow: none;
-	display: inline-block;
-	text-align: start;
-	-webkit-writing-mode: horizontal-tb;
-
-	display: inline-block;
-	height: 18px;
-	padding: 5px 9px;
-	white-space: nowrap;
-	background: -webkit-gradient(linear,left top,left bottom,from(#8266b6),to(#533787));
-	background: -moz-linear-gradient(top,#8266b6,#533787);
-	background: -o-linear-gradient(top,#8266b6,#533787);
-	background: linear-gradient(top,#8266b6,#533787);
-	background-color: #6a4e9e;
-	border-top: 1px solid #5b3f8f;
-	border-left: 1px solid #412771;
-	border-right: 1px solid #412771;
-	border-bottom: 1px solid #2a1453;
-	box-shadow: inset 0 1px 0 rgba(255,255,255,0.1),0 1px 0 rgba(0,0,0,0.15);
-	-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.1),0 1px 0 rgba(0,0,0,0.15);
-	-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.1),0 1px 0 rgba(0,0,0,0.15);
-	text-shadow: 0 1px 0 rgba(0,0,0,0.75);
-	-moz-text-shadow: 0 1px 0 rgba(0,0,0,0.75);
-	-webkit-text-shadow: 0 1px 0 rgba(0,0,0,0.75);
-	color: #fff;
+}
+	
+.signup:hover, .cancelacc:hover {
+	background-color:#b51007;
 }
 
-signup:-webkit-autofill, textarea:-webkit-autofill {
-	background-color: rgb(250, 255, 189);
-	background-image: none;
-	color: #fff;
-	}*/
+.signup:active, .cancelacc:active {
+	position:relative;
+	top:1px;
+}
 
-	#homeTable table tr td {
-		border: 0;
-	}
+.cancelacc {
+	height:22px;
+	line-height:20px;
+	width:70px;
+	font-size:8px;
+}
 
-	#homeTable table {
-		border-spacing: 10px;
-		border-collapse: separate;
-	}
+#homeTable table tr td {
+	border: 0;
+}
+
+#homeTable table {
+	border-spacing: 10px;
+	border-collapse: separate;
+}
 
 
-	#homeTable td
-	{
-		vertical-align: top;
-		padding:10px;
-	}
+#homeTable td
+{
+	vertical-align: top;
+	padding:10px;
+}
 
-	#flatsharing {
-		width:275px;
-		height:183px;
-		background: url(flatsharing.jpg) no-repeat top left;
-		display:block;
-		text-indent:-99999em;
-		margin-top:15px;
-		float:left;
-		padding:1px;
-		border:1px solid #e0e8f5;
-		background-color:#e0e8f5;
-	}
+#flatsharing {
+	width:275px;
+	height:183px;
+	background: url(flatsharing.jpg) no-repeat top left;
+	display:block;
+	text-indent:-99999em;
+	margin-top:15px;
+	float:left;
+	padding:1px;
+	border:1px solid #e0e8f5;
+	background-color:#e0e8f5;
+}
 
-	#winnersPodium {
-		width:340px;
-		height:275px;
-		background: url(winners_podium.jpg) no-repeat top left;
-		text-indent:-99999em;
-		padding:1px;
-		border:0;
-		display: block;
-		margin-left: 20px;
-		margin-right: auto;
-	}
+#winnersPodium {
+	width:340px;
+	height:275px;
+	background: url(winners_podium.jpg) no-repeat top left;
+	text-indent:-99999em;
+	padding:1px;
+	border:0;
+	display: block;
+	margin-left: 20px;
+	margin-right: auto;
+}
 
-	.placeholder {
-		font-size: 10px;
-		padding: 4px 5px;
-	}
+.placeholder {
+	font-size: 10px;
+	padding: 4px 5px;
+}
 
 
 /***************************************************************************
