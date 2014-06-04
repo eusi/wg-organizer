@@ -5,10 +5,12 @@ class MainController < ActionController::Base
     	if(current_user.Sharedappartment_id==nil)
     		redirect_to '/profile'
     	end
-      @shouts = current_user.get_shoutbox_messages_of_appartment(1)
+      @shouts = current_user.get_shoutbox_messages_of_appartment(2)
 	end
 
-	def create
+	#
+=begin
+  def create
 	  @shouts = Shout.all_shouts
 	 
 	  @shout = Shout.new(params[:shout])
@@ -19,6 +21,7 @@ class MainController < ActionController::Base
 	    render :action => 'index'
 	  end
   end
+=end
 
   def last_activities
     @completedtasks = current_user.get_last_activities_of_appartment
@@ -39,6 +42,7 @@ class MainController < ActionController::Base
     else
       redirect_to :action => 'index'
       flash[:alert] = 'Uups, something went wrong!'
+      flash[:alert] = s.errors.full_messages.to_sentence
     end
   end
 
