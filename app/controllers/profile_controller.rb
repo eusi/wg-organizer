@@ -33,8 +33,8 @@ class ProfileController < ActionController::Base
 
     end
     
-    def edit
-
+    def get_user_balance
+      current_user.get_balance()
     end
 
 end
