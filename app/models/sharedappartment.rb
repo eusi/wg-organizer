@@ -19,7 +19,7 @@ validates :password, presence: true, length: { in: 6..20 }, confirmation: true
 	def get_shoutbox_messages(limit)
 
 		users_of_appartment = self.Users	
-		result=Shoutboxmessage.where(User_id:users_of_appartment).joins(:User).order(created_at: :desc).limit(limit)
+		result=Shoutboxmessage.where(User_id:users_of_appartment).includes(:User).references(:users).order(created_at: :desc).limit(limit)
 	
 	end
 	
@@ -31,20 +31,59 @@ validates :password, presence: true, length: { in: 6..20 }, confirmation: true
 	def get_last_activities(limit)
 
 		users_of_appartment = self.Users	
-		result=Completedtask.where(User_id:users_of_appartment).joins(:ByUser).joins(:Task).order(created_at: :desc).limit(limit)
+		result=Completedtask.where(:is_archived=>0).where(User_id:users_of_appartment).includes(:ByUser).includes(:Task).references(:users).references(:tasks).order(created_at: :desc).limit(limit)
 	
 	end
 
+	# This method balances all user accounts.
+	# * *Args*    :
+	#   - +reset+ -> If true, all completed tasks and charges will be archived.	
+	# * *Returns* :
+	#   - A hash. Key: the user. Value: The users' credits/debts towards the shared appartment as decimal value.	
+	def balance(reset)
+	
+		if(reset==1)
+			users_of_appartment = self.Users	
+			Completedtask.where(User_id:users_of_appartment).update_all(:is_archived=>1)
+			Charge.where(User_id:users_of_appartment).update_all(:is_archived=>1)
+		end
+		
+		
+		current_balances= self.get_balance()
+		if(current_balances==nil  || current_balances.size==0)
+			return nil
+		end
+		
+		sum_of_appartment=0.0
+		# sum all credits of the appartment		
+		current_balances.each do |user, credits|		
+			sum_of_appartment=  sum_of_appartment + credits
+		end
+		
+		
+		#calc credit avg of appartment
+		current_avg = sum_of_appartment/current_balances.size
+	
+		
+		# calc differences for each user		
+		result=Hash.new
+		current_balances.each do |user, credits|		
+			result[user]= (credits-current_avg)
+		end		
+				
+		return result
+	end
+	
+	
 	# This method calculates the current credits of every shared appartment member.	
 	# * *Returns* :
-	#   - A hash with the key [User_id,Username] and the credit value as decimal.	
+	#   - A hash with the user as key and the credits as decimal value.	
 	def get_balance()
 		balances=Hash.new
 			self.Users.each do |current_user|
-				#calc balance
-				result = Completedtask.where(:ByUser=>current_user).sum(:Credits)-Charge.where(:ForUser=>current_user).sum(:Credits)
-				username_with_id=[current_user.id,current_user.UserName]				
-				balances[username_with_id]=result
+			
+			#calc balance			
+				balances[current_user]=current_user.get_balance()
 			end
 		return balances
 	end
@@ -122,7 +161,7 @@ validates :password, presence: true, length: { in: 6..20 }, confirmation: true
 	  
 	  return nil;
 	end
-
+	
 
 	# This method checks if a shared appartment with the given name already exists.	
 	# * *Args*    :	#   

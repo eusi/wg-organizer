@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 	# * *Returns* :
 	#   - The credit value as decimal.	
 	def get_balance()
-		result = Completedtask.where(:ByUser=>self).sum(:Credits)-Charge.where(:ForUser=>self).sum(:Credits)
+		result = Completedtask.where(:is_archived=>0).where(:ByUser=>self).sum(:Credits)-Charge.where(:is_archived=>0).where(:ForUser=>self).sum(:Credits)
 	end
 	
 	# This method gets all shoutbox messages of the user's shared appartment including user data. 

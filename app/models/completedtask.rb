@@ -37,24 +37,26 @@ validates :Credits, presence: true
 		
 		#calc credits
 		credits = amount * task.CreditPerUnit.to_f + task.BaseCredit
-		print credits
-		print "\n"
-
-		#save completed task
-		completed_task= Completedtask.create(:Amount=>amount, :Credits=>credits,:Task=>task,:ByUser=>by_user,:TaskStart=>task_start,:TaskEnd=>task_end,:Summary=>summary)
-		print "Completed task sucessfully saved\n"
+				
+		ActiveRecord::Base.transaction do
 		
-		#charge the other appartment members, if available
-		if for_users!=nil && for_users.size!=0
-		
-			#calc charge
-			credits_per_user = (credits/for_users.size.to_f	)
+			#save completed task		
+			completed_task= Completedtask.create(:Amount=>amount, :Credits=>credits,:Task=>task,:ByUser=>by_user,:TaskStart=>task_start,:TaskEnd=>task_end,:Summary=>summary)
+			print "Completed task sucessfully saved\n"
 			
-			#save charge
-			for_users.each do |for_user|		
-				current_charge = Charge.create(:Credits=>credits_per_user,:ForUser=>for_user,:Completedtask=>completed_task)
+			#charge the other appartment members, if available
+			if for_users!=nil && for_users.size!=0
+			
+				#calc charge
+				credits_per_user = (credits/for_users.size.to_f	)
+				
+				#save charge
+				for_users.each do |for_user|		
+					current_charge = Charge.create(:Credits=>credits_per_user,:ForUser=>for_user,:Completedtask=>completed_task)
+				end
+			
 			end
-		
+			
 		end
 		
 		
