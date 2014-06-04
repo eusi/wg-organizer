@@ -4,17 +4,22 @@
 	<p>If you have done something for you and your roomies: here you can share it to get credits!</p>
 </div>
 
-<form method="post" action="" onsubmit="">
+<!--<form method="post" action="job/complete_task" onsubmit="">-->
+<%= form_tag(action: 'complete_task') do %>
 	<table height="99%" width="100%" id="homeTable">
 	<tr>
 		<td>
 			<h2 class="site-title">Select member</h2>
+
+
 			<div>
-				<%= check_box("puppy", "gooddog", {}, "yes", "no") %> <!--puppy[gooddog]-->
-				Puppy
-				<br> 
-				<%= check_box("eula", "accepted", { class: 'eula_check' }, "yes", "no") %>
-				Eula
+
+                <% @users.each do |user| %>
+                    <%= check_box_tag(:user) %>
+                    <%= label_tag(:user, user.UserName) %>
+                    <br>
+                <% end %>
+
 			</div>
 		</td>
 		<td>
@@ -34,4 +39,4 @@
 			</td>
 		</tr>
 	</table>
-</form>
+<% end %>
