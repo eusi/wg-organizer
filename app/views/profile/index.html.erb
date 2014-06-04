@@ -12,18 +12,56 @@
 			<h2 class="site-title">Profile details</h2>
 			<div class="placeholder"></div>
 			<div>
+				<!--
 				<form method="post" action="" onsubmit="">
-					<input type="text" class="inputtextHome" data-type="text" value="" placeholder="Username">
+					<input type="text" class="inputtextHome" data-type="text" value="<% concat current_user.UserName %>" placeholder="Username">
 					<div class="placeholder"></div>
-					<input type="password" class="inputtextHome" data-type="text" name="reg_passwd" placeholder="New Password" value="">
+					<input type="password" class="inputtextHome" data-type="text" placeholder="New Password" value="">
 					<div class="placeholder"></div>
-					<input type="text" class="inputtextHome" data-type="text" placeholder="Email" value="">
+					<input type="password" class="inputtextHome" data-type="text" placeholder="Re-enter Password" value="">
 					<div class="placeholder"></div>
+					<input type="text" class="inputtextHome" data-type="text" placeholder="Email" value="<% concat current_user.email %>">
 					<div class="placeholder"></div>
-					<input type="text" class="inputtextHome" data-type="text" placeholder="Profile picture (URL)" value="">
+					<input type="text" class="inputtextHome" data-type="text" placeholder="Profile picture (URL)" value="<% concat current_user.Picture %>">
 					<div class="placeholder"></div>
 					<button type="submit" class="signup" name="saveprofile">Save profile</button>
 				</form>
+				-->
+
+				<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+					<%= devise_error_messages! %>
+
+					<div><%= f.text_field :UserName, :value => current_user.UserName, autofocus: false, :class => "inputtextHome", :placeholder => "Username" %></div>
+					<div class="placeholder"></div>
+					<!-- %= f.label : email %><br /> -->
+					<%= f.email_field :email, :value => current_user.email, autofocus: false, :class => "inputtextHome", :placeholder => "Email" %></div>
+
+					<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+					<div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+					<% end %>
+
+					<div class="placeholder"></div>
+					<div><%= f.password_field :password, autocomplete: "off", :class => "inputtextHome", :placeholder => "New Password" %></div>
+					<div class="placeholder"></div>
+					<div><%= f.password_field :password_confirmation, autocomplete: "off", :class => "inputtextHome", :placeholder => "Re-enter Password" %></div>
+					<div class="placeholder"></div>
+					<div class="placeholder"></div>
+					<div><%= f.password_field :current_password, autocomplete: "off", :class => "inputtextHome", :placeholder => "Current Password" %></div>
+					<div><i>we need your current password to confirm your changes</i></div>
+					<div class="placeholder"></div>
+					<div><%= f.submit "Update", :class => "signup" %></div>
+				<% end %>
+
+				<div class="placeholder"></div>
+				<div class="placeholder"></div>
+				<div class="placeholder"></div>
+
+				<h2 class="site-title">Account cancellation</h2>
+				<div class="site-text"> 
+				<p>Unhappy? :( <%= button_to "Delete account", registration_path(resource_name), data: { confirm: "Are you sure?" }, :class => "signup", method: :delete %></p>
+				</div>
+				
+
 			</div>
 		</td>
 		<td>
