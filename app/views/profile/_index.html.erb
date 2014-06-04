@@ -12,21 +12,6 @@
 			<h2 class="site-title">Profile details</h2>
 			<div class="placeholder"></div>
 			<div>
-				<!--
-				<form method="post" action="" onsubmit="">
-					<input type="text" class="inputtextHome" data-type="text" value="<% concat current_user.UserName %>" placeholder="Username">
-					<div class="placeholder"></div>
-					<input type="password" class="inputtextHome" data-type="text" placeholder="New Password" value="">
-					<div class="placeholder"></div>
-					<input type="password" class="inputtextHome" data-type="text" placeholder="Re-enter Password" value="">
-					<div class="placeholder"></div>
-					<input type="text" class="inputtextHome" data-type="text" placeholder="Email" value="<% concat current_user.email %>">
-					<div class="placeholder"></div>
-					<input type="text" class="inputtextHome" data-type="text" placeholder="Profile picture (URL)" value="<% concat current_user.Picture %>">
-					<div class="placeholder"></div>
-					<button type="submit" class="signup" name="saveprofile">Save profile</button>
-				</form>
-				-->
 
 				<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 					<%= devise_error_messages! %>
@@ -73,8 +58,7 @@
 			<h2 class="site-title">Join an existing shared flat</h2>
 			<div class="placeholder"></div>
 			<div>
-				<!-- @sharedappartment instead of :sharedappartment ? -->
-				<%= form_for :sharedappartment, :url => { :action => 'joinWG' } do |f| %>
+				<%= form_for :sharedappartment, :url => { :action => 'joinWG', :controller=>"profile" } do |f| %>
 					<%= f.hidden_field :user, :value => current_user.UserName %>
 					<div><%= f.text_field :name, autofocus: false, :class => "inputtextHome", :placeholder => "Shared flat name" %></div>
 					<div class="placeholder"></div>
@@ -89,8 +73,7 @@
 			<h2 class="site-title">Create a new shared flat</h2>
 			<div class="placeholder"></div>
 			<div>
-				<!-- @sharedappartment instead of :sharedappartment ? -->
-				<%= form_for :sharedappartment, :url => { :action => 'createWG' } do |f| %>
+				<%= form_for :sharedappartment, :url => { :action => 'createWG', :controller=>"profile" } do |f| %>
 					<%= f.hidden_field :user, :value => current_user.UserName %>
 					<div><%= f.text_field :name, autofocus: false, :class => "inputtextHome", :placeholder => "Shared flat name" %></div>
 					<div class="placeholder"></div>

@@ -830,54 +830,54 @@ textarea, .inputtext, .inputpassword {
 ***************************************************************************/
 
 .alert-init {
-  width:600px;
-  display:block;
-  margin: 0 auto;
-  position:relative;
-  text-align: left;
- }
+	width:600px;
+	display:block;
+	margin: 0 auto;
+	position:relative;
+	text-align: left;
+}
 
 .alert-error {
-  color: #a94442;
-  background-color: #f2dede;
-  border-color: #ebccd1;
-  padding: 15px;
-  margin-bottom: 30px;
-  border: 1px solid transparent;
-  border-radius: 4px;
- }
+	color: #a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
+	padding: 15px;
+	margin-bottom: 30px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+}
 
 .alert-alert {
-  color: #a94442;
-  background-color: #f2dede;
-  border-color: #ebccd1;
-  padding: 15px;
-  margin-bottom: 30px;
-  border: 1px solid transparent;
-  border-radius: 4px;
- }
+	color: #a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
+	padding: 15px;
+	margin-bottom: 30px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+}
 
 .alert-block {
-  font-size: 12px;
-  padding: 15px;
-  margin-bottom: 30px;
-  border: 1px solid transparent;
-  border-radius: 4px;
+	font-size: 12px;
+	padding: 15px;
+	margin-bottom: 30px;
+	border: 1px solid transparent;
+	border-radius: 4px;
 }
 
 .alert-success {
-  color: #3c763d;
-  background-color: #dff0d8;
-  border-color: #d6e9c6;
-  text-align: left;
- }
+	color: #3c763d;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+	text-align: left;
+}
 
 .alert-notice {
-  color: #31708f;
-  background-color: #d9edf7;
-  border-color: #bce8f1;
-  text-align: left;
- }
+	color: #31708f;
+	background-color: #d9edf7;
+	border-color: #bce8f1;
+	text-align: left;
+}
 
 /***************************************************************************
 *************************** TASKS ******************************************
@@ -915,16 +915,16 @@ table.reference tr:first-child th:first-child
 {
 	-moz-border-radius-topleft:10px;
 	-webkit-border-top-left-radius:10px;
-    border-top-left-radius: 10px;
+	border-top-left-radius: 10px;
 }
 
 table.reference tr:first-child th:last-child 
 {
 	-moz-border-radius-topright:10px;
 	-webkit-border-top-right-radius:10px;
-    border-top-right-radius: 10px;
+	border-top-right-radius: 10px;
 }
-	
+
 table.reference tr:nth-child(odd) {
 	background-color:#BAC1CC;
 }
@@ -980,7 +980,7 @@ textarea.shoutdesc  {
 }
 
 textarea.shoutbox  {
-	width:   260px;
+	width:   260px; /* see .scrollbar and #shoutcontent */
 	height:   50px; /*150*/
 	padding:   5px;
 	font-size:10px;
@@ -1004,31 +1004,31 @@ textarea.shoutbox  {
 #shoutboxbot {
 	background: url("bot.png") no-repeat;
 	width: 260px;
-	height: 25px;
+	height: 15px;
 }
 
 #shoutcontent {
 	margin: 0 auto;
-	width: 260px;
+	width: 260px; /* see .scrollbar and #shoutcontent */
+	height: 110px; /* see .scrollbar */
 	text-align: left;
 	background: #ffffff;
 	padding: 10px 0px;
-	overflow: hidden;
 	border-radius: 10px;
 	border: 1px solid #000000;
 }
- 
+
 #shoutcontent ul {
 	margin-bottom: 5px;
 	margin-left: 40px;
 }
- 
+
 #shoutcontent ul li {
 	list-style: none;
 	clear: both;
 	padding-top: 5px;
 }
- 
+
 #shoutcontent ul li:first-child {
 	padding-top:0;
 }
@@ -1040,12 +1040,12 @@ textarea.shoutbox  {
 	min-height: 20px;
 	font-weight: bold;
 }
- 
+
 .meta img {
-	padding: 5px;
+	padding: 3px;
 	/*background-color: #313d60;*/
 }
- 
+
 .meta p {
 	font-size: 0.8em;
 }
@@ -1075,3 +1075,35 @@ form input, form textarea {
 	margin-bottom: 10px;
 }
 */
+
+/***************************************************************************
+*************************** SCROLLBAR **************************************
+***************************************************************************/
+
+.scrollbar
+{
+	float: left;
+	height: 110px; /* see #shoutcontent */
+	width: 268px; /* see #shoutcontent */
+	overflow-y: scroll;
+	margin-bottom: 25px;
+}
+
+#stylebar::-webkit-scrollbar-track
+{
+	border-radius: 10px;
+	background-color: #BAC1CC;
+}
+
+#stylebar::-webkit-scrollbar
+{
+	width: 7px;
+	background-color: #BAC1CC;
+}
+
+#stylebar::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(11,14,21,.3);
+	background-color: #0B0E15;
+}

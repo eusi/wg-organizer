@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
 	# * *Returns* :
 	#   - An array of messages ordered by date	
 	def get_shoutbox_messages_of_appartment(limit)
-		current_appartment =self.Sharedappartment
+		current_appartment=self.Sharedappartment
 		if(current_appartment!=nil)
 			result=current_appartment.get_shoutbox_messages(limit)
 		else

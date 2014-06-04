@@ -20,23 +20,20 @@ WGOrganizer::Application.routes.draw do
     end
   end
 
-  #as :user do
-    # using login path for registration
-    #get '/login' => 'registrations#new', :as => :new_user_registration
-    #post '/signup' => 'registrations#create', :as => :user_registration
-    #post '/signin' => 'sessions#new', :as => :new_user_session
-    #post '/signin' => 'sessions#create', :as => :user_session
-  #end
-
   get "home" => 'home#_index' #startpage before you logged in
+  post 'main/create_shout' => 'main#create_shout'
+  
   get "main" => 'main#index' #mainpage after you logged in
+
   get "job" => 'job#index' #addjob
-  get "profile" => 'profile#index' #profile and choosen!
+  post 'job/complete_task' => 'job#complete_task'
+
   get "tasks" => 'tasks#index' #task management
   
+  get "profile" => 'profile#_index' #profile and choosen!
   post 'profile/createWG' => 'profile#createWG'
   post 'profile/joinWG' => 'profile#joinWG'
-  post 'main/create_shout' => 'main#create_shout'
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
