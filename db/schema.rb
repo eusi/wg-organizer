@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140529080558) do
+ActiveRecord::Schema.define(version: 20140604152502) do
 
   create_table "charges", force: true do |t|
     t.decimal  "Credits"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140529080558) do
     t.datetime "updated_at"
     t.integer  "Completedtask_id"
     t.integer  "User_id"
+    t.boolean  "is_archived",      default: false
   end
 
   add_index "charges", ["Completedtask_id"], name: "index_charges_on_Completedtask_id"
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140529080558) do
     t.integer  "Task_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_archived",  default: false
   end
 
   add_index "completedtasks", ["Task_id"], name: "index_completedtasks_on_Task_id"

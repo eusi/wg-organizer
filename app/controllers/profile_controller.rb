@@ -33,9 +33,8 @@ class ProfileController < ActionController::Base
 
     end
     
-    def editProfile
-    	#function should be able to change all profile settings
-    	#if the user didnt enter a password (he let it blank), so he wont change the password (maybe he only wanted to change picture, for example)
+    def get_user_balance
+      current_user.get_balance()
     end
 
 end
