@@ -56,36 +56,66 @@
 			<div>
 				<h2 class="site-title">Shoutbox</h2>
 				<div>
-				<!--<div id="shoutcontainer">
-					<div id="shoutcontent">
-						<ul>
-						% for shout in @shouts
-						 
-						  gravatar = 'http://www.gravatar.com/avatar.php?gravatar_id=' + Digest::MD5.hexdigest(h(shout.email.downcase)) + '&size=70' %>
-						 
-						  <li>
-						    <div class="meta">
-						      <img src="%= gravatar %>" alt="Gravatar" />
-						      <p>%= shout.name %</p>
-						    </div>
-						    <div class="shout">
-						      <p>%= shout.message %</p>
-						    </div>
-						  </li>
-						 
-						% end %>
-					</div>
-				</div>
-					</ul>-->
-					
-					<textarea type="text" class="inputtextHome shoutbox" data-type="text" value="" readonly>2014-05-29 10:27 - Werner spinnt! LOL</textarea>
-					<div class="placeholder"></div>
-					<textarea type="text" class="inputtextHome shoutdesc" data-type="text" placeholder="Tell me what u are thinking!" value=""></textarea>
-					<div class="placeholder"></div>
-					<!--% form_for :shout, :url => { :action => 'create' } do |f| %>-->
+
+				<div id="shoutcontainer">
+                    <div id="shoutcontent">
+                        <ul>
+                            <table>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Text</th>
+                                </tr>
+
+                                <% @shouts.each do |shout| %>
+                                    <tr>
+                                        <td><%= User.find(shout.User_id).UserName+':' %></td>
+                                        <td><%= shout.Message %></td>
+                                    </tr>
+                                <% end %>
+                            </table>
+                    </div>
+                    <div id="shoutform">
+                        <%= form_for :shoutboxmessage, :url => { :action => 'create_shout' } do |f| %>
+
+                            <p>
+                                <%= f.label :Message %><br>
+                                <%= f.text_field :Message %>
+                            </p>
+                            <p>
+                                <%= f.submit %>
+                            </p>
+                        <% end %>
+
+                    </div>
+                 <!--<div id="shoutcontent">
+                        <ul>
+                        % for shout in @shouts
+
+                          gravatar = 'http://www.gravatar.com/avatar.php?gravatar_id=' + Digest::MD5.hexdigest(h(shout.email.downcase)) + '&size=70' %>
+
+                          <li>
+                            <div class="meta">
+                              <img src="%= gravatar %>" alt="Gravatar" />
+                              <p>%= shout.name %</p>
+                            </div>
+                            <div class="shout">
+                              <p>%= shout.message %</p>
+                            </div>
+                          </li>
+
+                        % end %>
+                    </div>
+                </div>
+                    </ul>
+
+                    <textarea type="text" class="inputtextHome shoutbox" data-type="text" value="" readonly>2014-05-29 10:27 - Werner spinnt! LOL</textarea>
+                    <div class="placeholder"></div>
+                    <textarea type="text" class="inputtextHome shoutdesc" data-type="text" placeholder="Tell me what u are thinking!" value=""></textarea>
+                    <div class="placeholder"></div>
+                    <!--% form_for :shout, :url => { :action => 'create' } do |f| %>-->
 						<!--%= f.text_area :message, :rows => 5, :cols => 40 %>-->
-						<div class="placeholder"></div>
-						<p><%= submit_tag 'Shout!', :class => "signup" %></p>
+                    <!--<div class="placeholder"></div> -->
+					    <!--<p><%= submit_tag 'Shout!', :class => "signup" %></p>-->
 					<!--% end %>-->
 
 					<!--%= error_messages_for :shout, :header_message => nil, :message => nil %>

@@ -7,8 +7,8 @@ attr_accessor :password
 
 validates :Name, uniqueness: true, presence: true,length: { maximum: 15 }
 
-validates :password_hash, presence: true
-validates :password_salt, presence: true
+#validates :password_hash, presence: true
+#validates :password_salt, presence: true
 validates :password, presence: true, length: { in: 6..20 }, confirmation: true
 
 	# This method gets all shoutbox messages of the shared appartment including user data. 
@@ -88,7 +88,7 @@ validates :password, presence: true, length: { in: 6..20 }, confirmation: true
 		return balances
 	end
 	
-	# This method creates a new shared appartment.	
+	# This method creates a new shared appartment.
 	# * *Args*    :
 	#   - +user+ -> The current user, who wants to create a new shared appartment.
 	#   - +name+ -> The name of the new shared appartment.
@@ -134,17 +134,17 @@ validates :password, presence: true, length: { in: 6..20 }, confirmation: true
 		end
 		
 		if(name.to_s.empty?)
-			raise ArgumentError.new("Name is invalid.")
+			raise ArgumentError.new("Name can't be blank.")
 		end
 		
 		if(password.to_s.empty?)
-			raise ArgumentError.new("Password is invalid.")
+			raise ArgumentError.new("Password can't be blank.")
 		end
 		
 		existing_sharedappartment= Sharedappartment.where(:Name=>name).first
 		
 		if(existing_sharedappartment==nil)
-			raise 'Shared appartment ' + name + ' does not exist.'
+			raise ArgumentError.new('Shared appartment ' + name + ' does not exist, or password is wrong')
 		end
 		
 		existing_hash = BCrypt::Password.new(existing_sharedappartment.password_hash)
@@ -152,7 +152,7 @@ validates :password, presence: true, length: { in: 6..20 }, confirmation: true
 		given_password_hash = BCrypt::Engine.hash_secret(password, existing_sharedappartment.password_salt)
 
 		if(given_password_hash!=existing_hash)
-		  raise 'Wrong password'
+		  raise ArgumentError.new('Shared appartment ' + name + ' does not exist, or password is wrong')
 		else
 			user.Sharedappartment=existing_sharedappartment
 			user.save()
