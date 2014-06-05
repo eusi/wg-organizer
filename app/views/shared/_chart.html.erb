@@ -9,10 +9,10 @@
 		"theme": "none",
 	    "dataProvider": [{
 			<% controller.appartment_balance.each do |k, v| %>
-			        "name": "<%= k %>", //!
+			        "name": "<%= k.UserName %>", //!
 			        "points": <%= v %>,
 			        "color": "#7F8DA9",
-			        "bullet": "./assets/test1.png" //!
+			        "bullet": "<%= k.Picture %>" //!
 			    }, {
 			<% end %>
 	        "name": "Chris", //!
@@ -22,7 +22,7 @@
 	    }, {
 	        "name": "Werner", //!
 	        "points": 45724,
-	        "color": "#DB4C3C",
+	        "color": "#0B0E15",
 	        "bullet": "./assets/test2.png" //!
 	    }],
 	    "valueAxes": [{
@@ -41,11 +41,11 @@
 	        "colorField": "color",
 	        "cornerRadiusTop": 8,
 	        "customBulletField": "bullet",
-	        "fillAlphas": 0.8,
+	        "fillAlphas": 1.0, //alpha!
 	        "lineAlpha": 0,
 	        "type": "column",
 	        "valueField": "points",
-	        "bulletSize": 100
+	        "bulletSize": 75
 	    }],
 	    "marginTop": 0,
 	    "marginRight": 0,
