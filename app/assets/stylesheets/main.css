@@ -265,6 +265,7 @@ h2#tagline{
 	z-index:75;
 	opacity: 0.80;
 	background-image:url(profile.jpg);
+	background-size:150px 150px;
 }
 
 #site-type-nav{
@@ -308,11 +309,29 @@ h2#tagline{
 	opacity: 0.65;
 }
 
-#site-type-nav li.navoverview a span{	background-image:url(navoverview.png);}	
-#site-type-nav li.navmyprofile a span{	background-image:url(navmyprofile.png);}	
-#site-type-nav li.navaddjob a span{	background-image:url(navaddjob.png);}	
-#site-type-nav li.navtasks a span{	background-image:url(navtasks.png);}	
-#site-type-nav li.navlogout a span{	background-image:url(navlogout.png);}	
+#site-type-nav li.navoverview a span{	
+	background-image:url(navoverview.png);
+}	
+#site-type-nav li.navmycalendar a span{	
+	background-image:url(navmycalendar.png);
+	cursor: not-allowed;
+}
+#site-type-nav li.navmyacm a span{	
+	background-image:url(navmyacm.png);
+	cursor: not-allowed;
+}
+#site-type-nav li.navmyprofile a span{	
+	background-image:url(navmyprofile.png);
+}	
+#site-type-nav li.navaddjob a span{	
+	background-image:url(navaddjob.png);
+}	
+#site-type-nav li.navtasks a span{	
+	background-image:url(navtasks.png);
+}	
+#site-type-nav li.navlogout a span{	
+	background-image:url(navlogout.png);
+}	
 
 #site-type-nav li.current{
 	position:absolute;
@@ -509,6 +528,7 @@ h1.site-title{
 }
 
 .inputtextHome {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	font-size: 11px;
 	padding: 8px 10px;
 }
@@ -778,7 +798,7 @@ textarea, .inputtext, .inputpassword {
 
 #chartdiv {
 	width		: 100%;
-	height		: 500px;
+	height		: 420px;
 	font-size	: 11px;
 }
 
@@ -845,7 +865,7 @@ textarea.taskdesc  {
 	width: 200px;
 	height: 80px;
 	padding: 5px;
-	font-size:10px;
+	font-size:11px;
 	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 }
 

@@ -8,11 +8,13 @@
 	    "type": "serial",
 		"theme": "none",
 	    "dataProvider": [{
-	        "name": "Patrick", //!
-	        "points": 35654,
-	        "color": "#7F8DA9",
-	        "bullet": "./assets/test1.png" //!
-	    }, {
+			<% controller.appartment_balance.each do |k, v| %>
+			        "name": "<%= k %>", //!
+			        "points": <%= v %>,
+			        "color": "#7F8DA9",
+			        "bullet": "./assets/test1.png" //!
+			    }, {
+			<% end %>
 	        "name": "Chris", //!
 	        "points": 65456,
 	        "color": "#FEC514",

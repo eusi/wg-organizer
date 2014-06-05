@@ -4,77 +4,49 @@
 	<h3 class="site-title">What are tasks?</h3>
 	<p>The tasks you have to create represent all activities your roomies can carry out. <br>For instance: cleaning up or go shopping - at least two roomies should benefit from it, otherwise you could can do it by your own for yourself! :)</p>
 </div>
-
-
-<table height="99%" width="100%" id="homeTable">
-	<tr>
-		<td>
-			<h2 class="site-title">Task list</h2>
-			<table class="reference">
-				<tbody>
-					<tr>
-						<th>Username</th>
-						<th>Task</th>		
-						<th>Base Credits</th>
-						<th>Unit</th>		
-						<th>Credits per Unit</th>
-						<th>Info</th>
-					</tr>
-					<tr>
-						<td>Jill</td>
-						<td>bla</td>		
-						<td>50</td>
-						<td>h</td>		
-						<td>1</td>
-						<td>i</td>
-					</tr>
-					<tr>
-						<td>Eve</td>
-						<td>bla</td>		
-						<td>94</td>
-						<td>h</td>		
-						<td>1</td>
-						<td>i</td>
-					</tr>
-					<tr>
-						<td>John</td>
-						<td>bla</td>		
-						<td>80</td>
-						<td>h</td>		
-						<td>1</td>
-						<td>i</td>
-					</tr>
-					<tr>
-						<td>Adam</td>
-						<td>bla</td>		
-						<td>67</td>
-						<td>h</td>		
-						<td>1</td>
-						<td>i</td>
-					</tr>
-				</tbody>
-			</table>
-		</td>
-		<td>
-			<h2 class="site-title">Create new task</h2>
-			<div class="placeholder"></div>
-			<div>
-				<form method="post" action="" onsubmit="">
-					<input type="text" class="inputtextHome" data-type="text" value="" placeholder="Task name">
-					<div class="placeholder"></div>
-					<input type="text" class="inputtextHome" data-type="text" placeholder="Base-Credits" value="">
-					<div class="placeholder"></div>
-					<input type="text" class="inputtextHome" data-type="text" placeholder="Unit (e.g. hour)" value="">
-					<div class="placeholder"></div>
-					<input type="text" class="inputtextHome" data-type="text" placeholder="Credits per unit (e.g. per hour/task)" value="">
-					<div class="placeholder"></div>
-					<input type="text" class="inputtextHome" data-type="text" placeholder="Planned time (to do the work)" value="">
-					<div class="placeholder"></div>
-					<textarea type="text" class="inputtextHome taskdesc" data-type="text" placeholder="Description (What and how to do...)" value=""></textarea>
-					<div class="placeholder"></div>
-					<button type="submit" class="signup" name="getcredits">Create Task</button>
-				</form>
-			</div>
-		</td>
-	</tr>
-</table>
+	<table height="99%" width="100%" id="homeTable">
+		<tr>
+			<td>
+				<h2 class="site-title">Task list</h2>
+				<table class="reference">
+					<tbody>
+						<tr>
+							<th>Task</th>		
+							<th>Base Credits</th>
+							<th>Unit</th>		
+							<th>Credits per Unit</th>
+							<th>Info</th>
+						</tr>
+		                <% controller.get_tasks.each do |f| %>
+							<tr>
+								<td>f.Taskname</td>		
+								<td>f.BaseCredit</td>
+								<td>f.Unit</td>
+								<td>f.CreditPerUnit</td>		
+								<td>i</td> <!-- Taskdescription -->
+							</tr>
+		                <% end %>
+					</tbody>
+				</table>
+			</td>
+			<td>
+				<h2 class="site-title">Create new task</h2>
+				<div class="placeholder"></div>
+				<%= form_for :sharedappartment, :url => { :action => 'create_task', :controller=>"tasks" } do |f| %>
+						<div>
+							<div><%= f.text_field :Taskname, :class => "inputtextHome", :placeholder => "Task name" %></div>
+							<div class="placeholder"></div>
+							<%= f.email_field :email, :class => "inputtextHome", :placeholder => "Base-Credits" %></div>
+							<div class="placeholder"></div>
+							<div><%= f.text_field :Picture, :class => "inputtextHome", :placeholder => "Unit (e.g. hour)" %></div>
+							<div class="placeholder"></div>
+							<%= f.email_field :email, :class => "inputtextHome", :placeholder => "Credits per unit" %></div>
+							<div class="placeholder"></div>
+							<div><%= f.text_area :Picture, :class => "inputtextHome taskdesc", :placeholder => "Description (What and how to do...)" %></div>
+							<div class="placeholder"></div>
+							<div><%= f.submit "Create task", :class => "signup" %></div>
+						</div>
+				<% end %>
+			</td>
+		</tr>
+	</table>

@@ -26,10 +26,11 @@ WGOrganizer::Application.routes.draw do
   post "main/create_shout" => "main#create_shout"
   
   get "job" => "job#index" #addjob
-  post "job/complete_task" => "job#complete_task"
+  post "job/create_job" => "job#create_job"
 
   get "tasks" => "tasks#index" #task management
-  
+  post "tasks/create_task" => "tasks#create_task"
+    
   get "profile" => "profile#_index" #profile and choosen!
   post "profile/createWG" => "profile#createWG"
   post "profile/joinWG" => "profile#joinWG"

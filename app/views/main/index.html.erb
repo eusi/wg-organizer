@@ -61,7 +61,7 @@
 									<% @shouts.each do |shout| %>
 									<li>
 										<div class="meta">
-											<img src="./assets/test3.png" width="20%" />
+											<img src="<%= User.find(shout.User_id).Picture %>" width="20%" />
 											<p><%= User.find(shout.User_id).UserName %></p>
 										</div>
 										<div class="shout">

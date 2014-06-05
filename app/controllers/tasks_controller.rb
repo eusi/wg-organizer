@@ -2,7 +2,14 @@ class TasksController < ActionController::Base
 	layout 'application'
 	
 	def index
-    # put any code here that you need 
-    # (although for a static view you probably won't have any)
-end
+	end
+
+	def get_tasks
+		@tasks = current_user.Sharedappartment.Tasks
+	end
+
+    def create_task
+   		@sharedappartment = Sharedappartment.create_task() #modify!
+	    redirect_to '/tasks'
+    end
 end

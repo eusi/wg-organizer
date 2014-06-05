@@ -5,37 +5,39 @@
 </div>
 
 <!--<form method="post" action="job/complete_task" onsubmit="">-->
-<%= form_tag(action: 'complete_task') do %>
+<%= form_tag(action: 'create_job') do %>
 	<table height="99%" width="100%" id="homeTable">
 	<tr>
 		<td>
-			<h2 class="site-title">Select member</h2>
-
-
+			<h2 class="site-title">Member involved</h2>
 			<div>
-
-                <% controller.get_roomies.each do |user| %>
+                <% controller.get_roomies.each do |f| %>
                     <%= check_box_tag(:user) %>
-                    <%= label_tag(:user, user.UserName) %>
+                    <%= label_tag(:user, f.UserName) %>
                     <br>
                 <% end %>
-
 			</div>
 		</td>
 		<td>
-			<h2 class="site-title">Task properties</h2>
+			<h2 class="site-title">Job properties</h2>
 			<div class="placeholder"></div>
 			<div>
-				<input type="text" class="inputtextHome" data-type="text" value="" placeholder="Date">
+				<div><%= f.date_field :Done_date, :value => Date.today, :class => "inputtextHome" %></div>
 				<div class="placeholder"></div>
-				<input type="text" class="inputtextHome" data-type="text" placeholder="Task" value="">
+				<!--%=select("post", "person_id", Person.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}) %-->
+				<select class="inputtextHome">
+		                <% controller.get_tasks.each do |f| %>
+							<tr>
+								<option value="f.id">f.Taskname</option>
+							</tr>
+		                <% end %>
+				</select>
 				<div class="placeholder"></div>
-				<input type="text" class="inputtextHome" data-type="text" placeholder="Amount" value="">
+				<div><%= f.text_field :Amount, :class => "inputtextHome", :placeholder => "Amount (if needed)" %></div>
 				<div class="placeholder"></div>
-				<textarea type="text" class="inputtextHome taskdesc" data-type="text" placeholder="Comment" value=""></textarea>
+				<div><%= f.text_area :Comment, :class => "inputtextHome taskdesc", :placeholder => "Comment" %></div>
 				<div class="placeholder"></div>
-				<button type="submit" class="signup" name="websubmit">Get Credits!</button>
-
+				<div><%= f.submit "Get Credits!", :class => "signup" %></div>
 			</td>
 		</tr>
 	</table>

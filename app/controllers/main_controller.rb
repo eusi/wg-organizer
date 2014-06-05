@@ -13,7 +13,7 @@ class MainController < ActionController::Base
 	end
 
 	def appartment_balance
-		dictionary = current_user.Sharedappartment.get_balance
+		current_user.Sharedappartment.get_balance
 	end
 
 	def create_shout
