@@ -91,31 +91,31 @@
 
       <!-- switches left nav's current item -->
       <% if current_user.Sharedappartment_id != nil %> 
-        <% if current_page?('/job') %>
-          <script type="text/javascript">
-            <!-- 
-            document.getElementById("current").style.top="35px"; 
+        <% if current_page?('/calendar') %>
+            <script type="text/javascript">
+              <!-- 
+              document.getElementById("current").style.top="35px"; 
               //-->
             </script>
-            <% elsif current_page?('/calendar') %>
+        <% elsif current_page?('/avm') %>
             <script type="text/javascript">
               <!-- 
               document.getElementById("current").style.top="71px"; 
               //-->
             </script>
-            <% elsif current_page?('/avm') %>
-            <script type="text/javascript">
-              <!-- 
-              document.getElementById("current").style.top="107px"; 
+        <% elsif current_page?('/job') %>
+          <script type="text/javascript">
+            <!-- 
+            document.getElementById("current").style.top="107px"; 
               //-->
             </script>
-            <% elsif current_page?('/tasks') %>
+        <% elsif current_page?('/tasks') %>
             <script type="text/javascript">
               <!-- 
               document.getElementById("current").style.top="143px"; 
               //-->
             </script>
-            <% elsif current_page?('/profile') %>
+        <% elsif current_page?('/profile') %>
             <script type="text/javascript">
               <!-- 
               document.getElementById("current").style.top="179px"; 

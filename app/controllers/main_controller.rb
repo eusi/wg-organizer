@@ -31,8 +31,4 @@ class MainController < ActionController::Base
 		end
 	end
 
-
-
-
-
 end

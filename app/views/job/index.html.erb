@@ -4,8 +4,7 @@
 	<p>If you have done something for you and your roomies: here you can share it to get credits!</p>
 </div>
 
-<!--<form method="post" action="job/complete_task" onsubmit="">-->
-<%= form_tag(action: 'create_job') do %>
+<%= form_for :completedtask, :url => { :action => 'create_job', :controller=>"job" } do |f| %>
 	<table height="99%" width="100%" id="homeTable">
 	<tr>
 		<td>
@@ -22,7 +21,7 @@
 			<h2 class="site-title">Job properties</h2>
 			<div class="placeholder"></div>
 			<div>
-				<div><%= f.date_field :Done_date, :value => Date.today, :class => "inputtextHome" %></div>
+				<div><%= f.date_field :task_end, :value => Date.today, :class => "inputtextHome" %></div>
 				<div class="placeholder"></div>
 				<!--%=select("post", "person_id", Person.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}) %-->
 				<select class="inputtextHome">
@@ -35,7 +34,7 @@
 				<div class="placeholder"></div>
 				<div><%= f.text_field :amount, :class => "inputtextHome", :placeholder => "Amount (if needed)" %></div>
 				<div class="placeholder"></div>
-				<div><%= f.text_area :Comment, :class => "inputtextHome taskdesc", :placeholder => "Comment" %></div>
+				<div><%= f.text_area :summary, :class => "inputtextHome taskdesc", :placeholder => "Comment" %></div>
 				<div class="placeholder"></div>
 				<div><%= f.submit "Get Credits!", :class => "signup" %></div>
 			</td>

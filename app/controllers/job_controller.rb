@@ -5,8 +5,8 @@ class JobController < ActionController::Base
   end
 
   def create_job
+    @completedtask = Completedtask.complete_task()
     redirect_to '/job', :notice =>'Jobs done!'
-    #Completedtask.complete_task()
   end
 
   def get_roomies
