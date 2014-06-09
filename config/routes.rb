@@ -35,6 +35,9 @@ WGOrganizer::Application.routes.draw do
   post "profile/createWG" => "profile#createWG"
   post "profile/joinWG" => "profile#joinWG"
 
+  get "imprint" => "imprint#index"
+  get "aboutus" => "about#index"
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

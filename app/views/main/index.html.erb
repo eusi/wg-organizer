@@ -24,26 +24,18 @@
 								<p>2014-05-29</p>
 							</div>
 						</li>
-						<li>
-							<div class="meta">
-								<img src="./assets/test3.png" width="20%" />
-								<p>Chris</p>
-							</div>
-							<div class="shout">
-								<p>Putzen</p>
-								<p>2014-05-29</p>
-							</div>
-						</li>
-						<li>
-							<div class="meta">
-								<img src="./assets/test3.png" width="20%" />
-								<p>Chris</p>
-							</div>
-							<div class="shout">
-								<p>Putzen</p>
-								<p>2014-05-29</p>
-							</div>
-						</li>
+		                <% controller.last_activities.each do |f| %>
+							<li>
+								<div class="meta">
+									<img src="<%= f.Picutre) %>" width="20%" />
+									<p><%= f.UserName %></p>
+								</div>
+								<div class="shout">
+									<p><%= f.TaskName) %></p>
+									<p><%= f.jobs_date) %></p>
+								</div>
+							</li>
+		                <% end %>
 					</ul>
 				</div>
 				<div id="shoutboxbot"></div>

@@ -23,7 +23,7 @@
 								<td>f.BaseCredit</td>
 								<td>f.Unit</td>
 								<td>f.CreditPerUnit</td>		
-								<td>i</td> <!-- Taskdescription -->
+								<td>f.Taskdescription</td> <!-- Taskdescription -->
 							</tr>
 		                <% end %>
 					</tbody>
@@ -36,13 +36,13 @@
 						<div>
 							<div><%= f.text_field :Taskname, :class => "inputtextHome", :placeholder => "Task name" %></div>
 							<div class="placeholder"></div>
-							<%= f.email_field :email, :class => "inputtextHome", :placeholder => "Base-Credits" %></div>
+							<%= f.text_field :BaseCredit, :class => "inputtextHome", :placeholder => "Base-Credits" %></div>
 							<div class="placeholder"></div>
-							<div><%= f.text_field :Picture, :class => "inputtextHome", :placeholder => "Unit (e.g. hour)" %></div>
+							<div><%= f.text_field :Unit, :class => "inputtextHome", :placeholder => "Unit (e.g. hour)" %></div>
 							<div class="placeholder"></div>
-							<%= f.email_field :email, :class => "inputtextHome", :placeholder => "Credits per unit" %></div>
+							<%= f.text_field :CreditPerUnit, :class => "inputtextHome", :placeholder => "Credits per unit" %></div>
 							<div class="placeholder"></div>
-							<div><%= f.text_area :Picture, :class => "inputtextHome taskdesc", :placeholder => "Description (What and how to do...)" %></div>
+							<div><%= f.text_area :Description, :class => "inputtextHome taskdesc", :placeholder => "Description (What and how to do...)" %></div>
 							<div class="placeholder"></div>
 							<div><%= f.submit "Create task", :class => "signup" %></div>
 						</div>
