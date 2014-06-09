@@ -27,8 +27,8 @@
 		                <% controller.last_activities.each do |f| %>
 							<li>
 								<div class="meta">
-									<img src="<%= f.Picutre) %>" width="20%" />
-									<p><%= f.UserName %></p>
+									<img src="<%= f.picture) %>" width="20%" />
+									<p><%= f.user_name %></p>
 								</div>
 								<div class="shout">
 									<p><%= f.TaskName) %></p>
@@ -53,8 +53,8 @@
 									<% @shouts.each do |shout| %>
 									<li>
 										<div class="meta">
-											<img src="<%= User.find(shout.User_id).Picture %>" width="20%" />
-											<p><%= User.find(shout.User_id).UserName %></p>
+											<img src="<%= User.find(shout.User_id).picture %>" width="20%" />
+											<p><%= User.find(shout.User_id).user_name %></p>
 										</div>
 										<div class="shout">
 											<p><%= shout.Message %></p>
@@ -68,7 +68,7 @@
 
 						<div id="shoutform">
 							<%= form_for :shoutboxmessage, :url => { :action => 'create_shout' } do |f| %>
-							<div><%= f.text_field :Message, :placeholder => 'Tell me what u\'re thinking!', :class => "inputtextHome shoutdesc" %></div>
+							<div><%= f.text_field :message, :placeholder => 'Tell me what u\'re thinking!', :class => "inputtextHome shoutdesc" %></div>
 							<div class="placeholder"></div>
 							<div><%= f.submit 'Shout!', :class => "signup" %></div>
 							<% end %>

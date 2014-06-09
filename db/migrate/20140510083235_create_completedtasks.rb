@@ -1,12 +1,12 @@
 class CreateCompletedtasks < ActiveRecord::Migration
   def change
     create_table :completedtasks do |t|
-	t.decimal :Amount
-	t.text :Summary
-	t.datetime :TaskStart
-	t.datetime :TaskEnd
-	t.boolean :TaskVerified
-	t.decimal :Credits	
+	t.decimal :amount
+	t.text :summary
+	t.datetime :task_start
+	t.datetime :task_end
+	t.boolean :task_verified
+	t.decimal :credits
 	t.references :User, index: true
 	t.references :Task, index: true
     t.timestamps

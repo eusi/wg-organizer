@@ -34,13 +34,13 @@
 				<div class="placeholder"></div>
 				<%= form_for :sharedappartment, :url => { :action => 'create_task', :controller=>"tasks" } do |f| %>
 						<div>
-							<div><%= f.text_field :Taskname, :class => "inputtextHome", :placeholder => "Task name" %></div>
+							<div><%= f.text_field :task_name, :class => "inputtextHome", :placeholder => "Task name" %></div>
 							<div class="placeholder"></div>
-							<%= f.text_field :BaseCredit, :class => "inputtextHome", :placeholder => "Base-Credits" %></div>
+							<%= f.text_field :base_credit, :class => "inputtextHome", :placeholder => "Base-Credits" %></div>
 							<div class="placeholder"></div>
 							<div><%= f.text_field :Unit, :class => "inputtextHome", :placeholder => "Unit (e.g. hour)" %></div>
 							<div class="placeholder"></div>
-							<%= f.text_field :CreditPerUnit, :class => "inputtextHome", :placeholder => "Credits per unit" %></div>
+							<%= f.text_field :credit_per_unit, :class => "inputtextHome", :placeholder => "Credits per unit" %></div>
 							<div class="placeholder"></div>
 							<div><%= f.text_area :Description, :class => "inputtextHome taskdesc", :placeholder => "Description (What and how to do...)" %></div>
 							<div class="placeholder"></div>

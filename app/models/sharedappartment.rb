@@ -5,11 +5,11 @@ has_many :Tasks, :dependent => :delete_all
 
 attr_accessor :password
 
-validates :Name, uniqueness: true, presence: true,length: { maximum: 15 }
+validates :name, uniqueness: true, presence: true,length: { maximum: 15 }
 
 #validates :password_hash, presence: true
 #validates :password_salt, presence: true
-validates :password, presence: true, length: { in: 6..20 }, confirmation: true
+validates :password, presence: true, length: { in: 6..30 }, confirmation: true
 
 	# This method gets all shoutbox messages of the shared appartment including user data. 
 	# * *Args*    :
@@ -98,7 +98,7 @@ validates :password, presence: true, length: { in: 6..20 }, confirmation: true
 	def self.create_sharedappartment(user,name,password)
 	
 		new_sharedappartment= Sharedappartment.new
-		new_sharedappartment.Name=name
+		new_sharedappartment.name=name
 		new_sharedappartment.password=password
 		new_sharedappartment.password
 		
@@ -141,13 +141,13 @@ validates :password, presence: true, length: { in: 6..20 }, confirmation: true
 			raise ArgumentError.new("Password can't be blank.")
 		end
 		
-		existing_sharedappartment= Sharedappartment.where(:Name=>name).first
+		existing_sharedappartment= Sharedappartment.where(:name=>name).first
 		
 		if(existing_sharedappartment==nil)
 			raise ArgumentError.new('Shared appartment ' + name + ' does not exist, or password is wrong')
 		end
 		
-		existing_hash = BCrypt::Password.new(existing_sharedappartment.password_hash)
+		existing_hash = BCrypt::password.new(existing_sharedappartment.password_hash)
 		
 		given_password_hash = BCrypt::Engine.hash_secret(password, existing_sharedappartment.password_salt)
 
@@ -169,7 +169,7 @@ validates :password, presence: true, length: { in: 6..20 }, confirmation: true
 	# * *Returns* :
 	#   - true if found
 	def self.check_sharedappartment_exists(name)
-		result = Sharedappartment.where(:Name=>name).first!=nil
+		result = Sharedappartment.where(:name=>name).first!=nil
 	end
 
 end

@@ -8,15 +8,15 @@ class User < ActiveRecord::Base
 	has_many :Charges, :dependent => :delete_all
 	belongs_to :Userrole
 	belongs_to :Sharedappartment
-	validates :UserName, presence: true, length: { in: 3..25 }
-	validates :FirstName, length: { maximum: 35 }
-	validates :LastName, length: { maximum: 35 }
+	validates :user_name, presence: true, length: { in: 3..25 }
+	validates :first_name, length: { maximum: 35 }
+	validates :last_name, length: { maximum: 35 }
 	
 	# This method calculates the current credits of the user.	
 	# * *Returns* :
 	#   - The credit value as decimal.	
 	def get_balance()
-		result = Completedtask.where(:is_archived=>0).where(:ByUser=>self).sum(:Credits)-Charge.where(:is_archived=>0).where(:ForUser=>self).sum(:Credits)
+		result = Completedtask.where(:is_archived=>0).where(:ByUser=>self).sum(:credits)-Charge.where(:is_archived=>0).where(:ForUser=>self).sum(:credits)
 	end
 	
 	# This method gets all shoutbox messages of the user's shared appartment including user data. 

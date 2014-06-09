@@ -1,7 +1,7 @@
 class CreateShoutboxmessages < ActiveRecord::Migration
   def change
     create_table :shoutboxmessages do |t|
-	t.text :Message
+	t.text :message
     t.timestamps
 	t.references :User, index: true
     end

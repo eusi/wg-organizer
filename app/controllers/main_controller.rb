@@ -18,7 +18,7 @@ class MainController < ActionController::Base
 
 	def create_shout
 		s = Shoutboxmessage.new()
-		s.Message = params[:shoutboxmessage][:Message]
+		s.Message = params[:shoutboxmessage][:message]
 		s.User_id = current_user.id
 		if s.save
 			redirect_to :action => 'index'

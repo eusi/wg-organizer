@@ -16,7 +16,7 @@
 				<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 					<%= devise_error_messages! %>
 
-					<div><%= f.text_field :UserName, :value => current_user.UserName, autofocus: false, :class => "inputtextHome", :placeholder => "Username" %></div>
+					<div><%= f.text_field :user_name, :value => current_user.user_name, autofocus: false, :class => "inputtextHome", :placeholder => "Username" %></div>
 					<div class="placeholder"></div>
 					<!-- %= f.label : email %><br /> -->
 					<%= f.email_field :email, :value => current_user.email, autofocus: false, :class => "inputtextHome", :placeholder => "Email" %></div>
@@ -26,7 +26,7 @@
 					<% end %>
 
 					<div class="placeholder"></div>
-					<div><%= f.text_field :Picture, :value => current_user.Picture, autofocus: false, :class => "inputtextHome", :placeholder => "http://my_picutre.jpg" %></div>
+					<div><%= f.text_field :picture, :value => current_user.picture, autofocus: false, :class => "inputtextHome", :placeholder => "http://my_picutre.jpg" %></div>
 					<div class="placeholder"></div>
 					<div><%= f.password_field :password, autocomplete: "off", :class => "inputtextHome", :placeholder => "New Password" %></div>
 					<div class="placeholder"></div>
@@ -62,7 +62,7 @@
 			<div class="placeholder"></div>
 			<div>
 				<%= form_for :sharedappartment, :url => { :action => 'joinWG', :controller=>"profile" } do |f| %>
-					<%= f.hidden_field :user, :value => current_user.UserName %>
+					<%= f.hidden_field :user, :value => current_user.user_name %>
 					<div><%= f.text_field :name, autofocus: false, :class => "inputtextHome", :placeholder => "Shared flat name" %></div>
 					<div class="placeholder"></div>
 					<div><%= f.password_field :password, autocomplete: "off", :class => "inputtextHome", :placeholder => "Password" %></div>
@@ -77,7 +77,7 @@
 			<div class="placeholder"></div>
 			<div>
 				<%= form_for :sharedappartment, :url => { :action => 'createWG', :controller=>"profile" } do |f| %>
-					<%= f.hidden_field :user, :value => current_user.UserName %>
+					<%= f.hidden_field :user, :value => current_user.user_name %>
 					<div><%= f.text_field :name, autofocus: false, :class => "inputtextHome", :placeholder => "Shared flat name" %></div>
 					<div class="placeholder"></div>
 					<div><%= f.password_field :password, autocomplete: "off", :class => "inputtextHome", :placeholder => "Password" %></div>
