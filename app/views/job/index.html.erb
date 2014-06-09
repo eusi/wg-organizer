@@ -13,7 +13,7 @@
 			<div>
                 <% controller.get_roomies.each do |f| %>
                     <%= check_box_tag(:user) %>
-                    <%= label_tag(:user, f.UserName) %>
+                    <%= label_tag(:user, f.user_name) %>
                     <br>
                 <% end %>
 			</div>
@@ -28,12 +28,12 @@
 				<select class="inputtextHome">
 		                <% controller.get_tasks.each do |f| %>
 							<tr>
-								<option value="f.id">f.Taskname</option>
+								<option value="f.id">f.task_name</option>
 							</tr>
 		                <% end %>
 				</select>
 				<div class="placeholder"></div>
-				<div><%= f.text_field :Amount, :class => "inputtextHome", :placeholder => "Amount (if needed)" %></div>
+				<div><%= f.text_field :amount, :class => "inputtextHome", :placeholder => "Amount (if needed)" %></div>
 				<div class="placeholder"></div>
 				<div><%= f.text_area :Comment, :class => "inputtextHome taskdesc", :placeholder => "Comment" %></div>
 				<div class="placeholder"></div>

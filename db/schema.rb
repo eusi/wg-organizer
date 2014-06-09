@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20140604152502) do
 
   create_table "charges", force: true do |t|
-    t.decimal  "Credits"
+    t.decimal  "credits"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "Completedtask_id"
@@ -26,31 +26,31 @@ ActiveRecord::Schema.define(version: 20140604152502) do
   add_index "charges", ["User_id"], name: "index_charges_on_User_id"
 
   create_table "completedtasks", force: true do |t|
-    t.decimal  "Amount"
-    t.text     "Summary"
-    t.datetime "TaskStart"
-    t.datetime "TaskEnd"
-    t.boolean  "TaskVerified"
-    t.decimal  "Credits"
+    t.decimal  "amount"
+    t.text     "summary"
+    t.datetime "task_start"
+    t.datetime "task_end"
+    t.boolean  "task_verified"
+    t.decimal  "credits"
     t.integer  "User_id"
     t.integer  "Task_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_archived",  default: false
+    t.boolean  "is_archived",   default: false
   end
 
   add_index "completedtasks", ["Task_id"], name: "index_completedtasks_on_Task_id"
   add_index "completedtasks", ["User_id"], name: "index_completedtasks_on_User_id"
 
   create_table "settings", force: true do |t|
-    t.boolean  "VerifyTaskCompleted"
-    t.boolean  "VerifyCreateNewTask"
+    t.boolean  "verify_task_completed"
+    t.boolean  "verify_create_new_task"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "sharedappartments", force: true do |t|
-    t.string   "Name"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_salt"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20140604152502) do
   end
 
   create_table "shoutboxmessages", force: true do |t|
-    t.text     "Message"
+    t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "User_id"
@@ -67,25 +67,29 @@ ActiveRecord::Schema.define(version: 20140604152502) do
   add_index "shoutboxmessages", ["User_id"], name: "index_shoutboxmessages_on_User_id"
 
   create_table "tasks", force: true do |t|
-    t.string   "Taskname"
-    t.decimal  "CreditPerUnit"
-    t.decimal  "BaseCredit"
-    t.text     "Taskdescription"
+    t.string   "task_name"
+    t.decimal  "credit_per_unit"
+    t.decimal  "base_credit"
+    t.string   "unit"
+    t.text     "task_description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "Sharedappartment_id"
   end
 
+  add_index "tasks", ["Sharedappartment_id"], name: "index_tasks_on_Sharedappartment_id"
+
   create_table "userroles", force: true do |t|
-    t.string   "RoleName"
-    t.integer  "Priority"
+    t.string   "role_name"
+    t.integer  "priority"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
-    t.string   "UserName"
-    t.string   "FirstName"
-    t.string   "LastName"
+    t.string   "user_name"
+    t.string   "first_name"
+    t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "Userrole_id"
@@ -100,7 +104,7 @@ ActiveRecord::Schema.define(version: 20140604152502) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "Picture"
+    t.string   "picture"
   end
 
   add_index "users", ["Sharedappartment_id"], name: "index_users_on_Sharedappartment_id"

@@ -29,7 +29,7 @@
 
     <div id="user_nav">
       <% if user_signed_in? %>
-        Hey <%= current_user.UserName %>! <br>
+        Hey <%= current_user.user_name %>! <br>
         <div class="user_nav">Not you? <a href="/signout">Sign out</a></div>
         <!--<div id="logoutbutton">
              <a href="/signout"><%= submit_tag 'Sign out' %></a>
@@ -67,11 +67,11 @@
       <script type="text/javascript">
       <!--
         /*var http = new XMLHttpRequest();
-        http.open('HEAD', '<%= current_user.Picture %>', false);
+        http.open('HEAD', '<%= current_user.picture %>', false);
         http.send();*/
 
-        if("<%= current_user.Picture %>" != "") // && http.status != 404)
-          document.getElementById("profile").style.backgroundImage = 'url(<%= current_user.Picture %>)';
+        if("<%= current_user.picture %>" != "") // && http.status != 404)
+          document.getElementById("profile").style.backgroundImage = 'url(<%= current_user.picture %>)';
       //-->
       </script>
 

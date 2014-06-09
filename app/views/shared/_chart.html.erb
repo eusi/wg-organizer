@@ -9,7 +9,7 @@
 		"theme": "none",
 	    "dataProvider": [{
 			<% controller.appartment_balance.each do |k, v| %>
-			        "name": "<%= k.UserName %>", //!
+			        "name": "<%= k.user_name %>", //!
 			        "points": <%= v %>,
 			        "color": "#7F8DA9",
 			        "bullet": "<%= k.Picture %>" //!
