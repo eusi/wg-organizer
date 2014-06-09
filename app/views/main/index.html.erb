@@ -27,11 +27,11 @@
 		                <% controller.last_activities.each do |f| %>
 							<li>
 								<div class="meta">
-									<img src="<%= f.picture) %>" width="20%" />
+									<img src="<%= f.picture %>" width="20%" />
 									<p><%= f.user_name %></p>
 								</div>
 								<div class="shout">
-									<p><%= f.TaskName) %></p>
+									<p><%= f.task_name) %></p>
 									<p><%= f.jobs_date) %></p>
 								</div>
 							</li>
@@ -57,7 +57,7 @@
 											<p><%= User.find(shout.User_id).user_name %></p>
 										</div>
 										<div class="shout">
-											<p><%= shout.Message %></p>
+											<p><%= shout.message %></p>
 										</div>
 									</li>
 									<% end %>
