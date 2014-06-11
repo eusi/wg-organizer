@@ -14,25 +14,15 @@
 			<div id="shoutcontainer">
 				<div id="shoutcontent">
 					<ul>
-						<li>
-							<div class="meta">
-								<img src="./assets/test3.png" width="20%" />
-								<p>Chris</p>
-							</div>
-							<div class="shout">
-								<p>Putzen</p>
-								<p>2014-05-29</p>
-							</div>
-						</li>
 		                <% @last_activities.each do |f| %>
 							<li>
 								<div class="meta">
-									<img src="<%= f.picture %>" width="20%" />
-									<p><%= f.user_name %></p>
+									<img src="<%= User.find(f.User_id).picture %>" width="20%" />
+									<p><%= User.find(f.User_id).user_name %></p>
 								</div>
 								<div class="shout">
-									<p><%= f.task_name %></p>
-									<p><%= f.task_end %></p>
+									<p><%= Task.find(f.Task_id).task_name %></p>
+									<p><%= f.task_end.strftime("%Y-%m-%d") %></p>
 								</div>
 							</li>
 		                <% end %>

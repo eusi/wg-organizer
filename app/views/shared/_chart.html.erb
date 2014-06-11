@@ -25,7 +25,7 @@
 			        "points": <%= k[1] %>,
 			        "color": personalHexColor("<%= k[0].user_name %>"),
 			        "bullet": "<%= k[0].picture %>"
-
+			    //if last one...
 				<% if @balance.size == index+1 %>
 					<%= concat "}]," %>
 				<% else %>
