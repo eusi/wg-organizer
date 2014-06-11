@@ -36,7 +36,7 @@ validates :credits, presence: true
 		end
 		
 		#calc credits
-		credits = amount * task.CreditPerUnit.to_f + task.BaseCredit
+		credits = amount * task.credit_per_unit + task.base_credit
 				
 		ActiveRecord::Base.transaction do
 		
