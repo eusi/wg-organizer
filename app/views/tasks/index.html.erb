@@ -19,11 +19,11 @@
 						</tr>
 		                <% controller.get_tasks.each do |f| %>
 							<tr>
-								<td>f.Taskname</td>		
-								<td>f.BaseCredit</td>
-								<td>f.Unit</td>
-								<td>f.CreditPerUnit</td>		
-								<td>f.Taskdescription</td> <!-- Taskdescription -->
+								<td><%= f.task_name %></td>
+								<td><%= f.base_credit %></td>
+								<td><%= f.unit %></td>
+								<td><%= f.credit_per_unit %></td>
+								<td><%= f.task_description %></td> <!-- Taskdescription -->
 							</tr>
 		                <% end %>
 					</tbody>
@@ -32,18 +32,20 @@
 			<td>
 				<h2 class="site-title">Create new task</h2>
 				<div class="placeholder"></div>
-				<%= form_for :sharedappartment, :url => { :action => 'create_task', :controller=>"tasks" } do |f| %>
+				<%= form_for :task, :url => { :action => 'create_task', :controller=>"tasks" } do |f| %>
 						<div>
 							<div><%= f.text_field :task_name, :class => "inputtextHome", :placeholder => "Task name" %></div>
 							<div class="placeholder"></div>
 							<%= f.text_field :base_credit, :class => "inputtextHome", :placeholder => "Base-Credits" %></div>
 							<div class="placeholder"></div>
-							<div><%= f.text_field :Unit, :class => "inputtextHome", :placeholder => "Unit (e.g. hour)" %></div>
+							<div><%= f.text_field :unit, :class => "inputtextHome", :placeholder => "Unit (e.g. hour)" %></div>
 							<div class="placeholder"></div>
 							<%= f.text_field :credit_per_unit, :class => "inputtextHome", :placeholder => "Credits per unit" %></div>
 							<div class="placeholder"></div>
-							<div><%= f.text_area :Description, :class => "inputtextHome taskdesc", :placeholder => "Description (What and how to do...)" %></div>
+							<div><%= f.text_area :task_description, :class => "inputtextHome taskdesc", :placeholder => "Description (What and how to do...)" %></div>
 							<div class="placeholder"></div>
+                            <div><%= f.hidden_field :Sharedappartment_id, :class => "inputtextHome", :value => current_user.Sharedappartment_id %></div>
+                            <div class="placeholder"></div>
 							<div><%= f.submit "Create task", :class => "signup" %></div>
 						</div>
 				<% end %>

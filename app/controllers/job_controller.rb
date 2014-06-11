@@ -5,7 +5,7 @@ class JobController < ActionController::Base
   end
 
   def create_job
-    @completedtask = Completedtask.complete_task()
+    @completedtask = Completedtask.complete_task(current_user,for_users,amount,task,task_start,task_end,summary)
     redirect_to '/job', :notice =>'Jobs done!'
   end
 
