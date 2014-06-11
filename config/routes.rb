@@ -1,5 +1,5 @@
 WGOrganizer::Application.routes.draw do
-    devise_for :users, :skip => [:sessions]
+    devise_for :users, :skip => [:sessions], :controllers => { :registrations => :registrations }
 
   devise_scope :user do
    	get  "/signin" => "sessions#new", :as => :new_user_session
