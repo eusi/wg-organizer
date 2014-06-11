@@ -71,7 +71,11 @@
         http.send();*/
 
         if("<%= current_user.picture %>" != "") // && http.status != 404)
-          document.getElementById("profile").style.backgroundImage = 'url(<%= current_user.picture %>)';
+          document.getElementById("profile").style.backgroundImage = 'url("<%= current_user.picture %>")';
+        else {
+          var url = setPersonalGravatarUrl("<%= current_user.user_name %>");
+          document.getElementById("profile").style.backgroundImage = "url('"+url+"')";
+        }
       //-->
       </script>
 

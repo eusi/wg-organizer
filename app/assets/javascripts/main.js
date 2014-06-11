@@ -40,3 +40,18 @@ $(document).ready(function(){
 */
 });
 
+//convert username-string to hex and cut the result after 6 chars = personal hex color
+function personalHexColor(str) 
+{
+	var hex = '';
+	for(var i=0;i<str.length;i++) {
+		hex += ''+str.charCodeAt(i).toString(16);
+	}
+	return hex.substring(0, 6);;
+}
+
+//creates an gravatar url
+function setPersonalGravatarUrl(str) 
+{
+	return 'http://www.gravatar.com/avatar/' + personalHexColor(str) + '?r=PG&s=150&default=identicon';
+}
