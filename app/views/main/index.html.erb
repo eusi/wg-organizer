@@ -6,7 +6,7 @@
 <table height="99%" id="homeTable">
 	<tr>
 		<td rowspan="2" style="width: 444px; table-layout: fixed">
-			<h2 class="site-title">Overview</h2>
+			<h2 class="site-title">Overview: <%= @wg %></h2>
 			<div id="chartdiv"></div>
 		</td>
 		<td>
@@ -24,7 +24,7 @@
 								<p>2014-05-29</p>
 							</div>
 						</li>
-		                <% controller.last_activities.each do |f| %>
+		                <% @last_activities.each do |f| %>
 							<li>
 								<div class="meta">
 									<img src="<%= f.picture %>" width="20%" />

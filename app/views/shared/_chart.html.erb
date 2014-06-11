@@ -3,14 +3,15 @@
 <script type="text/javascript" src="./assets/none.js"></script>       
 
 <script type="text/javascript">
-//convert string to hex and cut the reuslt after 6 chars = personal hex color
-function personalHexColor(str) {
-	var hex = '';
-	for(var i=0;i<str.length;i++) {
-		hex += ''+str.charCodeAt(i).toString(16);
+	//convert username-string to hex and cut the result after 6 chars = personal hex color
+	function personalHexColor(str) 
+	{
+		var hex = '';
+		for(var i=0;i<str.length;i++) {
+			hex += ''+str.charCodeAt(i).toString(16);
+		}
+		return "#" + hex.substring(0, 6);;
 	}
-	return "#" + hex.substring(0, 6);;
-}
 </script>
 
 <script type="text/javascript">
@@ -19,21 +20,21 @@ function personalHexColor(str) {
 	    "type": "serial",
 		"theme": "none",
 	    "dataProvider": [{
-			<% controller.appartment_balance.each do |k, v| %>
-			        "name": "<%= k.user_name %>", //!
-			        "points": <%= v %>,
-			        "color": personalHexColor("<%= k.user_name %>"),
-			        "bullet": "<%= k.picture %>" //!
-			    }, {
+			<% @balance.each_with_index do |k, index| %>
+			        "name": "<%= k[0].user_name %>",
+			        "points": <%= k[1] %>,
+			        "color": personalHexColor("<%= k[0].user_name %>"),
+			        "bullet": "<%= k[0].picture %>"
+
+				<% if @balance.size == index+1 %>
+					<%= concat "}]," %>
+				<% else %>
+					<% concat "}, {" %>
+				<% end %>
 			<% end %>
-	        "name": "Chris", //!
-	        "points": 65456,
-	        "color": personalHexColor("Chris"),
-	        "bullet": "./assets/test3.png" //!
-	    }],
 	    "valueAxes": [{
-	        "maximum": 80000, //!
-	        "minimum": 0,	  //!
+	        "maximum": <%= @max_credits %>,
+	        "minimum": <%= @min_credits %>,
 	        "axisAlpha": 0,
 	        "gridAlpha": 0,
 	        "dashLength": 0,
