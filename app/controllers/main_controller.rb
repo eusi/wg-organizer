@@ -9,7 +9,7 @@ class MainController < ActionController::Base
 	end
 
 	def last_activities
-		@completedtasks = current_user.get_last_activities_of_appartment
+		@completedtasks = current_user.get_last_activities_of_appartment(5)
 	end
 
 	def appartment_balance
@@ -18,7 +18,7 @@ class MainController < ActionController::Base
 
 	def create_shout
 		s = Shoutboxmessage.new()
-		s.Message = params[:shoutboxmessage][:message]
+		s.message = params[:shoutboxmessage][:message]
 		s.User_id = current_user.id
 		if s.save
 			redirect_to :action => 'index'
