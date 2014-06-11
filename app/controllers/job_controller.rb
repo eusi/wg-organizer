@@ -5,8 +5,18 @@ class JobController < ActionController::Base
   end
 
   def create_job
-    @completedtask = Completedtask.complete_task(current_user,for_users,amount,task,task_start,task_end,summary)
+    #begin
+    @completedtask = Completedtask.complete_task(current_user,params[:completedtask][:for_users],params[:completedtask][:amount],Task.find(params[:completedtask][:task_id]),params[:completedtask][:task_start],params[:completedtask][:task_end],params[:completedtask][:summary])
     redirect_to '/job', :notice =>'Jobs done!'
+    #rescue => error
+     #@completedtask = nil
+    #end
+    #if @sharedappartment
+      #redirect_to '/job', :notice =>'Jobs done!'
+    #else
+      #redirect_to '/jobs', :alert => error.message
+    #end
+
   end
 
   def get_roomies
