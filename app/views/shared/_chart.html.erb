@@ -3,6 +3,17 @@
 <script type="text/javascript" src="./assets/none.js"></script>       
 
 <script type="text/javascript">
+//convert string to hex and cut the reuslt after 6 chars = personal hex color
+function personalHexColor(str) {
+	var hex = '';
+	for(var i=0;i<str.length;i++) {
+		hex += ''+str.charCodeAt(i).toString(16);
+	}
+	return "#" + hex.substring(0, 6);;
+}
+</script>
+
+<script type="text/javascript">
 	AmCharts.makeChart("chartdiv",
 	{
 	    "type": "serial",
@@ -11,19 +22,14 @@
 			<% controller.appartment_balance.each do |k, v| %>
 			        "name": "<%= k.user_name %>", //!
 			        "points": <%= v %>,
-			        "color": "#7F8DA9",
+			        "color": personalHexColor("<%= k.user_name %>"),
 			        "bullet": "<%= k.picture %>" //!
 			    }, {
 			<% end %>
 	        "name": "Chris", //!
 	        "points": 65456,
-	        "color": "#FEC514",
+	        "color": personalHexColor("Chris"),
 	        "bullet": "./assets/test3.png" //!
-	    }, {
-	        "name": "Werner", //!
-	        "points": 45724,
-	        "color": "#0B0E15",
-	        "bullet": "./assets/test2.png" //!
 	    }],
 	    "valueAxes": [{
 	        "maximum": 80000, //!

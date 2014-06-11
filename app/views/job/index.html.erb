@@ -6,37 +6,36 @@
 
 <%= form_for :completedtask, :url => { :action => 'create_job', :controller=>"job" } do |f| %>
 	<table height="99%" width="100%" id="homeTable">
-	<tr>
-		<td>
-			<h2 class="site-title">Member involved</h2>
-			<div>
-                <% controller.get_roomies.each do |f| %>
-                    <%= check_box_tag(:user) %>
-                    <%= label_tag(:user, f.user_name) %>
-                    <br>
-                <% end %>
-			</div>
-		</td>
-		<td>
-			<h2 class="site-title">Job properties</h2>
-			<div class="placeholder"></div>
-			<div>
-				<div><%= f.date_field :task_end, :value => Date.today, :class => "inputtextHome" %></div>
+		<tr>
+			<td>
+				<h2 class="site-title">Member involved</h2>
+				<div>
+	                <% controller.get_roomies.each do |f| %>
+	                    <%= check_box_tag(:user) %>
+	                    <%= label_tag(:user, f.user_name) %>
+	                    <br>
+	                <% end %>
+				</div>
+			</td>
+			<td>
+				<h2 class="site-title">Job properties</h2>
 				<div class="placeholder"></div>
-				<!--%=select("post", "person_id", Person.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}) %-->
-				<select class="inputtextHome">
+				<div>
+					<div><%= f.date_field :task_end, :value => Date.today, :class => "inputtextHome" %></div>
+					<div class="placeholder"></div>
+					<!--%=select("post", "person_id", Person.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}) %-->
+					<select class="inputtextHome">
 		                <% controller.get_tasks.each do |f| %>
-							<tr>
-								<option value="f.id">f.task_name</option>
-							</tr>
+							<option value="f.id"><% f.task_name %></option>
 		                <% end %>
-				</select>
-				<div class="placeholder"></div>
-				<div><%= f.text_field :amount, :class => "inputtextHome", :placeholder => "Amount (if needed)" %></div>
-				<div class="placeholder"></div>
-				<div><%= f.text_area :summary, :class => "inputtextHome taskdesc", :placeholder => "Comment" %></div>
-				<div class="placeholder"></div>
-				<div><%= f.submit "Get Credits!", :class => "signup" %></div>
+					</select>
+					<div class="placeholder"></div>
+					<div><%= f.text_field :amount, :class => "inputtextHome", :placeholder => "Amount (if needed)" %></div>
+					<div class="placeholder"></div>
+					<div><%= f.text_area :summary, :class => "inputtextHome taskdesc", :placeholder => "Comment" %></div>
+					<div class="placeholder"></div>
+					<div><%= f.submit "Get Credits!", :class => "signup" %></div>
+				</div>
 			</td>
 		</tr>
 	</table>
