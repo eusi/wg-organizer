@@ -11,8 +11,10 @@
 			<h2 class="site-title">Member involved</h2>
 			<div>
                 <% controller.get_roomies.each do |f| %>
-                    <%= check_box_tag(:user, '1', true) %>
-                    <%= label_tag(:user, f.user_name) %>
+                    <div>
+	                    <%= check_box_tag(:user, '1', true, :class => "jobbox", :style => "vertical-align:middle") %>
+	                    <%= label_tag(:user, f.user_name) %>
+	                </div>
                     <br>
                 <% end %>
 			</div>
