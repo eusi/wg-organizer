@@ -6,7 +6,13 @@ class JobController < ActionController::Base
 
   def create_job
     #begin
-    @completedtask = Completedtask.complete_task(current_user,params[:completedtask][:for_users],params[:completedtask][:amount],Task.find(params[:completedtask][:task_id]),params[:completedtask][:task_start],params[:completedtask][:task_end],params[:completedtask][:summary])
+    @completedtask = Completedtask.complete_task( current_user, 
+                                                  params[:completedtask][:for_users],
+                                                  params[:completedtask][:amount].to_i,
+                                                  Task.find(params[:completedtask][:task_id]),
+                                                  params[:completedtask][:task_start],
+                                                  params[:completedtask][:task_end],
+                                                  params[:completedtask][:summary])
     redirect_to '/job', :notice =>'Jobs done!'
     #rescue => error
      #@completedtask = nil
