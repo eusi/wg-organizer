@@ -25,13 +25,17 @@
 				<div class="placeholder"></div>
 
                 <%= f.select :task_id,  options_from_collection_for_select(controller.get_tasks, :id, :task_name) %>
+					<div class="placeholder"></div>
+					<div><%= f.text_field :amount, :class => "inputtextHome", :placeholder => "Amount (if needed)" %></div>
+					<div class="placeholder"></div>
+					<div><%= f.text_area :summary, :class => "inputtextHome taskdesc", :placeholder => "Comment" %></div>
+					<div class="placeholder"></div>
+					<div><%= f.submit "Get Credits!", :class => "signup" %></div>
+				
 
-				<div class="placeholder"></div>
-				<div><%= f.text_field :amount, :class => "inputtextHome", :placeholder => "Amount (if needed)" %></div>
-				<div class="placeholder"></div>
-				<div><%= f.text_area :summary, :class => "inputtextHome taskdesc", :placeholder => "Comment" %></div>
-				<div class="placeholder"></div>
-				<div><%= f.submit "Get Credits!", :class => "signup" %></div>
+               
+
+				
 			</td>
 		</tr>
 	</table>
