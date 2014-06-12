@@ -10,7 +10,7 @@
 		<td>
 			<h2 class="site-title">Member involved</h2>
 			<div>
-                <% controller.get_roomies.each do |f| %>
+                <% @roomies.each do |f| %>
                     <div>
 	                    <%= check_box_tag(:user, '1', true, :class => "jobbox", :style => "vertical-align:middle") %>
 	                    <%= label_tag(:user, f.user_name) %>
@@ -25,7 +25,7 @@
 			<div>
 				<div><%= f.date_field :task_end, :value => Date.today, :class => "inputtextHome" %></div>
 				<div class="placeholder"></div>
-                <%= f.select :task_id, options_from_collection_for_select(controller.get_tasks, :id, :task_name), { :include_blank=>false }, { :class => "inputtextHome" } %>
+                <%= f.select :task_id, options_from_collection_for_select(@tasks, :id, :task_name), { :include_blank=>false }, { :class => "inputtextHome" } %>
 				<div class="placeholder"></div>
 				<div><%= f.text_field :amount, :class => "inputtextHome", :placeholder => "Amount (if needed)" %></div>
 				<div class="placeholder"></div>

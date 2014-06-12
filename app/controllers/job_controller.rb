@@ -2,6 +2,8 @@ class JobController < ActionController::Base
 	layout 'application'
 	
 	def index
+   @roomies = current_user.Sharedappartment.Users
+   @tasks = current_user.Sharedappartment.Tasks
   end
 
   def create_job
