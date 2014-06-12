@@ -26,12 +26,4 @@ class JobController < ActionController::Base
 
   end
 
-
-  def get_roomies
-    @users = current_user.Sharedappartment.Users
-  end
-
-  def get_tasks
-    @tasks = current_user.Sharedappartment.Tasks
-  end
 end
