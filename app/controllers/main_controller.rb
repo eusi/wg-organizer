@@ -8,7 +8,7 @@ class MainController < ActionController::Base
 
 		@shouts = current_user.get_shoutbox_messages_of_appartment(5)
 		@wg = Sharedappartment.find(current_user.Sharedappartment_id).name
-		@last_activities = current_user.get_last_activities_of_appartment(5)
+		@last_activities = current_user.get_last_activities_of_appartment(3)
 		@balance = current_user.Sharedappartment.get_balance
 		@max_credits = 30 #implement max credits in shared appartment: credits by "best" roomie * 1,2
 		@min_credits = 0 #implement min credits in shared appartment: credits by "worst" roomie * 0,8

@@ -6,7 +6,7 @@
 </div>
 	<table height="99%" width="100%" id="homeTable">
 		<tr>
-			<td>
+			<td style="min-height:300px;">
 				<h2 class="site-title">Task list</h2>
 				<table class="reference">
 					<tbody>
@@ -23,13 +23,13 @@
 								<td><%= f.base_credit %></td>
 								<td><%= f.unit %></td>
 								<td><%= f.credit_per_unit %></td>
-								<td><%= f.task_description %></td> <!-- Taskdescription -->
+								<td><span class="taskDescHover"><img src="assets/info.png" /><span><%= f.task_description %></span></span></td> <!-- Taskdescription -->
 							</tr>
 		                <% end %>
 					</tbody>
 				</table>
 			</td>
-			<td>
+			<td rowspan="2">
 				<h2 class="site-title">Create new task</h2>
 				<div class="placeholder"></div>
 				<%= form_for :task, :url => { :action => 'create_task', :controller=>"tasks" } do |f| %>
@@ -49,6 +49,12 @@
 							<div><%= f.submit "Create task", :class => "signup" %></div>
 						</div>
 				<% end %>
+			</td>
+		</tr>
+		<tr>
+			<td height="50%">
+				<b>Note:</b><br>
+				In further releases this site (task) will be enhanced to something like "roomie management". Here you will not only be able to create tasks, but also change the password and name of your shared appartemnt and so on. So you can pimp your shared appartment as you want to.
 			</td>
 		</tr>
 	</table>

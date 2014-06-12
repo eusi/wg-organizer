@@ -266,6 +266,8 @@ h2#tagline{
 	opacity: 0.80;
 	background-image:url(profile.jpg);
 	background-size:150px 150px;
+	/*border-radius: 10px 10px 10px 10px;
+	box-shadow: 0px 0px 10px #1A1A1A;*/
 }
 
 #site-type-nav{
@@ -944,6 +946,43 @@ table.reference td.example_code
 {
 	vertical-align:bottom;
 }
+
+span.taskDescHover {
+	border-bottom: thin dotted;
+}
+
+span.taskDescHover:hover {
+	text-decoration: none; 
+	z-index: 6; 
+}
+
+span.taskDescHover span {
+	position: absolute; 
+	left: -9999px;
+	margin: 20px 0 0 0px; 
+	padding: 3px 3px 3px 3px;
+	border: 1px solid #434956;
+	z-index: 6;
+}
+
+span.taskDescHover:hover span {
+	left: 18%; 
+	background: #ffffff;
+} 
+
+span.taskDescHover span {
+	position: absolute; 
+	left: -9999px;
+	margin: 4px 0 0 0px; 
+	padding: 3px 3px 3px 3px; 
+	border: 2px solid #434956;
+}
+
+span.taskDescHover:hover span {
+	margin: 20px 0 0 170px; 
+	background: #ffffff; 
+	z-index:6;
+} 
 
 /***************************************************************************
 *************************** SHOUTBOX ***************************************
