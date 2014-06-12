@@ -18,7 +18,7 @@ class JobController < ActionController::Base
       @completedtask = nil
     end
 
-    if @sharedappartment
+    if @completedtask
       redirect_to '/job', :notice =>'Jobs done!'
     else
       redirect_to '/jobs', :alert => error.message

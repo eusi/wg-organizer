@@ -56,7 +56,7 @@ validates :credits, presence: true
 				end
 			
 			end
-			
+			return completed_task
 		end
 		
 		
