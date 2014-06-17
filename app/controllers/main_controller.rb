@@ -10,7 +10,7 @@ class MainController < ActionController::Base
 		@wg = Sharedappartment.find(current_user.Sharedappartment_id).name
 		@last_activities = current_user.get_last_activities_of_appartment(3)
 		@balance = current_user.Sharedappartment.get_balance
-		@max_credits = 30 #implement max credits in shared appartment: credits by "best" roomie * 1,2
+		@max_credits = current_user.Sharedappartment.get_max_credits( 0.2 )
 		@min_credits = 0 #implement min credits in shared appartment: credits by "worst" roomie * 0,8
 	end
 
