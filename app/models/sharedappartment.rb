@@ -4,7 +4,7 @@ has_many :Users
 has_many :Tasks, :dependent => :delete_all
 
 attr_accessor :password
-
+attr_accessor :max_credits
 validates :name, uniqueness: true, presence: true,length: { maximum: 15 }
 
 #validates :password_hash, presence: true
@@ -74,16 +74,33 @@ validates :password, presence: true, length: { in: 6..30 }, confirmation: true
 		return result
 	end
 	
+	# This method returns the maximum of credits of an user.	
+	#   - +scale+ -> increase/decrease result by percentage value (0,2 --> 20 %).
+	# * *Returns* :
+	#   - A hash with the user as key and the credits as decimal value.	
+	def get_max_credits(scale)	
+	    if(self.max_credits==nil)			
+			get_balance()
+		end
+		return self.max_credits * (1+scale)
+	end
+	
 	
 	# This method calculates the current credits of every shared appartment member.	
 	# * *Returns* :
 	#   - A hash with the user as key and the credits as decimal value.	
 	def get_balance()
+		self.max_credits=0
 		balances=Hash.new
 			self.Users.each do |current_user|
 			
 			#calc balance			
-				balances[current_user]=current_user.get_balance()
+			current_credits=current_user.get_balance()
+			if(current_credits>self.max_credits)
+				self.max_credits=current_credits
+			end			
+			balances[current_user]=current_credits
+				
 			end
 		return balances
 	end
