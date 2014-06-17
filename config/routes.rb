@@ -1,5 +1,5 @@
 WGOrganizer::Application.routes.draw do
-    devise_for :users, :skip => [:sessions]
+    devise_for :users, :skip => [:sessions], :controllers => { :registrations => :registrations }
 
   devise_scope :user do
    	get  "/signin" => "sessions#new", :as => :new_user_session
@@ -35,8 +35,9 @@ WGOrganizer::Application.routes.draw do
   post "profile/createWG" => "profile#createWG"
   post "profile/joinWG" => "profile#joinWG"
 
+  get "aboutus" => "imprint#index"
   get "imprint" => "imprint#index"
-  get "aboutus" => "about#index"
+  get "disclaimer" => "imprint#disclaimer"
 
   
   # The priority is based upon order of creation: first created -> highest priority.

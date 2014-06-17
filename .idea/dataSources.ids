@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<component name="dataSourceStorage">
-  <data-source source="LOCAL" name="Rails wg-organizer: development" uuid="4d3e17ad-054f-4b48-9549-cdf1297a89e9">
-    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
-  </data-source>
-  <data-source source="LOCAL" name="Rails wg-organizer: test" uuid="7e485303-33fa-4ac7-ae88-5cba2c4c2fd3">
-    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
-  </data-source>
-</component>

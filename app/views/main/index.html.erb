@@ -6,7 +6,7 @@
 <table height="99%" id="homeTable">
 	<tr>
 		<td rowspan="2" style="width: 444px; table-layout: fixed">
-			<h2 class="site-title">Overview</h2>
+			<h2 class="site-title">Overview: <%= @wg %></h2>
 			<div id="chartdiv"></div>
 		</td>
 		<td>
@@ -14,25 +14,20 @@
 			<div id="shoutcontainer">
 				<div id="shoutcontent">
 					<ul>
-						<li>
-							<div class="meta">
-								<img src="./assets/test3.png" width="20%" />
-								<p>Chris</p>
-							</div>
-							<div class="shout">
-								<p>Putzen</p>
-								<p>2014-05-29</p>
-							</div>
-						</li>
-		                <% controller.last_activities.each do |f| %>
+		                <% @last_activities.each do |f| %>
 							<li>
 								<div class="meta">
-									<img src="<%= f.picture %>" width="20%" />
-									<p><%= f.user_name %></p>
+									<% if User.find(f.User_id).picture != nil %>
+										<img src="<%= User.find(f.User_id).picture %>" width="20%" />
+									<% else %>
+										<script>document.write( '<img src="' + setPersonalGravatarUrl("<%=User.find(f.User_id).user_name %>") + '" width="20%" />' );</script>
+									<% end %>
+									
+									<p><%= User.find(f.User_id).user_name %></p>
 								</div>
 								<div class="shout">
-									<p><%= f.task_name) %></p>
-									<p><%= f.jobs_date) %></p>
+									<p><b><%= Task.find(f.Task_id).task_name %></b></p>
+									<p><%= f.task_end.strftime("%Y-%m-%d") %></p>
 								</div>
 							</li>
 		                <% end %>
@@ -53,7 +48,11 @@
 									<% @shouts.each do |shout| %>
 									<li>
 										<div class="meta">
-											<img src="<%= User.find(shout.User_id).picture %>" width="20%" />
+											<% if User.find(shout.User_id).picture != nil %>
+												<img src="<%= User.find(shout.User_id).picture %>" width="20%" />
+											<% else %>
+												<script>document.write( '<img src="' + setPersonalGravatarUrl("<%=User.find(shout.User_id).user_name %>") + '" width="20%" />' );</script>
+											<% end %>
 											<p><%= User.find(shout.User_id).user_name %></p>
 										</div>
 										<div class="shout">

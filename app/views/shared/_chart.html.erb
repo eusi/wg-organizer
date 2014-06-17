@@ -8,26 +8,29 @@
 	    "type": "serial",
 		"theme": "none",
 	    "dataProvider": [{
-			<% controller.appartment_balance.each do |k, v| %>
-			        "name": "<%= k.user_name %>", //!
-			        "points": <%= v %>,
-			        "color": "#7F8DA9",
-			        "bullet": "<%= k.Picture %>" //!
-			    }, {
+			<% @balance.each_with_index do |k, index| %>
+			        "name": "<%= k[0].user_name %>",
+			        "points": <%= k[1] %>,
+			        "color": "#" + personalHexColor("<%= k[0].user_name %>"),
+			        
+			        //set gravatar or picture as bullet
+					<% if k[0].picture != nil %>
+						"bullet": "<%= concat k[0].picture %>"
+					<% else %>
+						"bullet": setPersonalGravatarUrl("<%= k[0].user_name %>")
+					<% end %>
+
+			    //if last one...
+				<% if @balance.size == index+1 %>
+					<%= concat "}]," %>
+				<% else %>
+					<% concat "}, {" %>
+				<% end %>
+
 			<% end %>
-	        "name": "Chris", //!
-	        "points": 65456,
-	        "color": "#FEC514",
-	        "bullet": "./assets/test3.png" //!
-	    }, {
-	        "name": "Werner", //!
-	        "points": 45724,
-	        "color": "#0B0E15",
-	        "bullet": "./assets/test2.png" //!
-	    }],
 	    "valueAxes": [{
-	        "maximum": 80000, //!
-	        "minimum": 0,	  //!
+	        "maximum": <%= @max_credits %>,
+	        "minimum": <%= @min_credits %>,
 	        "axisAlpha": 0,
 	        "gridAlpha": 0,
 	        "dashLength": 0,

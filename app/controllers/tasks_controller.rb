@@ -9,7 +9,13 @@ class TasksController < ActionController::Base
 	end
 
     def create_task
-   		@sharedappartment = Sharedappartment.create_task() #modify!
-	    redirect_to '/tasks'
-    end
+
+      @task = Task.new(params[:task].permit(:task_name,:base_credit, :unit, :credit_per_unit, :task_description, :Sharedappartment_id))
+
+      if @task.save
+        redirect_to '/tasks', :notice => "Successfully created task"
+      else
+        redirect_to '/tasks', :alert => @task.errors.full_messages.to_sentence
+      end
+   	end
 end

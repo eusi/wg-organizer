@@ -266,6 +266,8 @@ h2#tagline{
 	opacity: 0.80;
 	background-image:url(profile.jpg);
 	background-size:150px 150px;
+	/*border-radius: 10px 10px 10px 10px;
+	box-shadow: 0px 0px 10px #1A1A1A;*/
 }
 
 #site-type-nav{
@@ -945,6 +947,43 @@ table.reference td.example_code
 	vertical-align:bottom;
 }
 
+span.taskDescHover {
+	border-bottom: thin dotted;
+}
+
+span.taskDescHover:hover {
+	text-decoration: none; 
+	z-index: 6; 
+}
+
+span.taskDescHover span {
+	position: absolute; 
+	left: -9999px;
+	margin: 20px 0 0 0px; 
+	padding: 3px 3px 3px 3px;
+	border: 1px solid #434956;
+	z-index: 6;
+}
+
+span.taskDescHover:hover span {
+	left: 18%; 
+	background: #ffffff;
+} 
+
+span.taskDescHover span {
+	position: absolute; 
+	left: -9999px;
+	margin: 4px 0 0 0px; 
+	padding: 3px 3px 3px 3px; 
+	border: 2px solid #434956;
+}
+
+span.taskDescHover:hover span {
+	margin: 20px 0 0 170px; 
+	background: #ffffff; 
+	z-index:6;
+} 
+
 /***************************************************************************
 *************************** SHOUTBOX ***************************************
 ***************************************************************************/
@@ -1084,4 +1123,37 @@ form input, form textarea {
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 6px rgba(11,14,21,.3);
 	background-color: #0B0E15;
+}
+
+/***************************************************************************
+*************************** JOB ********************************************
+***************************************************************************/
+
+.jobbox {
+	-webkit-appearance: none;
+	background-color: #ffffff;
+	border: 1px solid #000000;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 9px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+}.jobbox:active, .jobbox:checked:active {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+.jobbox:checked {
+	background-color: #ffffff;
+	border: 1px solid #000000;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+	color: #99a1a7;
+}
+
+.jobbox:checked:after {
+	content: '\2714';
+	font-size: 14px;
+	position: absolute;
+	top: 0px;
+	left: 3px;
+	color: #000000;
 }

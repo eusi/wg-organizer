@@ -147,7 +147,7 @@ validates :password, presence: true, length: { in: 6..30 }, confirmation: true
 			raise ArgumentError.new('Shared appartment ' + name + ' does not exist, or password is wrong')
 		end
 		
-		existing_hash = BCrypt::password.new(existing_sharedappartment.password_hash)
+		existing_hash = BCrypt::Password.new(existing_sharedappartment.password_hash)
 		
 		given_password_hash = BCrypt::Engine.hash_secret(password, existing_sharedappartment.password_salt)
 
