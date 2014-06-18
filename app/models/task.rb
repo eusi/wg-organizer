@@ -8,9 +8,15 @@ validates :base_credit, presence: true, numericality: true
 validates :task_description, length: { maximum: 2000 }
 
 	# This method sets a task as deleted.	
-	def set_as_deleted()
-		self.is_deleted=true;
-		self.save()
+	def self.set_as_deleted(id)
+
+		t = Task.find(id)
+    if(t)
+      t.is_deleted=true
+		  t.save()
+    else
+      raise ArgumentError.new("Task not found!")
+    end
 	end
 
 end

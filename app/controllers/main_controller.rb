@@ -1,5 +1,6 @@
 class MainController < ActionController::Base
 	layout 'application'
+  before_action :user_signed_in?
 
 	def index
 		if(current_user.Sharedappartment_id==nil)
@@ -7,7 +8,7 @@ class MainController < ActionController::Base
 		end
 
 		@shouts = current_user.get_shoutbox_messages_of_appartment(5)
-		@wg = Sharedappartment.find(current_user.Sharedappartment_id).name
+		@wg = current_user.Sharedappartment.name
 		@last_activities = current_user.get_last_activities_of_appartment(3)
 		@balance = current_user.Sharedappartment.get_balance
 		@max_credits = current_user.Sharedappartment.get_max_credits( 0.2 )

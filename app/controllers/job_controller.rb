@@ -25,7 +25,6 @@ class JobController < ActionController::Base
     else
       redirect_to '/jobs', :alert => error.message
     end
-
   end
 
 end

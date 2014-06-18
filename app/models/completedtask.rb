@@ -5,7 +5,7 @@ has_many :Charges, :dependent => :delete_all
 validates :summary, length: { maximum: 400 }
 validates :ByUser, presence: true
 validates :Task, presence: true
-validates :amount, presence: true
+validates :amount, presence: true, numericality: true
 validates :credits, presence: true
 
 	# This method can be used by an user to complete a task. 

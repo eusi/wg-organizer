@@ -2,18 +2,17 @@ class TasksController < ActionController::Base
 	layout 'application'
 	
 	def index
-    @tasks = current_user.Sharedappartment.Tasks
+    @tasks = current_user.Sharedappartment.Tasks.where(:is_deleted => [nil, false])
 	end
 
   def delete_task
-    #overwork and test me:
-    #Task.delete( params[:deletableTask] )
-    redirect_to '/tasks', :notice => "Task successfully deleted!"
+      begin
+        Task.set_as_deleted(params[:deletableTask])
+        redirect_to '/tasks', :notice => "Task successfully deleted!"
+      rescue => error
+        redirect_to '/tasks', :alert => "Whoops, something went wrong: "+error.message
+      end
   end
-	
-	def set_task_as_deleted(task)
-		task.set_as_deleted()
-	end
 
   def create_task
     @task = Task.new(params[:task].permit(:task_name,:base_credit, :unit, :credit_per_unit, :task_description, :Sharedappartment_id))

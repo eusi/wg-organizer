@@ -17,16 +17,16 @@
 		                <% @last_activities.each do |f| %>
 							<li>
 								<div class="meta">
-									<% if User.find(f.User_id).picture != nil %>
-										<img src="<%= User.find(f.User_id).picture %>" width="20%" />
+									<% if f.ByUser.picture != nil %>
+										<img src="<%= f.ByUser.picture %>" width="20%" />
 									<% else %>
-										<script>document.write( '<img src="' + setPersonalGravatarUrl("<%=User.find(f.User_id).user_name %>") + '" width="20%" />' );</script>
+										<script>document.write( '<img src="' + setPersonalGravatarUrl("<%=f.ByUser.user_name %>") + '" width="20%" />' );</script>
 									<% end %>
 									
-									<p><%= User.find(f.User_id).user_name %></p>
+									<p><%= f.ByUser.user_name %></p>
 								</div>
 								<div class="shout">
-									<p><b><%= Task.find(f.Task_id).task_name %></b></p>
+									<p><b><%= f.Task.task_name %></b></p>
 									<p><%= f.task_end.strftime("%Y-%m-%d") %></p>
 								</div>
 							</li>
@@ -48,12 +48,12 @@
 									<% @shouts.each do |shout| %>
 									<li>
 										<div class="meta">
-											<% if User.find(shout.User_id).picture != nil %>
-												<img src="<%= User.find(shout.User_id).picture %>" width="20%" />
+											<% if shout.User.picture != nil %>
+												<img src="<%= shout.User.picture %>" width="20%" />
 											<% else %>
-												<script>document.write( '<img src="' + setPersonalGravatarUrl("<%=User.find(shout.User_id).user_name %>") + '" width="20%" />' );</script>
+												<script>document.write( '<img src="' + setPersonalGravatarUrl("<%=shout.User.user_name %>") + '" width="20%" />' );</script>
 											<% end %>
-											<p><%= User.find(shout.User_id).user_name %></p>
+											<p><%= shout.User.user_name %></p>
 										</div>
 										<div class="shout">
 											<p><%= shout.message %></p>
