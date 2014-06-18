@@ -5,7 +5,11 @@ class TasksController < ActionController::Base
 	end
 
 	def get_tasks
-		@tasks = current_user.Sharedappartment.Tasks
+		@tasks = current_user.Sharedappartment.Tasks.where(is_deleted: [false,nil])
+	end
+	
+	def set_task_as_deleted(task)
+		task.set_as_deleted()
 	end
 
     def create_task

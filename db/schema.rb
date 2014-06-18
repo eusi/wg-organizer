@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140604152502) do
+ActiveRecord::Schema.define(version: 20140618064232) do
 
   create_table "charges", force: true do |t|
     t.decimal  "credits"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20140604152502) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "Sharedappartment_id"
+    t.boolean  "is_deleted"
   end
 
   add_index "tasks", ["Sharedappartment_id"], name: "index_tasks_on_Sharedappartment_id"

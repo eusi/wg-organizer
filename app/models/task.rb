@@ -6,4 +6,11 @@ validates :task_name, presence: true
 validates :credit_per_unit, presence: true
 validates :base_credit, presence: true
 validates :task_description, length: { maximum: 2000 }
+
+	# This method sets a task as deleted.	
+	def set_as_deleted()
+		self.is_deleted=true;
+		self.save()
+	end
+
 end
