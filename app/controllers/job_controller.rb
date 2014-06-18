@@ -28,7 +28,7 @@ class JobController < ActionController::Base
   def create_job
     begin
       @completedtask = Completedtask.complete_task(current_user,
-                                                  params[:completedtask][:for_users],
+                                                  params[:for_ids],
                                                   params[:completedtask][:amount].to_i,
                                                   params[:completedtask][:task_id],
                                                   params[:completedtask][:task_start],

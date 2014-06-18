@@ -650,6 +650,12 @@ textarea, .inputtext, .inputpassword {
 	margin-top: -15px;
 }
 
+#topnav {
+	float:right;
+	display:block;
+	margin-top:13px;
+}
+
 .uiInputLabel .uiInputLabelLabel {
 	display: inline-block;
 	margin-left: 17px;

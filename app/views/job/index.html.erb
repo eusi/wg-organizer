@@ -13,10 +13,10 @@
 				<br>
 				<div><a id="check_all">Select/Unselect All</a></div>
 				<br>
-                <% @roomies.each do |f| %>
+                <% @roomies.each do |w| %>
                     <div>
-	                    <%= check_box_tag(:user, '1', true, :id => f.id, :class => "jobbox", :type => "checkbox", :style => "vertical-align:middle") %>
-	                    <%= label_tag(:user, f.user_name) %>
+	                    <%= check_box_tag("for_ids[]", w.id, true, :class => "jobbox", :type => "checkbox", :style => "vertical-align:middle") %>
+	                    <%= label_tag("for_ids[]", w.user_name) %>
 	                </div>
                     <br>
                 <% end %>
