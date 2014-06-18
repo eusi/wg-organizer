@@ -11,9 +11,9 @@ validates :credits, presence: true
 	# This method can be used by an user to complete a task. 
 	# * *Args*    :
 	#   - +by_user+ -> The user, who has completed the task.
-	#   - +for_users+ -> An array of users for whom the task was completed. If nil --> the task was completed for all appartment members.
+	#   - +for_users+ -> An array of users ids for whom the task was completed.
 	#   - +amount+ -> The amount of work which was done by the user.
-	#   - +task+ -> The task.
+	#   - +task+ -> The task id.
 	#   - +task_start+ -> The beginning of the task.
 	#   - +task_end+ -> The end of the task.
 	#   - +summary+ -> Summary of the task.
@@ -21,18 +21,27 @@ validates :credits, presence: true
 	#   - nothing
 	# * *Raises* :
 	#   - +ArgumentError+ -> if any value is nil or negative
-	def self.complete_task(by_user,for_users,amount,task,task_start,task_end,summary)
+	def self.complete_task(by_user,for_users,amount,task_id,task_start,task_end,summary)
 		
 		if(by_user==nil)
-			raise ArgumentError.new("User is empty.")
+			raise ArgumentError.new("By user is empty.")
 		end
 		
-		if(task==nil)
+		if(task_id==nil)
 			raise ArgumentError.new("Task is empty.")
 		end
 		
 		if(amount==nil)
 			raise ArgumentError.new("Amount is empty.")
+		end
+		
+		if(for_users==nil && for_users.size==0)
+			raise ArgumentError.new("No users selected")		
+		end
+		
+		task = Task.find(task_id)
+		if(task==nil)
+			raise ArgumentError.new("Task could not be found.")
 		end
 		
 		#calc credits
@@ -44,15 +53,16 @@ validates :credits, presence: true
 			completed_task= Completedtask.create(:amount=>amount, :credits=>credits,:Task=>task,:ByUser=>by_user,:task_start=>task_start,:task_end=>task_end,:summary=>summary)
 			print "Completed task sucessfully saved\n"
 			
-			#charge the other appartment members, if available
-			if for_users!=nil && for_users.size!=0
+			#check if the job was done for all appartment members
+			if for_users.size<by_user.Sharedappartment.Users.size			
+			#charge the other appartment members		
 			
 				#calc charge
 				credits_per_user = (credits/for_users.size.to_f	)
 				
 				#save charge
-				for_users.each do |for_user|		
-					current_charge = Charge.create(:credits=>credits_per_user,:ForUser=>for_user,:Completedtask=>completed_task)
+				for_users.each do |for_user_id|		
+					current_charge = Charge.create(:credits=>credits_per_user,:User_id=>for_user_id,:Completedtask=>completed_task)
 				end
 			
 			end
