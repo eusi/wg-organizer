@@ -24,12 +24,26 @@
 						
 			                <% @tasks.each do |f| %>
 								<tr>
-									<td><%= f.task_name %></td>
-									<td><%= f.base_credit %></td>
-									<td><%= f.unit %></td>
-									<td><%= f.credit_per_unit %></td>
-									<td><span class="taskDescHover"><img src="assets/info.png" /><span><%= f.task_description %></span></span></td> <!-- Taskdescription -->
-									<td><%= button_to "", { :action => "delete_task", :controller=>"tasks", :deletableTask => f }, :class => 'deleteIcon' %></td>
+									<td>
+										<%= f.task_name %>
+									</td>
+									<td>	
+										<%= f.base_credit %>
+									</td>
+									<td>
+										<%= f.unit %>
+									</td>
+									<td>
+										<%= f.credit_per_unit %>
+									</td>
+									<td>
+										<span class="taskDescHover">
+											<img src="assets/info.png" /><span><%= f.task_description %></span>
+										</span>
+									</td>
+									<td>
+										<%= button_to "", { :action => "delete_task", :controller=>"tasks", :deletableTask => f }, :onclick => "return confirm('Are you sure? You gonna delete a task permanently!')", :class => 'deleteIcon' %>
+									</td>
 								</tr>
 			                <% end %>
 

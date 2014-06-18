@@ -3,20 +3,30 @@
 	<p>This your commando base from there you can see everything and everyone!</p>
 </div>
 
+  	<div id="payoffModal">
+    	<span class="payoffModalButton b-close"><span>X</span></span>
+        If you can't get it up use
+	</div>
+
 <table height="99%" id="homeTable">
 	<tr>
 		<td rowspan="2" style="width: 444px; table-layout: fixed">
 			<h2 class="site-title">Overview: <%= @wg %></h2>
 			<div id="chartdiv"></div>
+			<br><br>
+			<div>
+				<b>Payoff:</b><br>
+				In further releases there should be an own site to do the payoff after some roomies want to leave the flat or a new one wants to join. Temporary: <%= link_to 'Payoff', @event, :remote => true, :id => "opener" %>.
+			</div>
 		</td>
 		<td>
 			<h2 class="site-title">Last Activities</h2>
-			<div id="shoutcontainer">
-				<div id="shoutcontent">
+			<div id="activitiesContainer">
+				<div id="activitiesContent">
 					<ul>
 		                <% @last_activities.each do |f| %>
 							<li>
-								<div class="meta">
+								<div class="activitiesMeta">
 									<% if f.ByUser.picture != nil %>
 										<img src="<%= f.ByUser.picture %>" width="20%" />
 									<% else %>
@@ -25,15 +35,22 @@
 									
 									<p><%= f.ByUser.user_name %></p>
 								</div>
-								<div class="shout">
+								<div class="activities">
 									<p><b><%= f.Task.task_name %></b></p>
 									<p><%= f.task_end.strftime("%Y-%m-%d") %></p>
+								</div>
+								<div class="activitiesCoin">
+									<img src="assets/coin.png" width="30%" />
+									<p><%= f.credits %></p>
+								</div>
+								<div>
+									
 								</div>
 							</li>
 		                <% end %>
 					</ul>
 				</div>
-				<div id="shoutboxbot"></div>
+				<div id="activitiesBot"></div>
 			</div>
 
 
@@ -73,23 +90,6 @@
 							<% end %>
 						</div>
 
-                 <!--
-                 	gravatar = 'http://www.gravatar.com/avatar.php?gravatar_id=' + Digest::MD5.hexdigest(h(shout.email.downcase)) + '&size=70' %>
-                   <img src="%= gravatar %>" alt="Gravatar" />
-
-					%= error_messages_for :shout, :header_message => nil, :message => nil %>
-					%= '<p class="success">' + flash[:notice] + '</p>' if flash[:notice] %>
-					% if flash[:notice] %>
-					  %= '<p class="success">' + flash[:notice] + '</p>' %>
-					% end %>
-
-					% if flash[:notice] %>
-					      <p class="notice">%= flash[: notice] %></p>
-					    % end %>
-					    % if flash[:error] %>
-					      <p class="error">%= flash[: error] %></p>
-					    % end %>
-					-->
 				</div>
 			</div>
 		</td>

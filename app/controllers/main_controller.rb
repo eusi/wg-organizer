@@ -1,10 +1,12 @@
 class MainController < ActionController::Base
 	layout 'application'
-  before_action :user_signed_in?
 
 	def index
+		@event = "test"
 		if(current_user.Sharedappartment_id==nil)
 			redirect_to '/profile'
+
+		@users = Users.all
 		end
 
 		@shouts = current_user.get_shoutbox_messages_of_appartment(5)

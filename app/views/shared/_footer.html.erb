@@ -2,11 +2,19 @@
 
 <script type="text/javascript">
 <!--
-	var userName = "unknonwn user"; // this needs some love to be cool
+	<% if user_signed_in? %>
+	  var userName = '<%= current_user.user_name %>';
+	<% else %>
+	  var userName = 'Mr. Someone';
+	<% end %>
 	document.getElementById("contactMe2").setAttribute("href","mailto:info@roomie.xx?subject=Request - Ticket 1234&body=My dear roomie support,%0A%0A I got a problem...%0A%0ABest regards, %0A"+userName);
 //-->
 </script>
 
 <div id="contentCurve"></div>
 
-Roomie © 2014
+<br>
+
+Roomie © 2014<br><br>
+Optimized for Google Chrome 35.0<br>
+No compatibility tests for IE
