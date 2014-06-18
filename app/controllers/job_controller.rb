@@ -42,7 +42,7 @@ class JobController < ActionController::Base
     if @completedtask
       redirect_to '/job', :notice =>'Jobs done!'
     else
-      redirect_to '/jobs', :alert => error.message
+      redirect_to '/job', :alert => error.message
     end
   end
 
