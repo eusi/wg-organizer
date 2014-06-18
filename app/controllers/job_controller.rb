@@ -27,7 +27,7 @@ class JobController < ActionController::Base
   #   redirect to job view with error-message
   def create_job
     begin
-      @completedtask = Completedtask.complete_task( current_user,
+      @completedtask = Completedtask.complete_task(current_user,
                                                   params[:completedtask][:for_users],
                                                   params[:completedtask][:amount].to_i,
                                                   params[:completedtask][:task_id],

@@ -8,12 +8,22 @@ validates :Task, presence: true
 validates :amount, presence: true, numericality: true
 validates :credits, presence: true
 
+attr_accessor :for_users
+attr_accessor :by_user
+attr_accessor :amount
+attr_accessor :task_id
+attr_accessor :task_start
+attr_accessor :task_end
+attr_accessor :summary
+
+validates :for_users, presence: true, allow_nil: false
+validates :amount, presence: true, numericality:true
 	# This method can be used by an user to complete a task. 
 	# * *Args*    :
 	#   - +by_user+ -> The user, who has completed the task.
 	#   - +for_users+ -> An array of users ids for whom the task was completed.
 	#   - +amount+ -> The amount of work which was done by the user.
-	#   - +task+ -> The task id.
+	#   - +task_id+ -> The task id.
 	#   - +task_start+ -> The beginning of the task.
 	#   - +task_end+ -> The end of the task.
 	#   - +summary+ -> Summary of the task.
@@ -22,7 +32,7 @@ validates :credits, presence: true
 	# * *Raises* :
 	#   - +ArgumentError+ -> if any value is nil or negative
 	def self.complete_task(by_user,for_users,amount,task_id,task_start,task_end,summary)
-		
+
 		if(by_user==nil)
 			raise ArgumentError.new("By user is empty.")
 		end
@@ -35,7 +45,7 @@ validates :credits, presence: true
 			raise ArgumentError.new("Amount is empty.")
 		end
 		
-		if(for_users==nil && for_users.size==0)
+		if(for_users==nil or for_users.size==0)
 			raise ArgumentError.new("No users selected")		
 		end
 		
