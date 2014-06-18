@@ -9,22 +9,23 @@
 		"theme": "none",
 	    "dataProvider": [{
 			<% @balance.each_with_index do |k, index| %>
+
 			        "name": "<%= k[0].user_name %>",
 			        "points": <%= k[1] %>,
 			        "color": "#" + personalHexColor("<%= k[0].user_name %>"),
 			        
-			        //set gravatar or picture as bullet
+			        <%# /* set gravatar or picture as bullet */ %>
 					<% if k[0].picture != nil %>
-						"bullet": "<%= concat k[0].picture %>"
+						"bullet": "<%= k[0].picture %>"
 					<% else %>
 						"bullet": setPersonalGravatarUrl("<%= k[0].user_name %>")
 					<% end %>
 
-			    //if last one...
+			    <%# /* if last one... */ %>
 				<% if @balance.size == index+1 %>
-					<%= concat "}]," %>
+					}],
 				<% else %>
-					<% concat "}, {" %>
+					}, {
 				<% end %>
 
 			<% end %>
@@ -48,7 +49,7 @@
 	        "lineAlpha": 0,
 	        "type": "column",
 	        "valueField": "points",
-	        "bulletSize": 75
+	        "bulletSize": 55
 	    }],
 	    "marginTop": 0,
 	    "marginRight": 0,

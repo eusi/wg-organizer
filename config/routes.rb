@@ -30,6 +30,7 @@ WGOrganizer::Application.routes.draw do
 
   get "tasks" => "tasks#index" #task management
   post "tasks/create_task" => "tasks#create_task"
+  post "tasks/delete_task" => "tasks#delete_task"
     
   get "profile" => "profile#_index" #profile and choosen!
   post "profile/createWG" => "profile#createWG"

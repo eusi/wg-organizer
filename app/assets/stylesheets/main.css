@@ -982,7 +982,15 @@ span.taskDescHover:hover span {
 	margin: 20px 0 0 170px; 
 	background: #ffffff; 
 	z-index:6;
-} 
+}
+
+.deleteIcon {
+    background: url(delete.png) no-repeat;
+    cursor: pointer;
+    border: none;
+    width: 14px;
+    height: 14px;
+}
 
 /***************************************************************************
 *************************** SHOUTBOX ***************************************
@@ -1102,6 +1110,15 @@ form input, form textarea {
 	float: left;
 	height: 110px; /* see #shoutcontent */
 	width: 268px; /* see #shoutcontent */
+	overflow-y: scroll;
+	margin-bottom: 25px;
+}
+
+.scrollbarTasks
+{
+	float: left;
+	height: 250px;
+	width: 325px;
 	overflow-y: scroll;
 	margin-bottom: 25px;
 }

@@ -1,0 +1,28 @@
+Sehr geehrter Herr Professor Hof,
+
+anbei eine Anleitung zum Umstellen eines Ruby on Rails Projektes zur Benutzung auf Heroku.
+
+
+Download von PostgreSQL: http://www.enterprisedb.com/products-services-training/pgdownload
+
+Einrichten eines Benutzers für die Datenbank mit dem Recht Datenbanken anlegen zu können und entsprechende Änderung der config/database.yml pro Datenbank:
+adapter: postgresql
+username: BENUTZERNAME
+password: PASSWORT
+
+Bearbeiten der Gemfile:
+- Auskommentieren von: gem 'sqlite3'
+- Einfügen von: gem 'pg'
+
+In der Konsole:
+bundle install
+rake db:reset
+rake db:migrate
+
+Im Fehlerfall:
+https://devcenter.heroku.com/articles/sqlite3
+http://stackoverflow.com/questions/19097558/pg-undefinedtable-error-relation-users-does-not-exist
+
+
+Mit freundlichen Grüßen
+Martin Kurz

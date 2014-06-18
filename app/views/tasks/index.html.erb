@@ -8,26 +8,34 @@
 		<tr>
 			<td style="min-height:300px;">
 				<h2 class="site-title">Task list</h2>
-				<table class="reference">
-					<tbody>
-						<tr>
-							<th>Task</th>		
-							<th>Base Credits</th>
-							<th>Unit</th>		
-							<th>Credits per Unit</th>
-							<th>Info</th>
-						</tr>
-		                <% controller.get_tasks.each do |f| %>
+				<div class="scrollbarTasks" id="stylebar">
+					<table class="reference">
+						<thead>
 							<tr>
-								<td><%= f.task_name %></td>
-								<td><%= f.base_credit %></td>
-								<td><%= f.unit %></td>
-								<td><%= f.credit_per_unit %></td>
-								<td><span class="taskDescHover"><img src="assets/info.png" /><span><%= f.task_description %></span></span></td> <!-- Taskdescription -->
+								<th>Task</th>		
+								<th>Base Credits</th>
+								<th>Unit</th>		
+								<th>Credits per Unit</th>
+								<th>Info</th>
+								<th>Delete</th>
 							</tr>
-		                <% end %>
-					</tbody>
-				</table>
+						</thead>
+						<tbody>
+						
+			                <% @tasks.each do |f| %>
+								<tr>
+									<td><%= f.task_name %></td>
+									<td><%= f.base_credit %></td>
+									<td><%= f.unit %></td>
+									<td><%= f.credit_per_unit %></td>
+									<td><span class="taskDescHover"><img src="assets/info.png" /><span><%= f.task_description %></span></span></td> <!-- Taskdescription -->
+									<td><%= button_to "", { :action => "delete_task", :controller=>"tasks", :deletableTask => f }, :class => 'deleteIcon' %></td>
+								</tr>
+			                <% end %>
+
+						</tbody>
+					</table>
+				</div>
 			</td>
 			<td rowspan="2">
 				<h2 class="site-title">Create new task</h2>
