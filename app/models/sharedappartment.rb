@@ -161,7 +161,7 @@ validates :password, presence: true, length: { in: 6..30 }, confirmation: true
 		existing_sharedappartment= Sharedappartment.where(:name=>name).first
 		
 		if(existing_sharedappartment==nil)
-			raise ArgumentError.new('Shared appartment ' + name + ' does not exist, or password is wrong')
+			raise ArgumentError.new('Shared appartment ' + name + ' does not exist, or password is wrong') #no specific statement which credential is wrong
 		end
 		
 		existing_hash = BCrypt::Password.new(existing_sharedappartment.password_hash)
@@ -169,7 +169,7 @@ validates :password, presence: true, length: { in: 6..30 }, confirmation: true
 		given_password_hash = BCrypt::Engine.hash_secret(password, existing_sharedappartment.password_salt)
 
 		if(given_password_hash!=existing_hash)
-		  raise ArgumentError.new('Shared appartment ' + name + ' does not exist, or password is wrong')
+		  raise ArgumentError.new('Shared appartment ' + name + ' does not exist, or password is wrong') #no specific statement which credential is wrong
 		else
 			user.Sharedappartment=existing_sharedappartment
 			user.save()
