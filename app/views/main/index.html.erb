@@ -37,7 +37,9 @@
 								</div>
 								<div class="activities">
 									<p><b><%= f.Task.task_name %></b></p>
-									<p><%= f.task_end.strftime("%Y-%m-%d") %></p>
+									<% if f.task_end != nil %>
+										<p><%= f.task_end.strftime("%Y-%m-%d") %></p>
+									<% end %>
 								</div>
 								<div class="activitiesCoin">
 									<img src="assets/coin.png" width="30%" />
