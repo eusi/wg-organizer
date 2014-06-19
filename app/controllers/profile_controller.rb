@@ -31,7 +31,7 @@ class ProfileController < ActionController::Base
         redirect_to '/profile', :alert => "Whoops, something went wrong: "+error.message
       end
     else
-      redirect_to '/profile', :notice => "Leave/payoff your current shared flat before joining a new one"
+      redirect_to '/profile', :alert => "Leave/payoff your current shared flat before joining a new one"
     end
   end
 
