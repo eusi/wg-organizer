@@ -24,7 +24,8 @@ WGOrganizer::Application.routes.draw do
 
   get "main" => "main#index" #mainpage after you logged in
   post "main/create_shout" => "main#create_shout"
-  
+  post "main/payoff" => "main#payoff"
+    
   get "job" => "job#index" #addjob
   post "job/create_job" => "job#create_job"
 

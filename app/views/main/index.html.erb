@@ -16,7 +16,10 @@
 			<br><br>
 			<div>
 				<b>Payoff:</b><br>
-				In further releases there should be an own site to do the payoff after some roomies want to leave the flat or a new one wants to join. Temporary: <%= link_to 'Payoff', @event, :remote => true, :id => "opener" %>.
+				In further releases there should be an own site to do the payoff after some roomies want to leave the flat or a new one wants to join. Temporary: 
+				<%= link_to 'payoff', @payoff, :remote => true, :id => "payoffOpener" %>. 
+				<%= link_to 'payoff', :controller => "main", :action => "payoff", :remote => true, :id => "payoffOpener" %>
+				<%= link_to( image_tag("icons/information.png", :title => t('menu.info')), {:controller => "main", :action => "payoff"}, :remote => true ) %>
 			</div>
 		</td>
 		<td>

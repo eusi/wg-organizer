@@ -31,4 +31,8 @@ class MainController < ActionController::Base
 		end
 	end
 
+	def payoff
+		render :partial => 'main/payoff'
+	end
+
 end

@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 	//modal for main (payoff)
         $(function() {
-            $('#opener').bind('click', function(e) {
+            $('#payoffOpener').bind('click', function(e) {
                 e.preventDefault();
                 $('#payoffModal').bPopup({
                     appendTo: 'body'
@@ -14,6 +14,11 @@ $(document).ready(function(){
 
 	//select/unselect all for addjob
 	$('#check_all').on("click", function(){ $('input[type="checkbox"]').click(); });
+
+	//load 
+	//$("#payoffOpener").on("click", function(){ $("#payoffModal").load("payoff"); });
+	//$("#check_all").click(function() { $("#payoffModal").load("/main/payoff"); });
+	//$('#payoffModal').html('<%= escape_javascript (render :partial => "payoff") %>')
 });
 
 
