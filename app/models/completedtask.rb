@@ -8,15 +8,9 @@ validates :Task, presence: true
 validates :amount, presence: true, numericality: true
 validates :credits, presence: true
 
-attr_accessor :for_users
-attr_accessor :by_user
-attr_accessor :amount
-attr_accessor :task_id
-attr_accessor :task_start
-attr_accessor :task_end
-attr_accessor :summary
 
-validates :for_users, presence: true, allow_nil: false
+
+
 validates :amount, presence: true, numericality:true
 	# This method can be used by an user to complete a task. 
 	# * *Args*    :

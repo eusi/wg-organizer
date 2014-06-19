@@ -1,4 +1,6 @@
 class MainController < ActionController::Base
+
+  before_action :authenticate_user!
 	layout 'application'
 
 	def index
@@ -29,7 +31,23 @@ class MainController < ActionController::Base
 			flash[:alert] = 'Uups, something went wrong!'
 			flash[:alert] = s.errors.full_messages.to_sentence
 		end
-	end
+  end
+
+  # This method calls the Sharedappartment-modle to balance all user accounts in this sharedappartment.
+  # * *Args*    :
+  #   - +reset+ -> If true, all completed tasks and charges will be archived.
+  # * *Returns* :
+  #   - @payoffbalance -> A hash with Key: the user. Value: The users' credits/debts towards the shared appartment as decimal value.
+  # * *Result* :
+  #   - if +reset+ is true: returns @payoffbalance and the balance of all users will be executed
+  #   - if +reset+ is false: returns @payoffbalance without executing the balance of all users
+  def payoff
+    begin
+      @payoffbalance = current_user.Sharedappartment.balance(params[:reset])
+    rescue
+      redirect_to '/main', :alert => "Whoops, something went wrong"
+    end
+  end
 
 	def payoff
 		render :partial => 'main/payoff'
