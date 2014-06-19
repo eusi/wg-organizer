@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
 	layout 'home'
 	protect_from_forgery with: :exception
 
-
 	before_filter :configure_permitted_parameters, if: :devise_controller?
 
 	protected

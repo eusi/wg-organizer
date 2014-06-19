@@ -14,11 +14,6 @@ $(document).ready(function(){
 
 	//select/unselect all for addjob
 	$('#check_all').on("click", function(){ $('input[type="checkbox"]').click(); });
-
-	//load 
-	//$("#payoffOpener").on("click", function(){ $("#payoffModal").load("payoff"); });
-	//$("#check_all").click(function() { $("#payoffModal").load("/main/payoff"); });
-	//$('#payoffModal').html('<%= escape_javascript (render :partial => "payoff") %>')
 });
 
 
@@ -38,3 +33,11 @@ function setPersonalGravatarUrl(str)
 {
 	return 'http://www.gravatar.com/avatar/' + personalHexColor(str) + '?r=PG&s=150&default=identicon';
 }
+
+/* //, :onchange => 'setSelect();'
+function setSelect()
+{
+	var x = document.getElementById("completedtask_task_id").selectedIndex;
+	var y = document.getElementById("completedtask_task_id").options;
+	$("#amountName").text( y[x].name );
+}*/

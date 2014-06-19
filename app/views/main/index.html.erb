@@ -3,10 +3,9 @@
 	<p>This your commando base from there you can see everything and everyone!</p>
 </div>
 
-  	<div id="payoffModal">
-    	<span class="payoffModalButton b-close"><span>X</span></span>
-        If you can't get it up use
-	</div>
+<div id="payoffModal">
+	<%= render :partial => 'main/payoff' %>
+</div>
 
 <table height="99%" id="homeTable">
 	<tr>
@@ -17,9 +16,7 @@
 			<div>
 				<b>Payoff:</b><br>
 				In further releases there should be an own site to do the payoff after some roomies want to leave the flat or a new one wants to join. Temporary: 
-				<%= link_to 'payoff', @payoff, :remote => true, :id => "payoffOpener" %>. 
-				<%= link_to 'payoff', :controller => "main", :action => "payoff", :remote => true, :id => "payoffOpener" %>
-				<%= link_to( image_tag("icons/information.png", :title => t('menu.info')), {:controller => "main", :action => "payoff"}, :remote => true ) %>
+				<%= link_to 'Payoff', "Payoff", :remote => true, :id => "payoffOpener" %>. 
 			</div>
 		</td>
 		<td>
@@ -39,7 +36,9 @@
 									<p><%= f.ByUser.user_name %></p>
 								</div>
 								<div class="activities">
-									<p><b><%= f.Task.task_name %></b></p>
+									<p><span class="summaryHover">
+										<b><%= f.Task.task_name %></b><span><%= f.summary %></span>
+									</span></p>
 									<% if f.task_end != nil %>
 										<p><%= f.task_end.strftime("%Y-%m-%d") %></p>
 									<% end %>

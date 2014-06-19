@@ -1,16 +1,16 @@
 class MainController < ActionController::Base
 
-  before_action :authenticate_user!
+	before_action :authenticate_user!
 	layout 'application'
 
 	def index
-		@event = "test"
 		if(current_user.Sharedappartment_id==nil)
 			redirect_to '/profile'
 
 		@users = Users.all
 		end
 
+		@payoffbalance = current_user.Sharedappartment.balance(false)
 		@shouts = current_user.get_shoutbox_messages_of_appartment(5)
 		@wg = current_user.Sharedappartment.name
 		@last_activities = current_user.get_last_activities_of_appartment(3)
@@ -18,6 +18,7 @@ class MainController < ActionController::Base
 		@max_credits = current_user.Sharedappartment.get_max_credits( 0.2 )
 		@min_credits = 0 #implement min credits in shared appartment: credits by "worst" roomie * 0,8
 	end
+
 
 	def create_shout
 		s = Shoutboxmessage.new()
@@ -31,26 +32,25 @@ class MainController < ActionController::Base
 			flash[:alert] = 'Uups, something went wrong!'
 			flash[:alert] = s.errors.full_messages.to_sentence
 		end
-  end
+ 	end
 
-  # This method calls the Sharedappartment-modle to balance all user accounts in this sharedappartment.
-  # * *Args*    :
-  #   - +reset+ -> If true, all completed tasks and charges will be archived.
-  # * *Returns* :
-  #   - @payoffbalance -> A hash with Key: the user. Value: The users' credits/debts towards the shared appartment as decimal value.
-  # * *Result* :
-  #   - if +reset+ is true: returns @payoffbalance and the balance of all users will be executed
-  #   - if +reset+ is false: returns @payoffbalance without executing the balance of all users
-  def payoff
-    begin
-      @payoffbalance = current_user.Sharedappartment.balance(params[:reset])
-    rescue
-      redirect_to '/main', :alert => "Whoops, something went wrong"
-    end
-  end
 
-	def payoff
-		render :partial => 'main/payoff'
+	# This method calls the Sharedappartment-modle to balance all user accounts in this sharedappartment.
+	# * *Args*    :
+	#   - +reset+ -> If true, all completed tasks and charges will be archived.
+	# * *Returns* :
+	#   - @payoffbalance -> A hash with Key: the user. Value: The users' credits/debts towards the shared appartment as decimal value.
+	# * *Result* :
+	#   - if +reset+ is true: returns @payoffbalance and the balance of all users will be executed
+	#   - if +reset+ is false: returns @payoffbalance without executing the balance of all users
+ 	def payoff
+	    begin
+	      @payoffbalance = current_user.Sharedappartment.balance(true)
+	      redirect_to '/main'
+	      flash[:notice] = 'Account balances are resetted! New game, new chance!'
+	    rescue
+	      redirect_to '/main', :alert => "Whoops, something went wrong"
+	    end
 	end
 
 end

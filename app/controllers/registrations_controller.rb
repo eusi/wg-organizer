@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-  layout "application"
+  layout :choose_layout
   prepend_before_filter :require_no_authentication, :only => [ :new, :create, :cancel ]
   prepend_before_filter :authenticate_scope!, :only => [:edit, :update, :destroy, :show]
 
@@ -60,6 +60,13 @@ class RegistrationsController < Devise::RegistrationsController
 
   def after_update_path_for(resource)
     '/profile'
+  end
+
+  private
+
+  #if user is logged in choose application-layout, otherwise home-layout
+  def choose_layout
+    user_signed_in? ? "application" : "home"
   end
 
 end

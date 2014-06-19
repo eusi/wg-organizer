@@ -13,4 +13,5 @@ class ImprintController < ActionController::Base
   def choose_layout
     user_signed_in? ? "application" : "home"
   end
+
 end

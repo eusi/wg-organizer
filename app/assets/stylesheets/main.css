@@ -501,7 +501,6 @@ h1.site-title{
 	border-collapse: separate;
 }
 
-
 #homeTable td
 {
 	vertical-align: top;
@@ -1140,6 +1139,43 @@ textarea.shoutbox  {
 	font-size: 0.8em;
 }
 
+span.summaryHover {
+	border-bottom: thin dotted;
+}
+
+span.summaryHover:hover {
+	text-decoration: none; 
+	z-index: 6; 
+}
+
+span.summaryHover span {
+	position: absolute; 
+	left: -9999px;
+	margin: 20px 0 0 0px; 
+	padding: 3px 3px 3px 3px;
+	border: 1px solid #434956;
+	z-index: 6;
+}
+
+span.summaryHover:hover span {
+	left: 50%; 
+	background: #ffffff;
+} 
+
+span.summaryHover span {
+	position: absolute; 
+	left: -9999px;
+	margin: 4px 0 0 0px; 
+	padding: 3px 3px 3px 3px; 
+	border: 2px solid #434956;
+}
+
+span.summaryHover:hover span {
+	margin: 20px 0 0 170px; 
+	background: #ffffff; 
+	z-index:6;
+}
+
 /***************************************************************************
 *************************** PAYOFF *****************************************
 ***************************************************************************/
@@ -1150,8 +1186,8 @@ textarea.shoutbox  {
     color:#000;
     display:none;
     padding:20px;
-    min-width:700px;
-    min-height: 500px;
+    width:600px;
+    min-height:400px;
 
 	background-color:#fff;
 	border-radius:10px 10px 10px 10px;
