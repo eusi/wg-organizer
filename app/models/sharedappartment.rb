@@ -42,7 +42,7 @@ validates :password, presence: true, length: { in: 6..30 }, confirmation: true
 	#   - A hash. Key: the user. Value: The users' credits/debts towards the shared appartment as decimal value.	
 	def balance(reset)
 	
-		if(reset==1)
+		if(reset==true)
 			users_of_appartment = self.Users	
 			Completedtask.where(User_id:users_of_appartment).update_all(:is_archived=>1)
 			Charge.where(User_id:users_of_appartment).update_all(:is_archived=>1)
