@@ -1,0 +1,47 @@
+<span class="payoffModalButton b-close"><span>X</span></span>
+
+<h1 class="site-title">Payoff</h1>
+<div class="site-text"> 
+	<p>
+		In the past there are many transmissions between the roomies. If someone wants to leave the flat or if a new guy wants to join, you have to do a payoff!
+	</p>
+	<p>
+		In the payoff module it calculates how much money each roomie owe to the shared appartment.
+	</p>
+	<p>
+		<b>Cut a long story short:</b><br>
+		The following table shows the owing debts. If a roomie has a negative amount, he has to pay this value overall to his roomies. If a roomie has a positive amount, he can be happy, because he shall gets this sum from his roommates!
+	</p>
+
+	<table width="100%" id="homeTable">
+		<tr>
+			<td>
+				<table class="reference">
+					<thead>
+						<tr>
+							<th>Roomie</th>		
+							<th>Amount</th>
+						</tr>
+					</thead>
+					<tbody>
+			            <% @payoffbalance.each do |f, k| %>
+							<tr>
+								<td>
+									<%= f.user_name %>
+								</td>
+								<td>	
+									<%= (k*100).round / 100.0 %> €
+								</td>
+							</tr>
+			            <% end %>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+	</table>
+
+	<p>
+		When you have balanced your payoff, click <%=link_to "HERE", { controller: "main", :action=>"payoff" }, :remote=>true, :onclick => "return confirm('Are you sure? You gonna reset your shared flats account balances permanently!')" %> to reset the account balances of the shared flat. This function will have a security query which all roomies have to confirm that they got the money.
+	</p>
+</div>
+
