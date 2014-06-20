@@ -37,9 +37,9 @@ WGOrganizer::Application.routes.draw do
   post "profile/createWG" => "profile#createWG"
   post "profile/joinWG" => "profile#joinWG"
 
-  get "aboutus" => "imprint#index"
-  get "imprint" => "imprint#index"
-  get "disclaimer" => "imprint#disclaimer"
+  get "aboutus" => "imprint#index" #about us == imprint atm
+  get "imprint" => "imprint#index" #imprint
+  get "disclaimer" => "imprint#disclaimer" #disclaimer
 
   
   # The priority is based upon order of creation: first created -> highest priority.

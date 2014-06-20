@@ -1,41 +1,38 @@
 <div class="menu_login_container">
-	<input type="hidden" name="lsd" value="BVqdCPlo" autocomplete="off"> <!-- random value -->
-
-
 
 	<%= form_for(:user, :url => session_path(:user)) do |f| %>
 
-	<table cellspacing="0">
-		<tbody>
-			<tr>
-				<td>
-					<div><%= f.email_field :email, autofocus: true, :class => "inputtext", :placeholder => "Email" %></div>
-				</td>
-				<td>
-					<div><%= f.password_field :password, autocomplete: "off", :class => "inputtext", :placeholder => "Password" %></div>
-				</td>
-				<td>
-					<label id="loginbutton">
-						<div><%= f.submit "Sign in", :id => "logmein" %></div>
-					</label>
-				</td>
-			</tr>
-			<tr>
-				<td class="login_form_label_field">
-					<div>
-					<div class="uiInputLabel">
-							  <% if devise_mapping.rememberable? -%>
-							    <div><%= f.check_box :remember_me, :class => "uiInputLabelInput" %> <%= f.label :remember_me, :class => "uiInputLabelLabel" %></div>
-							  <% end -%>
+		<table cellspacing="0">
+			<tbody>
+				<tr>
+					<td>
+						<div><%= f.email_field :email, autofocus: true, :class => "inputtext", :placeholder => "Email" %></div>
+					</td>
+					<td>
+						<div><%= f.password_field :password, autocomplete: "off", :class => "inputtext", :placeholder => "Password" %></div>
+					</td>
+					<td>
+						<label id="loginbutton">
+							<div><%= f.submit "Sign in", :id => "logmein" %></div>
+						</label>
+					</td>
+				</tr>
+				<tr>
+					<td class="login_form_label_field">
+						<div>
+							<div class="uiInputLabel">
+								<% if devise_mapping.rememberable? -%>
+									<div><%= f.check_box :remember_me, :class => "uiInputLabelInput" %> <%= f.label :remember_me, :class => "uiInputLabelLabel" %></div>
+								<% end -%>
+							</div>
 						</div>
-					</div>
-				</td>
-				<td class="login_form_label_field">
-					  <%= link_to "Forgot your password?", new_password_path(resource_name) %>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+					</td>
+					<td class="login_form_label_field">
+						  <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 
 	<% end %>
 

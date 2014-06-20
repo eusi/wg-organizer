@@ -4,79 +4,80 @@
 	<h3 class="site-title">What are tasks?</h3>
 	<p>The tasks you have to create represent all activities your roomies can carry out. <br>For instance: cleaning up or go shopping - at least two roomies should benefit from it, otherwise you could can do it by your own for yourself! :)</p>
 </div>
-	<table height="99%" width="100%" id="homeTable">
-		<tr>
-			<td style="min-height:300px;">
-				<h2 class="site-title">Task list</h2>
-				<div class="scrollbarTasks" id="stylebar">
-					<table class="reference">
-						<thead>
-							<tr>
-								<th>Task</th>		
-								<th>Base Credits</th>
-								<th>Unit</th>		
-								<th>Credits per Unit</th>
-								<th>Info</th>
-								<th>Delete</th>
-							</tr>
-						</thead>
-						<tbody>
-						
-			                <% @tasks.each do |f| %>
-								<tr>
-									<td>
-										<%= f.task_name %>
-									</td>
-									<td>	
-										<%= f.base_credit %>
-									</td>
-									<td>
-										<%= f.unit %>
-									</td>
-									<td>
-										<%= f.credit_per_unit %>
-									</td>
-									<td>
-										<span class="taskDescHover">
-											<img src="assets/info.png" /><span><%= f.task_description %></span>
-										</span>
-									</td>
-									<td>
-										<%= button_to "", { :action => "delete_task", :controller=>"tasks", :deletableTask => f }, :onclick => "return confirm('Are you sure? You gonna delete a task permanently!')", :class => 'deleteIcon' %>
-									</td>
-								</tr>
-			                <% end %>
 
-						</tbody>
-					</table>
-				</div>
-			</td>
-			<td rowspan="2">
-				<h2 class="site-title">Create new task</h2>
-				<div class="placeholder"></div>
-				<%= form_for :task, :url => { :action => 'create_task', :controller=>"tasks" } do |f| %>
-						<div>
-							<div><%= f.text_field :task_name, :class => "inputtextHome", :placeholder => "Task name" %></div>
-							<div class="placeholder"></div>
-							<%= f.text_field :base_credit, :class => "inputtextHome", :placeholder => "Base-Credits" %></div>
-							<div class="placeholder"></div>
-							<div><%= f.text_field :unit, :class => "inputtextHome", :placeholder => "Unit (e.g. hour)" %></div>
-							<div class="placeholder"></div>
-							<%= f.text_field :credit_per_unit, :class => "inputtextHome", :placeholder => "Credits per unit" %></div>
-							<div class="placeholder"></div>
-							<div><%= f.text_area :task_description, :class => "inputtextHome taskdesc", :placeholder => "Description (What and how to do...)" %></div>
-							<div class="placeholder"></div>
-                            <div><%= f.hidden_field :Sharedappartment_id, :class => "inputtextHome", :value => current_user.Sharedappartment_id %></div>
-                            <div class="placeholder"></div>
-							<div><%= f.submit "Create task", :class => "signup" %></div>
-						</div>
-				<% end %>
-			</td>
-		</tr>
-		<tr>
-			<td height="50%">
-				<b>Note:</b><br>
-				In further releases this site (task) will be enhanced to something like "roomie management". Here you will not only be able to create tasks, but also change the password and name of your shared appartemnt and so on. So you can pimp your shared appartment as you want to.
-			</td>
-		</tr>
-	</table>
+<table height="99%" width="100%" id="homeTable">
+	<tr>
+		<td style="min-height:300px;">
+			<h2 class="site-title">Task list</h2>
+			<div class="scrollbarTasks" id="stylebar">
+				<table class="reference">
+					<thead>
+						<tr>
+							<th>Task</th>		
+							<th>Base Credits</th>
+							<th>Unit</th>		
+							<th>Credits per Unit</th>
+							<th>Info</th>
+							<th>Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+		                <% @tasks.each do |f| %>
+							<tr>
+								<td>
+									<%= f.task_name %>
+								</td>
+								<td>	
+									<%= f.base_credit %>
+								</td>
+								<td>
+									<%= f.unit %>
+								</td>
+								<td>
+									<%= f.credit_per_unit %>
+								</td>
+								<td>
+									<span class="taskDescHover">
+										<img src="assets/info.png" /><span><%= f.task_description %></span>
+									</span>
+								</td>
+								<td>
+									<%= button_to "", { :action => "delete_task", :controller=>"tasks", :deletableTask => f }, :onclick => "return confirm('Are you sure? You gonna delete a task permanently!')", :class => 'deleteIcon' %>
+								</td>
+							</tr>
+		                <% end %>
+
+					</tbody>
+				</table>
+			</div>
+		</td>
+		<td rowspan="2">
+			<h2 class="site-title">Create new task</h2>
+			<div class="placeholder"></div>
+			<%= form_for :task, :url => { :action => 'create_task', :controller=>"tasks" } do |f| %>
+					<div>
+						<div><%= f.text_field :task_name, :class => "inputtextHome", :placeholder => "Task name" %></div>
+						<div class="placeholder"></div>
+						<div><%= f.text_field :base_credit, :class => "inputtextHome", :placeholder => "Base-Credits" %></div>
+						<div class="placeholder"></div>
+						<div><%= f.text_field :unit, :class => "inputtextHome", :placeholder => "Unit (e.g. hour)" %></div>
+						<div class="placeholder"></div>
+						<div><%= f.text_field :credit_per_unit, :class => "inputtextHome", :placeholder => "Credits per unit" %></div>
+						<div class="placeholder"></div>
+						<div><%= f.text_area :task_description, :class => "inputtextHome taskdesc", :placeholder => "Description (What and how to do...)" %></div>
+						<div class="placeholder"></div>
+                        <div><%= f.hidden_field :Sharedappartment_id, :class => "inputtextHome", :value => current_user.Sharedappartment_id %></div>
+                        <div class="placeholder"></div>
+						<div><%= f.submit "Create task", :class => "signup" %></div>
+					</div>
+			<% end %>
+		</td>
+	</tr>
+	<tr>
+		<td height="50%">
+			<b>Note:</b><br>
+			In further releases this site (task) will be enhanced to something like "roomie management". Here you will not only be able to create tasks, but also change the password and name of your shared appartemnt and so on. So you can pimp your shared appartment as you want to.
+		</td>
+	</tr>
+</table>

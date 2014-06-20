@@ -1,3 +1,10 @@
+/* This css rules are not optimized, especially not for mobile use. */
+
+
+/***************************************************************************
+***************************** OVERALL **************************************
+***************************************************************************/
+
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dd,dl,dt,li,ol,ul,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;font-weight:normal;font-style:normal;text-align:left}table{border-collapse:collapse;border-spacing:0;}ol,ul{list-style:none;}q:before,q:after,blockquote:before,blockquote:after{content:"";}
 
 .clear{
@@ -15,7 +22,6 @@ body{
 	padding:0;
 	height:100%;
 }
-
 
 *{
 	outline:0;
@@ -54,37 +60,10 @@ a:visited{
 	opacity:1.00;
 }
 
+
 /***************************************************************************
-***************************** SITEWIDE STYLES ******************************
+***************************** APPLICATION/MAIN *****************************
 ***************************************************************************/
-
-#header {
-	width:100%;
-	height:61px;
-	display:block;
-	background: url(bg-header.png) repeat-x top center;
-	overflow:hidden;
-}
-
-#header h1 a{
-	width:152px;
-	height:29px;
-	background: url(title.png) no-repeat top left;
-	display:block;
-	text-indent:-99999em;
-	margin-top:15px;
-	float:left;
-}
-
-#header h1 a:hover{
-	width:173px;
-
-}
-
-#page-home #topnav li.home a{background-position: bottom left; opacity:1;}
-#page-about-us #topnav li.about a{background-position: bottom left; opacity:1;}
-#page-blog #topnav li.blog a{background-position: bottom left; opacity:1;}
-#page-blog-post #topnav li.blog a{background-position: bottom left; opacity:1;}
 
 #container {
 	background: #586273 url(bg-tile.png) repeat top left;
@@ -121,43 +100,6 @@ a:visited{
 #main #cuba-libre-bot{
 	height:30px;
 }
-
-/*
-#footer {
-	overflow:visible;
-	background:url(glow-bottom.png) no-repeat center 40px;
-	padding-bottom:70px;
-}
-*/
-
-#footer {
-	position:absolute;
-	bottom:0;
-	width:100%;
-	height:130px;   /* Height of the footer */
-	background-color:#0e121b;
-	background: #0b0e15 url(bg-footer-top.jpg) repeat-x top center;
-	color: #848ea2;
-}
-
-#pageFooter {
-	width:700px;
-	margin: 0 auto;
-	margin-top:23px;
-	position:relative;
-	z-index:90;
-	color: #737373;
-	font-size: 11px;
-}
-
-.footerref {
-	color: #737373 !important;
-}
-
-
-/***************************************************************************
-***************************** PAGE *****************************************
-***************************************************************************/
 
 #tagline{
 	width:580px;
@@ -199,30 +141,17 @@ a:visited{
 	bottom:0;
 }
 
+
+/***************************************************************************
+***************************** NAV / SIDEBAR ********************************
+***************************************************************************/
+
 #sidebar{
 	width:161px;
 	float:left;
 	font-size:14px;
 	font-weight:bold;
 	position:relative;
-}
-
-#profile{	
-	width:150px;
-	height: 150px;
-	display:block;
-	margin-left:7px;
-	top: 8px;
-	background-repeat:no-repeat;
-	background-position:bottom left;
-	background-position:top left;	
-	position:relative;
-	z-index:75;
-	opacity: 0.80;
-	background-image:url(profile.jpg);
-	background-size:150px 150px;
-	/*border-radius: 10px 10px 10px 10px;
-	box-shadow: 0px 0px 10px #1A1A1A;*/
 }
 
 #site-type-nav{
@@ -269,23 +198,29 @@ a:visited{
 #site-type-nav li.navoverview a span{	
 	background-image:url(navoverview.png);
 }	
+
 #site-type-nav li.navmycalendar a span{	
 	background-image:url(navmycalendar.png);
 	cursor: not-allowed;
 }
+
 #site-type-nav li.navmyacm a span{	
 	background-image:url(navmyacm.png);
 	cursor: not-allowed;
 }
+
 #site-type-nav li.navmyprofile a span{	
 	background-image:url(navmyprofile.png);
 }	
+
 #site-type-nav li.navaddjob a span{	
 	background-image:url(navaddjob.png);
 }	
+
 #site-type-nav li.navtasks a span{	
 	background-image:url(navtasks.png);
 }	
+
 #site-type-nav li.navlogout a span{	
 	background-image:url(navlogout.png);
 }	
@@ -306,7 +241,6 @@ a:visited{
 	position:relative;
 	margin-right:20px;
 	z-index: 100;
-	
 }
 
 h2.site-title{
@@ -347,7 +281,7 @@ h1.site-title{
 
 
 /***************************************************************************
-**************************** SCROLLER STUFF ********************************
+************************* SITE / SCROLLER * ********************************
 ***************************************************************************/
 
 #scroller-home-window {
@@ -411,7 +345,6 @@ h1.site-title{
 	float:left;
 }
 
-
 #scroller-vertical{
 	position:absolute;
 	top:0;
@@ -422,125 +355,36 @@ h1.site-title{
 
 
 /***************************************************************************
-*************************** HOME *******************************************
+*************************** HEADER *****************************************
 ***************************************************************************/
 
-.inputtextHome {
-	border-color: #000;
-	-webkit-border-radius: 5px;
-	margin: 0;
-	width: 177px;
+#header {
+	width:100%;
+	height:61px;
+	display:block;
+	background: url(bg-header.png) repeat-x top center;
+	overflow:hidden;
 }
 
-.inputtextHome {
-	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
-	font-size: 11px;
-	padding: 8px 10px;
-}
-
-.inputtextHome {
-	border: 1px solid #000;
-}
-
-.signup, .signin, .cancelacc {
-	-moz-box-shadow:inset 0px 1px 0px 0px #f5978e;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #f5978e;
-	box-shadow:inset 0px 1px 0px 0px #f5978e;
-	background-color:#d62828;
-	-webkit-border-top-left-radius:20px;
-	-moz-border-radius-topleft:20px;
-	border-top-left-radius:6px;
-	-webkit-border-top-right-radius:20px;
-	-moz-border-radius-topright:20px;
-	border-top-right-radius:6px;
-	-webkit-border-bottom-right-radius:20px;
-	-moz-border-radius-bottomright:20px;
-	border-bottom-right-radius:6px;
-	-webkit-border-bottom-left-radius:20px;
-	-moz-border-radius-bottomleft:20px;
-	border-bottom-left-radius:6px;
-	text-indent:0;
-	border:1px solid #d02718;
-	display:inline-block;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	font-style:normal;
-	height:42px;
-	line-height:40px;
-	width:130px;
-	text-decoration:none;
-	text-align:center;
-	cursor: pointer;
-	text-shadow:1px 1px 0px #810e05;
-}
-	
-.signup:hover, .cancelacc:hover {
-	background-color:#b51007;
-}
-
-.signup:active, .cancelacc:active {
-	position:relative;
-	top:1px;
-}
-
-.cancelacc {
-	height:22px;
-	line-height:20px;
-	width:70px;
-	font-size:8px;
-}
-
-#homeTable table tr td {
-	border: 0;
-}
-
-#homeTable table {
-	border-spacing: 10px;
-	border-collapse: separate;
-}
-
-#homeTable td
-{
-	vertical-align: top;
-	padding:10px;
-}
-
-#flatsharing {
-	width:275px;
-	height:183px;
-	background: url(flatsharing.jpg) no-repeat top left;
+#header h1 a{
+	width:152px;
+	height:29px;
+	background: url(title.png) no-repeat top left;
 	display:block;
 	text-indent:-99999em;
 	margin-top:15px;
 	float:left;
-	padding:1px;
-	border:1px solid #e0e8f5;
-	background-color:#e0e8f5;
 }
 
-#winnersPodium {
-	width:340px;
-	height:275px;
-	background: url(winners_podium.jpg) no-repeat top left;
-	text-indent:-99999em;
-	padding:1px;
-	border:0;
-	display: block;
-	margin-left: 20px;
-	margin-right: auto;
+#header h1 a:hover{
+	width:173px;
+
 }
 
-.placeholder {
-	font-size: 10px;
-	padding: 4px 5px;
-}
-
-
-/***************************************************************************
-*************************** HEADER *****************************************
-***************************************************************************/
+#page-home #topnav li.home a{background-position: bottom left; opacity:1;}
+#page-about-us #topnav li.about a{background-position: bottom left; opacity:1;}
+#page-blog #topnav li.blog a{background-position: bottom left; opacity:1;}
+#page-blog-post #topnav li.blog a{background-position: bottom left; opacity:1;}
 
 .menu_login_container{
 	margin-top: -3px;
@@ -702,6 +546,161 @@ textarea, .inputtext, .inputpassword {
 	text-decoration: underline;	
 }
 
+
+/***************************************************************************
+***************************** FOOTER ***************************************
+***************************************************************************/
+
+/*
+#footer {
+	overflow:visible;
+	background:url(glow-bottom.png) no-repeat center 40px;
+	padding-bottom:70px;
+}
+*/
+
+#footer {
+	position:absolute;
+	bottom:0;
+	width:100%;
+	height:130px;   /* Height of the footer */
+	background-color:#0e121b;
+	background: #0b0e15 url(bg-footer-top.jpg) repeat-x top center;
+	color: #848ea2;
+}
+
+#pageFooter {
+	width:700px;
+	margin: 0 auto;
+	margin-top:23px;
+	position:relative;
+	z-index:90;
+	color: #737373;
+	font-size: 11px;
+}
+
+.footerref {
+	color: #737373 !important;
+}
+
+
+/***************************************************************************
+*************************** HOME *******************************************
+***************************************************************************/
+
+.inputtextHome {
+	border-color: #000;
+	-webkit-border-radius: 5px;
+	margin: 0;
+	width: 177px;
+}
+
+.inputtextHome {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+	padding: 8px 10px;
+}
+
+.inputtextHome {
+	border: 1px solid #000;
+}
+
+.signup, .signin, .cancelacc {
+	-moz-box-shadow:inset 0px 1px 0px 0px #f5978e;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #f5978e;
+	box-shadow:inset 0px 1px 0px 0px #f5978e;
+	background-color:#d62828;
+	-webkit-border-top-left-radius:20px;
+	-moz-border-radius-topleft:20px;
+	border-top-left-radius:6px;
+	-webkit-border-top-right-radius:20px;
+	-moz-border-radius-topright:20px;
+	border-top-right-radius:6px;
+	-webkit-border-bottom-right-radius:20px;
+	-moz-border-radius-bottomright:20px;
+	border-bottom-right-radius:6px;
+	-webkit-border-bottom-left-radius:20px;
+	-moz-border-radius-bottomleft:20px;
+	border-bottom-left-radius:6px;
+	text-indent:0;
+	border:1px solid #d02718;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	height:42px;
+	line-height:40px;
+	width:130px;
+	text-decoration:none;
+	text-align:center;
+	cursor: pointer;
+	text-shadow:1px 1px 0px #810e05;
+}
+	
+.signup:hover, .cancelacc:hover {
+	background-color:#b51007;
+}
+
+.signup:active, .cancelacc:active {
+	position:relative;
+	top:1px;
+}
+
+.cancelacc {
+	height:22px;
+	line-height:20px;
+	width:70px;
+	font-size:8px;
+}
+
+#homeTable table tr td {
+	border: 0;
+}
+
+#homeTable table {
+	border-spacing: 10px;
+	border-collapse: separate;
+}
+
+#homeTable td
+{
+	vertical-align: top;
+	padding:10px;
+}
+
+#flatsharing {
+	width:275px;
+	height:183px;
+	background: url(flatsharing.jpg) no-repeat top left;
+	display:block;
+	text-indent:-99999em;
+	margin-top:15px;
+	float:left;
+	padding:1px;
+	border:1px solid #e0e8f5;
+	background-color:#e0e8f5;
+}
+
+#winnersPodium {
+	width:340px;
+	height:275px;
+	background: url(winners_podium.jpg) no-repeat top left;
+	text-indent:-99999em;
+	padding:1px;
+	border:0;
+	display: block;
+	margin-left: 20px;
+	margin-right: auto;
+}
+
+.placeholder {
+	font-size: 10px;
+	padding: 4px 5px;
+}
+
+
 /***************************************************************************
 *************************** CHARTS *****************************************
 ***************************************************************************/
@@ -766,6 +765,7 @@ textarea, .inputtext, .inputpassword {
 	border-color: #bce8f1;
 	text-align: left;
 }
+
 
 /***************************************************************************
 *************************** TASKS ******************************************
@@ -898,6 +898,7 @@ span.taskDescHover:hover span {
     width: 14px;
     height: 14px;
 }
+
 
 /***************************************************************************
 *************************** SHOUTBOX ***************************************
@@ -1055,6 +1056,7 @@ textarea.shoutbox  {
 	color: #000000;
 }
 
+
 /***************************************************************************
 *************************** LAST ACTIVITIES ********************************
 ***************************************************************************/
@@ -1176,6 +1178,7 @@ span.summaryHover:hover span {
 	z-index:6;
 }
 
+
 /***************************************************************************
 *************************** PAYOFF *****************************************
 ***************************************************************************/
@@ -1226,4 +1229,27 @@ span.summaryHover:hover span {
 	padding:10px 20px;text-align:center;
 	text-decoration:none;
 	border: 1px solid #000;
+}
+
+
+/***************************************************************************
+*************************** PROFILE ****************************************
+***************************************************************************/
+
+#profile{	
+	width:150px;
+	height: 150px;
+	display:block;
+	margin-left:7px;
+	top: 8px;
+	background-repeat:no-repeat;
+	background-position:bottom left;
+	background-position:top left;	
+	position:relative;
+	z-index:75;
+	opacity: 0.80;
+	background-image:url(profile.jpg);
+	background-size:150px 150px;
+	/*border-radius: 10px 10px 10px 10px;
+	box-shadow: 0px 0px 10px #1A1A1A;*/
 }

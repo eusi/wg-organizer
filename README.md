@@ -1,2 +1,64 @@
-wg-organizer
-============
+wg-organizer as Roomie
+==============================
+
+Roomie, the shared flat organizer!
+You are living in a shared flat and you are annoyed of lazy roommates, you feel like their mommy because you have to do everything by your own and you get nothing for it? That is over now!
+
+Roomie is an organizer that monitors the shared flat activity of the roommates. For every activity like cleaning up the flat you get credits! This tracking system rewarded the hard-working roomies and identifys the skiver in the flat!
+
+Important to notice that this is just an educational non-commercial application which was created for a course at Munich University of Applied Sciences.
+
+
+
+## Requires
+
+ * Rails 4.0.2
+
+
+
+ ## Installation
+
+1. Download the source
+2. Run a terminal/command line and go into `\wg-organizer\`
+3. execute `bundle install`
+4. execute `rake db:migrate`
+5. `rails s`
+6. enjoy
+
+
+
+## Used gems
+
+ * sqlite3
+
+ * sass-rails ~> 4.0.0
+
+ * uglifier >= 1.3.0
+
+ * coffee-rails ~> 4.0.0
+
+ * therubyracer
+
+ * jquery-rails
+
+ * turbolinks
+
+ * jbuilder ~> 1.2
+
+ * bcrypt-ruby ~> 3.1.2
+
+ * unicorn
+
+ * capistrano
+
+ * debugger
+
+ * thin (!)
+
+ * devise (!)
+
+
+
+## License
+
+GNU General Public License version 3

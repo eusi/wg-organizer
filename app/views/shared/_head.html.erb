@@ -1,17 +1,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head profile="http://www.w3.org/2006/03/hcard">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>roomie</title>
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <head profile="http://www.w3.org/2006/03/hcard">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>roomie</title>
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
 
-  <link rel="stylesheet" href='./assets/main.css' media="screen, siteion">  
+    <link rel="stylesheet" href='./assets/main.css' media="screen, siteion">  
 
-  <script type="text/javascript" src="./assets/jquery.min.js"></script>
-  <script type="text/javascript" src="./assets/jquery.bpopup.min.js"></script>
-  <script type="text/javascript" src="./assets/main.js"></script>
+    <script type="text/javascript" src="./assets/jquery.min.js"></script>
+    <script type="text/javascript" src="./assets/jquery.bpopup.min.js"></script>
+    <script type="text/javascript" src="./assets/main.js"></script>
 
-  <% if current_page?('/main') || ( current_page?('/') && user_signed_in? ) %>
-  	<%= render "shared/chart" %>
-  <% end %>
-</head>
+    <% if current_page?('/main') || ( current_page?('/') && user_signed_in? ) %>
+    	<%= render "shared/chart" %>
+    <% end %>
+  </head>

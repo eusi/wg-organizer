@@ -36,9 +36,11 @@
 									<p><%= f.ByUser.user_name %></p>
 								</div>
 								<div class="activities">
-									<p><span class="summaryHover">
-										<b><%= f.Task.task_name %></b><span><%= f.summary %></span>
-									</span></p>
+									<p>
+										<span class="summaryHover">
+											<b><%= f.Task.task_name %></b><span><%= f.summary %></span>
+										</span>
+									</p>
 									<% if f.task_end != nil %>
 										<p><%= f.task_end.strftime("%Y-%m-%d") %></p>
 									<% end %>
@@ -46,9 +48,6 @@
 								<div class="activitiesCoin">
 									<img src="assets/coin.png" width="30%" />
 									<p><%= f.credits %></p>
-								</div>
-								<div>
-									
 								</div>
 							</li>
 		                <% end %>
@@ -61,7 +60,6 @@
 			<div>
 				<h2 class="site-title">Shoutbox</h2>
 				<div>
-
 					<div id="shoutcontainer">
 						<div id="shoutcontent">
 				   			<div class="scrollbar" id="stylebar">
@@ -93,7 +91,7 @@
 							<div><%= f.submit 'Shout!', :class => "signup" %></div>
 							<% end %>
 						</div>
-
+					</div>
 				</div>
 			</div>
 		</td>

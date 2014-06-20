@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	//modal for main (payoff)
+	//modal for main/payoff
         $(function() {
             $('#payoffOpener').bind('click', function(e) {
                 e.preventDefault();
@@ -12,12 +12,13 @@ $(document).ready(function(){
             });
          });
 
-	//select/unselect all for addjob
+	//select/unselect all for addjob/index
 	$('#check_all').on("click", function(){ $('input[type="checkbox"]').click(); });
+
 });
 
 
-//convert username-string to hex and cut the result after 6 chars = personal hex color
+//converts username-string to hex and cuts the result after 6 chars = personal hex color
 function personalHexColor(str) 
 {
 	var hex = '';
@@ -28,12 +29,14 @@ function personalHexColor(str)
 	return backwayHex.substring(0, 6);;
 }
 
+
 //creates an gravatar url
 function setPersonalGravatarUrl(str) 
 {
 	return 'http://www.gravatar.com/avatar/' + personalHexColor(str) + '?r=PG&s=150&default=identicon';
 }
 
+//shows unit for amount-checkbox in div aside
 /* //, :onchange => 'setSelect();'
 function setSelect()
 {
