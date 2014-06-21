@@ -36,11 +36,13 @@ function setPersonalGravatarUrl(str)
 	return 'http://www.gravatar.com/avatar/' + personalHexColor(str) + '?r=PG&s=150&default=identicon';
 }
 
-//shows unit for amount-checkbox in div aside
-/* //, :onchange => 'setSelect();'
-function setSelect()
+
+//shows unit for amount-checkbox for job-/index
+function setSelect(element)
 {
-	var x = document.getElementById("completedtask_task_id").selectedIndex;
-	var y = document.getElementById("completedtask_task_id").options;
-	$("#amountName").text( y[x].name );
-}*/
+	var x = element.selectedIndex;
+	var y = element.options;
+	var amount = $(y[x]).attr('unit');
+	//$("#amountName").text( amount );
+	$("#completedtask_amount").attr("placeholder", "Amount (in "+ amount + ", if needed)");
+}

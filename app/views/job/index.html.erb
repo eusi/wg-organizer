@@ -28,7 +28,7 @@
 			<div>
 				<div><%= f.date_field :task_end, :value => Date.today, :class => "inputtextHome" %></div>
 				<div class="placeholder"></div>
-                <%= f.select :task_id, options_from_collection_for_select(@tasks, :id, :task_name), { :include_blank=>false }, { :class => "inputtextHome" } %>
+				<%= f.select(:task_id, options_from_collection_for_select_with_attribute(@tasks, :id, :task_name, 'unit', :unit), { :include_blank=>false }, { :class => "inputtextHome", :onclick => 'setSelect(this);' }) %>
 				<div class="placeholder"></div>
 				<div><%= f.text_field :amount, :class => "inputtextHome", :placeholder => "Amount (if needed)" %></div>
 				<div class="placeholder"></div>
