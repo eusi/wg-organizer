@@ -7,6 +7,12 @@ class ProfileController < ActionController::Base
     @user = User.find(current_user.id)
   end
 
+  #This method checks if the user is currently member of a shared-apartment or not and calls the model method for creating a new shared-apartment
+  #It adds the current user to the new appartment.
+  #
+  #* *Result*:
+  # - on Success: Current user is added to the new apartment and redirected to main view
+  # - on Failure: redirect to profile view and corresponding error message
   def createWG
     if (current_user.Sharedappartment_id==nil)
       @sharedappartment = Sharedappartment.create_sharedappartment(current_user, params[:sharedappartment][:name], params[:sharedappartment][:password])
@@ -20,6 +26,12 @@ class ProfileController < ActionController::Base
     end
   end
 
+  #This method checks if the user is currently member of a shared-apartment or not and calls the model method for joining an existing shared-apartment.
+  #It adds the current user to the existing apartment if he provides the correct password.
+  #
+  #* *Result*:
+  # - on Success: Current user is added to the existing apartment and redirected to main view
+  # - on Failure: redirect to profile view and corresponding error message
   def joinWG
     if (current_user.Sharedappartment_id==nil)
       begin

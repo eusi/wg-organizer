@@ -20,13 +20,16 @@ class MainController < ActionController::Base
 	end
 
 
+  #This method allows the user to save a new shoutmessage in the database
+  #* *Result*:
+  # - A redirect to the main page with success- or error-message
 	def create_shout
 		s = Shoutboxmessage.new()
 		s.message = params[:shoutboxmessage][:message]
 		s.User_id = current_user.id
 		if s.save
 			redirect_to :action => 'index'
-			#flash[:notice] = 'Thanks for shouting!'
+			flash[:notice] = 'Thanks for shouting!'
 		else
 			redirect_to :action => 'index'
 			flash[:alert] = 'Uups, something went wrong!'
