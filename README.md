@@ -6,7 +6,7 @@ You are living in a shared flat and you are annoyed of lazy roommates, you feel 
 
 Roomie is an organizer that monitors the shared flat activity of the roommates. For every activity like cleaning up the flat you get credits! This tracking system rewarded the hard-working roomies and identifys the skiver in the flat!
 
-Important to notice that this is just an educational non-commercial application which was created for a course at Munich University of Applied Sciences.
+**Important** to notice that this is just an educational non-commercial application which was created for a course at Munich University of Applied Sciences.
 
 
 
@@ -16,14 +16,14 @@ Important to notice that this is just an educational non-commercial application 
 
 
 
- ## Installation
+## Installation
 
-1. Download the source
-2. Run a terminal/command line and go into `\wg-organizer\`
-3. execute `bundle install`
-4. execute `rake db:migrate`
-5. `rails s`
-6. enjoy
+1. Download and extract the source
+2. Run a terminal/command line and switch into `\wg-organizer\`
+3. Execute `bundle install`
+4. Execute `rake db:migrate`
+5. Execute `rails s`
+6. Enjoy!
 
 
 
