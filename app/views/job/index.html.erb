@@ -30,7 +30,7 @@
 				<div class="placeholder"></div>
 				<%= f.select(:task_id, options_from_collection_for_select_with_attribute(@tasks, :id, :task_name, 'unit', :unit), { :include_blank=>false }, { :class => "inputtextHome", :onclick => 'setSelect(this);' }) %>
 				<div class="placeholder"></div>
-				<div><%= f.text_field :amount, :class => "inputtextHome", :placeholder => "Amount (if needed)" %></div>
+                <div><%= f.number_field :amount, :class => "inputtextHome", :min => 0, :step => 0.5, :placeholder => "Amount (if needed)" %></div>
 				<div class="placeholder"></div>
 				<div><%= f.text_area :summary, :class => "inputtextHome taskdesc", :placeholder => "Comment" %></div>
 				<div class="placeholder"></div>

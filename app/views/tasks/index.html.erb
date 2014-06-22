@@ -59,11 +59,11 @@
 					<div>
 						<div><%= f.text_field :task_name, :class => "inputtextHome", :placeholder => "Task name" %></div>
 						<div class="placeholder"></div>
-						<div><%= f.text_field :base_credit, :class => "inputtextHome", :placeholder => "Base-Credits" %></div>
+						<div><%= f.number_field :base_credit, :class => "inputtextHome", :min => 0, :step => 0.5, :placeholder => "Base-Credits" %></div>
 						<div class="placeholder"></div>
 						<div><%= f.text_field :unit, :class => "inputtextHome", :placeholder => "Unit (e.g. hour)" %></div>
 						<div class="placeholder"></div>
-						<div><%= f.text_field :credit_per_unit, :class => "inputtextHome", :placeholder => "Credits per unit" %></div>
+						<div><%= f.number_field :credit_per_unit, :class => "inputtextHome", :min => 0, :step => 0.5, :placeholder => "Credits per unit" %></div>
 						<div class="placeholder"></div>
 						<div><%= f.text_area :task_description, :class => "inputtextHome taskdesc", :placeholder => "Description (What and how to do...)" %></div>
 						<div class="placeholder"></div>

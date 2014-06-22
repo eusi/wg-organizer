@@ -31,7 +31,7 @@ class JobController < ActionController::Base
     begin
       @completedtask = Completedtask.complete_task(current_user,
                                                   params[:for_ids],
-                                                  params[:completedtask][:amount].to_i,
+                                                  params[:completedtask][:amount].to_f,
                                                   params[:completedtask][:task_id],
                                                   params[:completedtask][:task_start],
                                                   params[:completedtask][:task_end],
