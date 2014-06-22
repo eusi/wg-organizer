@@ -3,20 +3,20 @@ class MainController < ActionController::Base
 	before_action :authenticate_user!
 	layout 'application'
 
+  # The index method redirects to profile page if user is not in a shared flat.
+  # Additionaly it provides several objects that are needed for some elements in the main-view
 	def index
 		if(current_user.Sharedappartment_id==nil)
 			redirect_to '/profile'
-
-		@users = Users.all
+    else
+      @payoffbalance = current_user.Sharedappartment.balance(false)
+      @shouts = current_user.get_shoutbox_messages_of_appartment(5)
+      @wg = current_user.Sharedappartment.name
+      @last_activities = current_user.get_last_activities_of_appartment(3)
+      @balance = current_user.Sharedappartment.get_balance
+      @max_credits = current_user.Sharedappartment.get_max_credits( 0.2 )
+      @min_credits = 0 #implement min credits in shared appartment: credits by "worst" roomie * 0,8
 		end
-
-		@payoffbalance = current_user.Sharedappartment.balance(false)
-		@shouts = current_user.get_shoutbox_messages_of_appartment(5)
-		@wg = current_user.Sharedappartment.name
-		@last_activities = current_user.get_last_activities_of_appartment(3)
-		@balance = current_user.Sharedappartment.get_balance
-		@max_credits = current_user.Sharedappartment.get_max_credits( 0.2 )
-		@min_credits = 0 #implement min credits in shared appartment: credits by "worst" roomie * 0,8
 	end
 
 
