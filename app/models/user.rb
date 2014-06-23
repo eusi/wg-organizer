@@ -19,6 +19,14 @@ class User < ActiveRecord::Base
 		result = Completedtask.where(:is_archived=>0).where(:ByUser=>self).sum(:credits)-Charge.where(:is_archived=>0).where(:ForUser=>self).sum(:credits)
 	end
 	
+	# The user leaves the appartment.	
+	def leave()		
+		if(self.Sharedappartment!=nil)
+			self.Sharedappartment=nil
+			self.save()
+		end
+	end
+	
 	# This method returns the maximum of credits of the user's shared appartment.	
 	# * *Args*    :
 	#   - +scale+ -> increase/decrease result by percentage value (0,2 --> 20 %).
@@ -33,6 +41,20 @@ class User < ActiveRecord::Base
 			return 0
 		end
 		
+	end
+	
+	# This method gets all shoutbox messages of the user's shared appartment including user data. 
+	# * *Args*    :
+	#   - +limit+ -> The number of messages
+	# * *Returns* :
+	#   - An array of messages ordered by date	
+	def get_shoutbox_messages_of_appartment(limit)
+		current_appartment=self.Sharedappartment
+		if(current_appartment!=nil)
+			result=current_appartment.get_shoutbox_messages(limit)
+		else
+			nil
+		end
 	end
 	
 	# This method gets all shoutbox messages of the user's shared appartment including user data. 

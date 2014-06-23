@@ -5,7 +5,7 @@ class JobController < ActionController::Base
 	
 	def index
    @roomies = current_user.Sharedappartment.Users
-   @tasks = current_user.Sharedappartment.Tasks
+   @tasks = current_user.Sharedappartment.Tasks.where(:is_deleted => [nil, false])
   end
 
 

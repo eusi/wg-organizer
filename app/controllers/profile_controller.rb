@@ -20,8 +20,8 @@ class ProfileController < ActionController::Base
     if (current_user.Sharedappartment == nil)
       create_new_apartment()
     else
-      if (current_user.Sharedappartment.get_balance().all?{|k,v| v==0})
-        #current_user.Sharedappartment.leave()
+      if current_user.Sharedappartment.is_balanced?
+        current_user.leave()
         create_new_apartment()
       else
         redirect_to '/profile', :alert => "Payoff your current shared flat before creating a new one"
@@ -56,8 +56,8 @@ class ProfileController < ActionController::Base
     if (current_user.Sharedappartment == nil)
       join_apartment
     else
-      if (current_user.Sharedappartment.get_balance().all?{|k,v| v==0})
-        #leave wg
+      if current_user.Sharedappartment.is_balanced?
+        current_user.leave()
         join_apartment()
       else
         redirect_to '/profile', :alert => "Payoff your current shared flat before joining a new one"

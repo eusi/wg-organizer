@@ -7,11 +7,13 @@ validates :ByUser, presence: true
 validates :Task, presence: true
 validates :amount, presence: true, numericality: true
 validates :credits, presence: true
-
-
-
-
 validates :amount, presence: true, numericality:true
+
+	def self.is_numeric(object)
+		true if Float(object) rescue false
+	end
+
+
 	# This method can be used by an user to complete a task. 
 	# * *Args*    :
 	#   - +by_user+ -> The user, who has completed the task.
@@ -38,6 +40,10 @@ validates :amount, presence: true, numericality:true
 		if(amount==nil)
 			raise ArgumentError.new("Amount is empty.")
 		end
+		
+		if !Completedtask.is_numeric(amount)
+			raise ArgumentError.new("Amount has to numeric.")	
+		end			
 		
 		if(for_users==nil or for_users.size==0)
 			raise ArgumentError.new("No users selected")		

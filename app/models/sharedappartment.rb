@@ -11,6 +11,17 @@ validates :name, uniqueness: true, presence: true,length: { maximum: 15 }
 #validates :password_salt, presence: true
 validates :password, presence: true, length: { in: 6..30 }, confirmation: true
 
+	# This method checks if the shared appartment is balanced --> every room mate has zero credits. 
+	# * *Returns* :
+	#   - true if the apartment is balanced	
+	def is_balanced?()
+
+		return self.get_balance().all?{|k,v| v==0}
+	
+	end
+
+	
+
 	# This method gets all shoutbox messages of the shared appartment including user data. 
 	# * *Args*    :
 	#   - +limit+ -> The number of messages
