@@ -38,7 +38,10 @@
 								<div class="activities">
 									<p>
 										<span class="summaryHover">
-											<b><%= f.Task.task_name %></b><span><%= f.summary %></span>
+											<b><%= f.Task.task_name %></b>
+												<% if f.summary != "" %>
+													<span><%= f.summary %></span>
+												<% end %>
 										</span>
 									</p>
 									<% if f.task_end != nil %>
