@@ -49,8 +49,4 @@ class ProfileController < ActionController::Base
     end
   end
 
-  def get_user_balance
-    current_user.get_balance()
-  end
-
 end

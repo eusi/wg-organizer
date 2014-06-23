@@ -38,14 +38,12 @@ class MainController < ActionController::Base
  	end
 
 
-	# This method calls the Sharedappartment-modle to balance all user accounts in this sharedappartment.
-	# * *Args*    :
-	#   - +reset+ -> If true, all completed tasks and charges will be archived.
-	# * *Returns* :
-	#   - @payoffbalance -> A hash with Key: the user. Value: The users' credits/debts towards the shared appartment as decimal value.
-	# * *Result* :
-	#   - if +reset+ is true: returns @payoffbalance and the balance of all users will be executed
-	#   - if +reset+ is false: returns @payoffbalance without executing the balance of all users
+  # This method calls the Sharedappartment-modle to balance all user accounts in this sharedappartment.
+  #
+  # * *Returns* :
+  #   - @payoffbalance -> A hash with Key: the user. Value: The users' credits/debts towards the shared appartment as decimal value.
+  # * *Result* :
+  #   - returns @payoffbalance and the balance of all users will be executed
  	def payoff
 	    begin
 	      @payoffbalance = current_user.Sharedappartment.balance(true)
