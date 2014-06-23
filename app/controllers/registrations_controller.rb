@@ -42,10 +42,15 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def destroy
-    if(current_user.get_balance == 0)
+    if (current_user.Sharedappartment == nil)
       super
     else
-      redirect_to '/profile', :alert => "Leave/payoff your current shared flat before canceling your account"
+      if(current_user.Sharedappartment.get_balance().all?{|k,v| v==0})
+        #leave apartment
+        super
+      else
+        redirect_to '/profile', :alert => "Payoff your current shared flat before canceling your account"
+      end
     end
   end
 
