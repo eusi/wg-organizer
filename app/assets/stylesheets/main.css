@@ -648,6 +648,10 @@ textarea, .inputtext, .inputpassword {
 	top:1px;
 }
 
+.resetpw {
+	width:280px;
+}
+
 .cancelacc {
 	height:22px;
 	line-height:20px;
