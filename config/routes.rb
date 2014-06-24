@@ -1,9 +1,35 @@
 WGOrganizer::Application.routes.draw do
-    devise_for :users, :skip => [:sessions], :controllers => { :registrations => :registrations }
+    devise_for :users, 
+    :skip => [:sessions, :passwords, :confirmations], #:registrations
+    :controllers => { :registrations => :registrations, :passwords => :passwords }
 
   devise_scope :user do
-   	get  "/signin" => "sessions#new", :as => :new_user_session
-   	post "/signin" => "sessions#create", :as => :user_session
+    # joining
+    #post '/signup' => 'devise/registrations#create', :as => "user_registration_path"
+    #get  "/join" => "devise/registrations#new",      :as => "new_user_registration"
+    #post "/join" => "devise/registrations#create",   :as => "user_registration"
+
+    # settings & cancellation
+    #get "/cancel"   => "devise/registrations#cancel", :as => "cancel_user_registration"
+    #get "/settings" => "devise/registrations#edit",   :as => "edit_user_registration"
+    #put "/settings" => "devise/registrations#update"
+
+    # confirmation
+    get  "/confirm"        => "devise/confirmations#show",  :as => "user_confirmation"
+    post "/confirm"        => "devise/confirmations#create"
+    get  "/confirm/resend" => "devise/confirmations#new",   :as => "new_user_confirmation"
+
+    # account deletion
+    delete "" => "devise/registrations#destroy"
+
+    # password reset
+    post "/reset-password"        => "passwords#create",        :as => :user_password
+    get  "/reset-password"        => "passwords#new",           :as => :new_user_password
+    get  "/reset-password/change" => "passwords#edit",          :as => :edit_user_password
+
+    # session handling
+   	get  "/signin"  => "sessions#new",                    :as => :new_user_session
+   	post "/signin"  => "sessions#create",                 :as => :user_session
    	get  "/signout" => "sessions#destroy", via: :destroy, :as => :destroy_user_session,
    	:via => Devise.mappings[:user].sign_out_via
   end
