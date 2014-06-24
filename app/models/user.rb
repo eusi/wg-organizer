@@ -22,8 +22,13 @@ class User < ActiveRecord::Base
 	# The user leaves the appartment.	
 	def leave()		
 		if(self.Sharedappartment!=nil)
-			self.Sharedappartment=nil
-			self.save()
+			ActiveRecord::Base.transaction do
+				self.Shoutboxmessages.delete_all
+				self.Completedtasks.delete_all				
+				self.Sharedappartment=nil
+				self.save()			
+				
+			end
 		end
 	end
 	
