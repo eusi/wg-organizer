@@ -60,7 +60,7 @@ validates :amount, presence: true, numericality:true
 		ActiveRecord::Base.transaction do
 		
 			#save completed task		
-			completed_task= Completedtask.create(:amount=>amount, :credits=>credits,:Task=>task,:ByUser=>by_user,:task_start=>task_start,:task_end=>task_end,:summary=>summary)
+			completed_task= Completedtask.create(:amount=>amount, :credits=>credits,:Task=>task,:ByUser=>by_user,:task_start=>task_end,:task_end=>task_end,:summary=>summary)
 			print "Completed task sucessfully saved\n"
 			
 			#check if the job was done for all appartment members
