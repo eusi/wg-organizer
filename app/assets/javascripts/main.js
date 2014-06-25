@@ -18,7 +18,7 @@ $(document).ready(function(){
 });
 
 
-//converts username-string to hex and cuts the result after 6 chars = personal hex color
+//converts username-string to hex and cuts the result after 6 chars = personal hex color - am a genius :)
 function personalHexColor(str) 
 {
 	var hex = '';
@@ -30,19 +30,28 @@ function personalHexColor(str)
 }
 
 
-//creates an gravatar url
+//creates an gravatar url <3
 function setPersonalGravatarUrl(str) 
 {
 	return 'http://www.gravatar.com/avatar/' + personalHexColor(str) + '?r=PG&s=150&default=identicon';
 }
 
 
-//shows unit for amount-checkbox for job-/index
+//shows unit for amount-checkbox for job-/index in placeholder of amount itself - really cool! ;D
 function setSelect(element)
 {
 	var x = element.selectedIndex;
 	var y = element.options;
 	var amount = $(y[x]).attr('unit');
-	//$("#amountName").text( amount );
+	$("#completedtask_amount").attr("placeholder", "Amount (in "+ amount + ", if needed)");
+}
+
+
+//shows unit for amount-checkbox for job-/index in placeholder of amount itself - really cool! ;D
+function setSelectById(elementId)
+{
+	var x = document.getElementById( elementId ).selectedIndex;
+	var y = document.getElementById( elementId ).options;
+	var amount = $(y[x]).attr('unit');
 	$("#completedtask_amount").attr("placeholder", "Amount (in "+ amount + ", if needed)");
 }

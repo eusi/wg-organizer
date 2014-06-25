@@ -6,36 +6,39 @@
 
 <%= form_for :completedtask, :url => { :action => 'create_job', :controller=>"job" } do |f| %>
 	<table height="99%" width="100%" id="homeTable">
-	<tr>
-		<td>
-			<h2 class="site-title">Member involved</h2>
-			<div>
-				<br>
-				<div><a id="check_all">Select/Unselect All</a></div>
-				<br>
-                <% @roomies.each do |w| %>
-                    <div>
-	                    <%= check_box_tag("for_ids[]", w.id, true, :class => "jobbox", :type => "checkbox", :style => "vertical-align:middle") %>
-	                    <%= label_tag("for_ids[]", w.user_name) %>
-	                </div>
-                    <br>
-                <% end %>
-			</div>
-		</td>
-		<td>
-			<h2 class="site-title">Job properties</h2>
-			<div class="placeholder"></div>
-			<div>
-				<div><%= f.date_field :task_end, :value => Date.today, :class => "inputtextHome" %></div>
+		<tr>
+			<td>
+				<h2 class="site-title">Member involved</h2>
+				<div>
+					<br>
+					<div><a id="check_all">Select/Unselect All</a></div>
+					<br>
+	                <% @roomies.each do |w| %>
+	                    <div>
+		                    <%= check_box_tag("for_ids[]", w.id, true, :class => "jobbox", :type => "checkbox", :style => "vertical-align:middle") %>
+		                    <%= label_tag("for_ids[]", w.user_name) %>
+		                </div>
+	                    <br>
+	                <% end %>
+				</div>
+			</td>
+			<td>
+				<h2 class="site-title">Job properties</h2>
 				<div class="placeholder"></div>
-				<%= f.select(:task_id, options_from_collection_for_select_with_attribute(@tasks, :id, :task_name, 'unit', :unit), { :include_blank=>false }, { :class => "inputtextHome", :onclick => 'setSelect(this);' }) %>
-				<div class="placeholder"></div>
-                <div><%= f.number_field :amount, :class => "inputtextHome", :min => 0, :step => 0.5, :placeholder => "Amount (if needed)" %></div>
-				<div class="placeholder"></div>
-				<div><%= f.text_area :summary, :class => "inputtextHome taskdesc", :placeholder => "Comment" %></div>
-				<div class="placeholder"></div>
-				<div><%= f.submit "Get Credits!", :class => "signup" %></div>
+				<div>
+					<div><%= f.date_field :task_end, :value => Date.today, :class => "inputtextHome" %></div>
+					<div class="placeholder"></div>
+					<%= f.select(:task_id, options_from_collection_for_select_with_attribute(@tasks, :id, :task_name, 'unit', :unit), { :include_blank=>false }, { :class => "inputtextHome", :onchange => 'setSelect(this);' }) %>
+					<div class="placeholder"></div>
+	                <div><%= f.number_field :amount, :class => "inputtextHome", :min => 0, :step => 0.5, :placeholder => "Amount (if needed)" %></div>
+					<div class="placeholder"></div>
+					<div><%= f.text_area :summary, :class => "inputtextHome taskdesc", :placeholder => "Comment" %></div>
+					<div class="placeholder"></div>
+					<div><%= f.submit "Get Credits!", :class => "signup" %></div>
+				</div>
 			</td>
 		</tr>
 	</table>
 <% end %>
+
+<%= javascript_tag "setSelectById('completedtask_task_id')" %>

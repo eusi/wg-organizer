@@ -38,9 +38,11 @@
 									<%= f.credit_per_unit %>
 								</td>
 								<td>
+									<% if f.task_description != "" %>
 									<span class="taskDescHover">
 										<img src="assets/info.png" /><span><%= f.task_description %></span>
 									</span>
+									<% end %>
 								</td>
 								<td>
 									<%= button_to "", { :action => "delete_task", :controller=>"tasks", :deletableTask => f }, :onclick => "return confirm('Are you sure? You gonna delete a task permanently!')", :class => 'deleteIcon' %>
@@ -59,7 +61,7 @@
 					<div>
 						<div><%= f.text_field :task_name, :class => "inputtextHome", :placeholder => "Task name" %></div>
 						<div class="placeholder"></div>
-						<div><%= f.number_field :base_credit, :class => "inputtextHome", :min => 0, :step => 0.5, :placeholder => "Base-Credits" %></div>
+						<div><%= f.number_field :base_credit, :class => "inputtextHome", :min => 0, :step => 0.5, :placeholder => "Base-Credits (flat amount)" %></div>
 						<div class="placeholder"></div>
 						<div><%= f.text_field :unit, :class => "inputtextHome", :placeholder => "Unit (e.g. hour)" %></div>
 						<div class="placeholder"></div>

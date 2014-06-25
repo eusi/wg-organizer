@@ -1,7 +1,6 @@
 class TasksController < ActionController::Base
-
+  layout 'application'
   before_action :authenticate_user!
-	layout 'application'
 	
 	def index
     @tasks = current_user.Sharedappartment.Tasks.where(:is_deleted => [nil, false])

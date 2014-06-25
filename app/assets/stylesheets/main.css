@@ -770,6 +770,10 @@ textarea, .inputtext, .inputpassword {
 	text-align: left;
 }
 
+.alert-timedout{
+	display:none;
+}
+
 
 /***************************************************************************
 *************************** TASKS ******************************************
@@ -1058,6 +1062,10 @@ textarea.shoutbox  {
 	top: 0px;
 	left: 3px;
 	color: #000000;
+}
+
+#check_all {
+	cursor:pointer;
 }
 
 
