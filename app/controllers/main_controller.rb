@@ -3,8 +3,8 @@ class MainController < ActionController::Base
 	before_action :authenticate_user!
 	layout 'application'
 
-  # The index method redirects to profile page if user is not in a shared flat.
-  # Additionaly it provides several objects that are needed for some elements in the main-view
+	# The index method redirects to profile page if user is not in a shared flat.
+	# Additionaly it provides several objects that are needed for some elements in the main-view
 	def index
 		if(current_user.Sharedappartment_id==nil)
 			redirect_to '/profile'
@@ -20,9 +20,9 @@ class MainController < ActionController::Base
 	end
 
 
-  #This method allows the user to save a new shoutmessage in the database
-  #* *Result*:
-  # - A redirect to the main page with success- or error-message
+    #This method allows the user to save a new shoutmessage in the database
+    #* *Result*:
+    # - A redirect to the main page with success- or error-message
 	def create_shout
 		s = Shoutboxmessage.new()
 		s.message = params[:shoutboxmessage][:message]
@@ -38,12 +38,12 @@ class MainController < ActionController::Base
  	end
 
 
-  # This method calls the Sharedappartment-modle to balance all user accounts in this sharedappartment.
-  #
-  # * *Returns* :
-  #   - @payoffbalance -> A hash with Key: the user. Value: The users' credits/debts towards the shared appartment as decimal value.
-  # * *Result* :
-  #   - returns @payoffbalance and the balance of all users will be executed
+    # This method calls the Sharedappartment-modle to balance all user accounts in this sharedappartment.
+    #
+    # * *Returns* :
+    #   - @payoffbalance -> A hash with Key: the user. Value: The users' credits/debts towards the shared appartment as decimal value.
+    # * *Result* :
+    #   - returns @payoffbalance and the balance of all users will be executed
  	def payoff
 	    begin
 	      @payoffbalance = current_user.Sharedappartment.balance(true)

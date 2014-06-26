@@ -1,27 +1,25 @@
 class Sharedappartment < ActiveRecord::Base
 
-has_many :Users
-has_many :Tasks, :dependent => :delete_all
+	has_many :Users
+	has_many :Tasks, :dependent => :delete_all
 
-attr_accessor :password
-attr_accessor :max_credits
-validates :name, uniqueness: true, presence: true,length: { maximum: 15 }
+	attr_accessor :password
+	attr_accessor :max_credits
+	validates :name, uniqueness: true, presence: true,length: { maximum: 15 }
 
-#validates :password_hash, presence: true
-#validates :password_salt, presence: true
-validates :password, presence: true, length: { in: 6..30 }, confirmation: true
+	#validates :password_hash, presence: true
+	#validates :password_salt, presence: true
+	validates :password, presence: true, length: { in: 6..30 }, confirmation: true
+
 
 	# This method checks if the shared appartment is balanced --> every room mate has zero credits. 
 	# * *Returns* :
 	#   - true if the apartment is balanced	
 	def is_balanced?()
-
 		return self.get_balance().all?{|k,v| v==0}
-	
 	end
 
 	
-
 	# This method gets all shoutbox messages of the shared appartment including user data. 
 	# * *Args*    :
 	#   - +limit+ -> The number of messages
@@ -31,9 +29,9 @@ validates :password, presence: true, length: { in: 6..30 }, confirmation: true
 
 		users_of_appartment = self.Users	
 		result=Shoutboxmessage.where(User_id:users_of_appartment).includes(:User).references(:users).order(created_at: :desc).limit(limit)
-	
 	end
 	
+
 	# This method gets the last activities of the shared appartment including user and task data. 
 	# * *Args*    :
 	#   - +limit+ -> The number of activities.
@@ -43,8 +41,8 @@ validates :password, presence: true, length: { in: 6..30 }, confirmation: true
 
 		users_of_appartment = self.Users	
 		result=Completedtask.where(:is_archived=>0).where(User_id:users_of_appartment).includes(:ByUser).includes(:Task).references(:users).references(:tasks).order(created_at: :desc).limit(limit)
-	
 	end
+
 
 	# This method balances all user accounts.
 	# * *Args*    :
@@ -84,6 +82,7 @@ validates :password, presence: true, length: { in: 6..30 }, confirmation: true
 				
 		return result
 	end
+
 	
 	# This method returns the maximum of credits of an user.	
 	#   - +scale+ -> increase/decrease result by percentage value (0,2 --> 20 %).
@@ -115,6 +114,7 @@ validates :password, presence: true, length: { in: 6..30 }, confirmation: true
 			end
 		return balances
 	end
+
 	
 	# This method creates a new shared appartment.
 	# * *Args*    :
@@ -146,6 +146,7 @@ validates :password, presence: true, length: { in: 6..30 }, confirmation: true
 		new_sharedappartment
 	end
 	
+
 	# This method joins an user to a shared appartment.	
 	# * *Args*    :
 	#   - +user+ -> The current user, who wants to join a shared appartment.

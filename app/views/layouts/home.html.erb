@@ -1,59 +1,62 @@
-<%= render "shared/head" %>
+  <%= render "shared/head" %>
 
-<body id="page-home" class="" cz-shortcut-listen="true">
+  <body id="page-home" class="" cz-shortcut-listen="true">
 
-<div id="container">
+    <!-- #container -->
+    <div id="container">
 
 
-     <!-- #header -->
-     <div id="header">
-      <div class="column">
-       <h1><a href="/">Roomie</a></h1>
-       <div id="topnav">
-        <%= render "shared/home_header" %>
+         <!-- #header -->
+         <div id="header">
+          <div class="column">
+           <h1><a href="/">Roomie</a></h1>
+           <div id="topnav">
+            <%= render "shared/home_header" %>
+          </div>
+        </div>  
       </div>
-    </div>  
-  </div>
-  <!-- #header -->
+      <!-- #header -->
 
 
-  <!-- #main -->
-  <div id="main">
-    <div id="cuba-libre-top"></div>
+      <!-- #main -->
+      <div id="main">
+        <div id="cuba-libre-top"></div>
 
-      <div class="alert-init">
-          <%= render 'shared/messages' %>
-          <%= devise_error_messages! %>
-       </div>
+          <div class="alert-init">
+              <%= render 'shared/messages' %>
+              <%= devise_error_messages! %>
+           </div>
 
-    <!--<h2 id="tagline" class="imgtext">Slogan</h2>-->
 
-    <div id="sitesHome">
+        <!--<h2 id="tagline" class="imgtext">Slogan</h2>-->
 
-      <div id="scroller-home-window">
 
-        <%= yield %>
+        <div id="sitesHome">
 
+          <div id="scroller-home-window">
+
+            <%= yield %>
+
+          </div>
+
+        </div>
+        <div id="cuba-libre-bot"></div>
       </div>
+      <!-- #main -->
+
+
+      <!-- #footer -->
+      <div id="footer">
+        <div id="pageFooter">
+          <%= render :partial => "shared/footer" %>
+        </div>
+      </div>
+      <!-- #footer -->
+
 
     </div>
-    <div id="cuba-libre-bot"></div>
-  </div>
-  <!-- #main -->
+    <!-- #container -->
 
-
-  <!-- #footer -->
-  <div id="footer">
-    <div id="pageFooter">
-      <%= render :partial => "shared/footer" %>
-    </div>
-  </div>
-  <!-- #footer -->
-
-
-</div>
-<!-- #container -->
-
-</body>
+  </body>
 
 </html>

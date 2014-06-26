@@ -2,9 +2,11 @@ class TasksController < ActionController::Base
   layout 'application'
   before_action :authenticate_user!
 	
+
 	def index
     @tasks = current_user.Sharedappartment.Tasks.where(:is_deleted => [nil, false])
 	end
+
 
   #This method deletes a task respectively makes it invisible for the users
   #* *Result*:
@@ -18,6 +20,7 @@ class TasksController < ActionController::Base
         redirect_to '/tasks', :alert => "Whoops, something went wrong: "
       end
   end
+
 
   #This method enables the user to create a new task in the database.
   #

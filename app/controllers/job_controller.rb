@@ -36,7 +36,6 @@ class JobController < ActionController::Base
                                                   params[:completedtask][:task_start],
                                                   params[:completedtask][:task_end],
                                                   params[:completedtask][:summary])
-
     rescue => error
       @completedtask = nil
     end

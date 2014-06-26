@@ -1,151 +1,152 @@
-<%= render "shared/head" %>
+  <%= render "shared/head" %>
 
-<body id="page-home" class="" cz-shortcut-listen="true">
+  <body id="page-home" class="" cz-shortcut-listen="true">
 
-  <div id="container">
+    <!-- #container -->
+    <div id="container">
 
-    <!-- #header -->
-    <div id="header">
-      <div class="column">
-        <h1><a href="/">Roomie</a></h1>
+      <!-- #header -->
+      <div id="header">
+        <div class="column">
+          <h1><a href="/">Roomie</a></h1>
 
-        <div id="user_nav">
-          <% if user_signed_in? %>
-            Hey <%= current_user.user_name %>! <br>
-            <div class="user_nav">Not you? <a href="/signout">Sign out</a></div>
-          <% else %>
-            <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-          <% end %>
-        </div>
-
-      </div>	
-    </div>
-    <!-- #header -->
-
-
-    <!-- #main -->
-    <div id="main">
-      <div id="cuba-libre-top"></div>
-      <!--<h2 id="tagline" class="imgtext">Slogan</h2>-->
-
-      <div class="alert-init">
-          <%= render 'shared/messages' %>
-          <%= devise_error_messages! %>
-      </div>
-
-      <div id="sites">
-        <div id="sites-bottom"></div>
-
-        <div id="sidebar">
-          <div id="profile"></div>
-          <script type="text/javascript">
-          <!--
-            //instead of following code we should use a gem in future due to assurance
-
-            /*var http = new XMLHttpRequest();
-            http.open('HEAD', '<%= current_user.picture %>', false);
-            http.send();*/
-
-            if("<%= current_user.picture %>" != "") // && http.status != 404)
-              document.getElementById("profile").style.backgroundImage = 'url("<%= current_user.picture %>")';
-            else {
-              var url = setPersonalGravatarUrl("<%= current_user.user_name %>");
-              document.getElementById("profile").style.backgroundImage = "url('"+url+"')";
-            }
-          //-->
-          </script>
-
-
-          <!-- #nav -->
-          <ul id="site-type-nav">
-            <% if current_user.Sharedappartment_id != nil %> 
-              <li class="navoverview"><a href="/main" class="hovFadeLeft"><span>Overview</span></a></li>
-              <li class="navmycalendar"><a class="hovFadeLeft"><span>Calendar</span></a></li>
-              <li class="navmyacm"><a class="hovFadeLeft"><span>Achievements</span></a></li>
-              <li class="navaddjob"><a href="/job" class="hovFadeLeft"><span>Add Job</span></a></li>
-              <li class="navtasks"><a href="/tasks" class="hovFadeLeft"><span>Task Management</span></a></li>    
-            <% end %> 
-            <li class="navmyprofile"><a href="/profile" class="hovFadeLeft"><span>My Profile</span></a></li>
-            <li class="navlogout"><a href="/signout" class="hovFadeLeft"><span>Logout</span></a></li>
-            <li id="current" class="current"></li>
-          </ul>
-
-          <!-- switches left nav's current item -->
-          <% if current_user.Sharedappartment_id != nil %> 
-            <% if current_page?('/calendar') %>
-                <script type="text/javascript">
-                  <!-- 
-                  document.getElementById("current").style.top="35px"; 
-                  //-->
-                </script>
-            <% elsif current_page?('/avm') %>
-                <script type="text/javascript">
-                  <!-- 
-                  document.getElementById("current").style.top="71px"; 
-                  //-->
-                </script>
-            <% elsif current_page?('/job') %>
-              <script type="text/javascript">
-                <!-- 
-                document.getElementById("current").style.top="107px"; 
-                  //-->
-                </script>
-            <% elsif current_page?('/tasks') %>
-                <script type="text/javascript">
-                  <!-- 
-                  document.getElementById("current").style.top="143px"; 
-                  //-->
-                </script>
-            <% elsif current_page?('/profile') %>
-                <script type="text/javascript">
-                  <!-- 
-                  document.getElementById("current").style.top="179px"; 
-                  //-->
-                </script>
-              <% end %>
+          <div id="user_nav">
+            <% if user_signed_in? %>
+              Hey <%= current_user.user_name %>! <br>
+              <div class="user_nav">Not you? <a href="/signout">Sign out</a></div>
+            <% else %>
+              <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
             <% end %>
-            <!-- #nav -->
+          </div>
+
+        </div>	
+      </div>
+      <!-- #header -->
+
+
+      <!-- #main -->
+      <div id="main">
+        <div id="cuba-libre-top"></div>
+        <!--<h2 id="tagline" class="imgtext">Slogan</h2>-->
+
+        <div class="alert-init">
+            <%= render 'shared/messages' %>
+            <%= devise_error_messages! %>
         </div>
 
-        <div id="scroller-window">
-          <div id="scroller-vertical">
-            <div id="scroller-web-window">
-              <div id="scroller-web-wrap">		
+        <div id="sites">
+          <div id="sites-bottom"></div>
 
-                <div class="site">
+          <div id="sidebar">
+            <div id="profile"></div>
+            <script type="text/javascript">
+            <!--
+              //instead of the following code we should use a gem in future due to assurance
 
-                  <%= yield %>
+              /*var http = new XMLHttpRequest();
+              http.open('HEAD', '<%= current_user.picture %>', false);
+              http.send();*/
+
+              if("<%= current_user.picture %>" != "") // && http.status != 404)
+                document.getElementById("profile").style.backgroundImage = 'url("<%= current_user.picture %>")';
+              else {
+                var url = setPersonalGravatarUrl("<%= current_user.user_name %>");
+                document.getElementById("profile").style.backgroundImage = "url('"+url+"')";
+              }
+            //-->
+            </script>
+
+
+            <!-- #nav -->
+            <ul id="site-type-nav">
+              <% if current_user.Sharedappartment_id != nil %> 
+                <li class="navoverview"><a href="/main" class="hovFadeLeft"><span>Overview</span></a></li>
+                <li class="navmycalendar"><a class="hovFadeLeft"><span>Calendar</span></a></li>
+                <li class="navmyacm"><a class="hovFadeLeft"><span>Achievements</span></a></li>
+                <li class="navaddjob"><a href="/job" class="hovFadeLeft"><span>Add Job</span></a></li>
+                <li class="navtasks"><a href="/tasks" class="hovFadeLeft"><span>Task Management</span></a></li>    
+              <% end %> 
+              <li class="navmyprofile"><a href="/profile" class="hovFadeLeft"><span>My Profile</span></a></li>
+              <li class="navlogout"><a href="/signout" class="hovFadeLeft"><span>Logout</span></a></li>
+              <li id="current" class="current"></li>
+            </ul>
+
+            <!-- switches left nav's current item -->
+            <% if current_user.Sharedappartment_id != nil %> 
+              <% if current_page?('/calendar') %>
+                  <script type="text/javascript">
+                    <!-- 
+                    document.getElementById("current").style.top="35px"; 
+                    //-->
+                  </script>
+              <% elsif current_page?('/avm') %>
+                  <script type="text/javascript">
+                    <!-- 
+                    document.getElementById("current").style.top="71px"; 
+                    //-->
+                  </script>
+              <% elsif current_page?('/job') %>
+                <script type="text/javascript">
+                  <!-- 
+                  document.getElementById("current").style.top="107px"; 
+                    //-->
+                  </script>
+              <% elsif current_page?('/tasks') %>
+                  <script type="text/javascript">
+                    <!-- 
+                    document.getElementById("current").style.top="143px"; 
+                    //-->
+                  </script>
+              <% elsif current_page?('/profile') %>
+                  <script type="text/javascript">
+                    <!-- 
+                    document.getElementById("current").style.top="179px"; 
+                    //-->
+                  </script>
+                <% end %>
+              <% end %>
+              <!-- #nav -->
+          </div>
+
+          <div id="scroller-window">
+            <div id="scroller-vertical">
+              <div id="scroller-web-window">
+                <div id="scroller-web-wrap">		
+
+                  <div class="site">
+
+                    <%= yield %>
+
+                  </div>
 
                 </div>
+              </div>		
 
+              <div id="scroller-desk-window">
+                <div id="scroller-desk-wrap"></div>
               </div>
-            </div>		
-
-            <div id="scroller-desk-window">
-              <div id="scroller-desk-wrap"></div>
             </div>
           </div>
+          <div id="gloss-overlay"></div>
         </div>
-        <div id="gloss-overlay"></div>
+        <div id="cuba-libre-bot"></div>
       </div>
-      <div id="cuba-libre-bot"></div>
-    </div>
-    <!-- #main -->
+      <!-- #main -->
 
 
-    <!-- #footer -->
-    <div id="footer">
-      <div id="pageFooter">
-        <%= render :partial => "shared/footer" %>
+      <!-- #footer -->
+      <div id="footer">
+        <div id="pageFooter">
+          <%= render :partial => "shared/footer" %>
+        </div>
       </div>
+      <!-- #footer -->
+
+
     </div>
-    <!-- #footer -->
+    <!-- #container -->
 
 
-  </div>
-  <!-- #container -->
-
-
-</body>
+  </body>
 
 </html>

@@ -1,13 +1,14 @@
 class Completedtask < ActiveRecord::Base
-belongs_to :ByUser,:class_name => "User", :foreign_key => 'User_id'	
-belongs_to :Task
-has_many :Charges, :dependent => :delete_all
-validates :summary, length: { maximum: 400 }
-validates :ByUser, presence: true
-validates :Task, presence: true
-validates :amount, presence: true, numericality: true
-validates :credits, presence: true
-validates :amount, presence: true, numericality:true
+	belongs_to :ByUser,:class_name => "User", :foreign_key => 'User_id'	
+	belongs_to :Task
+	has_many :Charges, :dependent => :delete_all
+	validates :summary, length: { maximum: 400 }
+	validates :ByUser, presence: true
+	validates :Task, presence: true
+	validates :amount, presence: true, numericality: true
+	validates :credits, presence: true
+	validates :amount, presence: true, numericality:true
+
 
 	def self.is_numeric(object)
 		true if Float(object) rescue false
@@ -74,12 +75,10 @@ validates :amount, presence: true, numericality:true
 				for_users.each do |for_user_id|		
 					current_charge = Charge.create(:credits=>credits_per_user,:User_id=>for_user_id,:Completedtask=>completed_task)
 				end
-			
 			end
+			
 			return completed_task
 		end
-		
-		
 	end
 
 end
