@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1992066554">
+  <component name="DataSourceManagerImpl" format="xml" hash="2745488557">
     <data-source source="LOCAL" name="Rails wg-organizer: development" uuid="4d3e17ad-054f-4b48-9549-cdf1297a89e9">
       <driver-ref>sqlite.xerial</driver-ref>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/development.sqlite3</jdbc-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:my_database_development</jdbc-url>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails wg-organizer: test" uuid="7e485303-33fa-4ac7-ae88-5cba2c4c2fd3">
       <driver-ref>sqlite.xerial</driver-ref>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/test.sqlite3</jdbc-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:my_database_test</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails wg-organizer: production" uuid="fc6002bd-173b-49b2-8ac4-0f14bc007f5d">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:my_database_production</jdbc-url>
       <libraries />
     </data-source>
   </component>

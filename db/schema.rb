@@ -13,17 +13,20 @@
 
 ActiveRecord::Schema.define(version: 20140618064232) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "charges", force: true do |t|
     t.decimal  "credits"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "Completedtask_id"
     t.integer  "User_id"
-    t.boolean  "is_archived",      default: false
+    t.integer  "is_archived",      default: 0
   end
 
-  add_index "charges", ["Completedtask_id"], name: "index_charges_on_Completedtask_id"
-  add_index "charges", ["User_id"], name: "index_charges_on_User_id"
+  add_index "charges", ["Completedtask_id"], name: "index_charges_on_Completedtask_id", using: :btree
+  add_index "charges", ["User_id"], name: "index_charges_on_User_id", using: :btree
 
   create_table "completedtasks", force: true do |t|
     t.decimal  "amount"
@@ -36,11 +39,11 @@ ActiveRecord::Schema.define(version: 20140618064232) do
     t.integer  "Task_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_archived",   default: false
+    t.integer  "is_archived",   default: 0
   end
 
-  add_index "completedtasks", ["Task_id"], name: "index_completedtasks_on_Task_id"
-  add_index "completedtasks", ["User_id"], name: "index_completedtasks_on_User_id"
+  add_index "completedtasks", ["Task_id"], name: "index_completedtasks_on_Task_id", using: :btree
+  add_index "completedtasks", ["User_id"], name: "index_completedtasks_on_User_id", using: :btree
 
   create_table "settings", force: true do |t|
     t.boolean  "verify_task_completed"
@@ -64,7 +67,7 @@ ActiveRecord::Schema.define(version: 20140618064232) do
     t.integer  "User_id"
   end
 
-  add_index "shoutboxmessages", ["User_id"], name: "index_shoutboxmessages_on_User_id"
+  add_index "shoutboxmessages", ["User_id"], name: "index_shoutboxmessages_on_User_id", using: :btree
 
   create_table "tasks", force: true do |t|
     t.string   "task_name"
@@ -78,7 +81,7 @@ ActiveRecord::Schema.define(version: 20140618064232) do
     t.boolean  "is_deleted"
   end
 
-  add_index "tasks", ["Sharedappartment_id"], name: "index_tasks_on_Sharedappartment_id"
+  add_index "tasks", ["Sharedappartment_id"], name: "index_tasks_on_Sharedappartment_id", using: :btree
 
   create_table "userroles", force: true do |t|
     t.string   "role_name"
@@ -108,9 +111,9 @@ ActiveRecord::Schema.define(version: 20140618064232) do
     t.string   "picture"
   end
 
-  add_index "users", ["Sharedappartment_id"], name: "index_users_on_Sharedappartment_id"
-  add_index "users", ["Userrole_id"], name: "index_users_on_Userrole_id"
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["Sharedappartment_id"], name: "index_users_on_Sharedappartment_id", using: :btree
+  add_index "users", ["Userrole_id"], name: "index_users_on_Userrole_id", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

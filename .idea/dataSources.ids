@@ -6,4 +6,7 @@
   <data-source source="LOCAL" name="Rails wg-organizer: test" uuid="7e485303-33fa-4ac7-ae88-5cba2c4c2fd3">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
+  <data-source source="LOCAL" name="Rails wg-organizer: production" uuid="fc6002bd-173b-49b2-8ac4-0f14bc007f5d">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>
