@@ -4,7 +4,15 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem 'sqlite3'
+
+#use sqlite3 in development-, and postgre in production-environment
+group :development, :test do
+  gem 'sqlite3'
+end
+group :production do
+  gem 'pg'
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -49,3 +57,8 @@ end
 
 #Use devise for user authentication
 gem 'devise'
+
+#required for heroku
+gem 'rails_12factor', group: :production
+
+ruby "1.9.3"

@@ -1,4 +1,4 @@
-wg-organizer as Roomie
+Roomie (wg-organizer)
 ==============================
 
 Roomie, the shared flat organizer!
@@ -8,11 +8,14 @@ Roomie is an organizer that monitors the shared flat activity of the roommates. 
 
 **Important** to notice that this is just an educational non-commercial application which was created for a course at Munich University of Applied Sciences.
 
+*P.S. In germany we call a shared flat "Wohngemeinschaft" with the abbreviation "WG". Thats the reason why we called your protoype (codename) wg-organizer.*
+
 
 
 ## Requires
 
  * Rails 4.0.2
+ * Ruby 1.9.3
 
 
 
@@ -30,31 +33,18 @@ Roomie is an organizer that monitors the shared flat activity of the roommates. 
 ## Used gems
 
  * sqlite3
-
  * sass-rails ~> 4.0.0
-
  * uglifier >= 1.3.0
-
  * coffee-rails ~> 4.0.0
-
  * therubyracer
-
  * jquery-rails
-
  * turbolinks
-
  * jbuilder ~> 1.2
-
  * bcrypt-ruby ~> 3.1.2
-
  * unicorn
-
  * capistrano
-
  * debugger
-
  * thin (!)
-
  * devise (!)
 
 
