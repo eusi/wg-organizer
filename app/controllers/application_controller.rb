@@ -16,6 +16,12 @@ class ApplicationController < ActionController::Base
 
 	private
 
+  def has_apartment
+    if(current_user.Sharedappartment == nil)
+      redirect_to '/profile', :alert => "The page you requested is only available if you're member of a shared apartment"
+    end
+  end
+
 	def after_sign_in_path_for(resource)
 		if current_user.Sharedappartment_id != nil
 			'/main'

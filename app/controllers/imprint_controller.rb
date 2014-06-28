@@ -1,4 +1,4 @@
-class ImprintController < ActionController::Base
+class ImprintController < ApplicationController
 	layout :choose_layout
 	
   def index

@@ -1,4 +1,4 @@
-class ProfileController < ActionController::Base
+class ProfileController < ApplicationController
 
   before_action :authenticate_user!
   layout 'application'

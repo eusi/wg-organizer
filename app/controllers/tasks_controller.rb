@@ -1,6 +1,6 @@
-class TasksController < ActionController::Base
+class TasksController < ApplicationController
   layout 'application'
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :has_apartment
 	
 
 	def index

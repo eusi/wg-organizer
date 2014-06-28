@@ -1,6 +1,6 @@
-class JobController < ActionController::Base
+class JobController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :has_apartment
 	layout 'application'
 	
 	def index

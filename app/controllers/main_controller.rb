@@ -1,6 +1,6 @@
-class MainController < ActionController::Base
+class MainController < ApplicationController
 
-	before_action :authenticate_user!
+	before_action :authenticate_user!, :has_apartment
 	layout 'application'
 
 	# The index method redirects to profile page if user is not in a shared flat.
