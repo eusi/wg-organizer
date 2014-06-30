@@ -11,7 +11,8 @@ group :development, :test do
   gem 'sqlite3'
 end
 group :production do
-  gem 'pg'
+  #only required for heroku
+  #gem 'pg'
 end
 
 # Use SCSS for stylesheets
@@ -58,7 +59,6 @@ end
 #Use devise for user authentication
 gem 'devise'
 
-#required for heroku
-gem 'rails_12factor', group: :production
-
-ruby "1.9.3"
+#only required for heroku
+#gem 'rails_12factor', group: :production
+#ruby "1.9.3"
